@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A.N.W. Foundations | Building Tomorrow's Infrastructure</title>
+    <meta name="description" content="A.N.W. Foundations: Bridging the gap between digital innovation and physical restoration.">
+    
+    <!-- Tailwind CSS (via CDN for immediate rendering) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a; /* Slate 900 */
+            color: #e2e8f0; /* Slate 200 */
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #fbbf24, #d97706);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(251, 191, 36, 0.1), 0 8px 10px -6px rgba(251, 191, 36, 0.1);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-amber-500 selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <span class="text-xl font-bold tracking-wider text-amber-500">A.N.W. <span class="text-white font-light">Foundations</span></span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#mission" class="hover:text-amber-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">Mission</a>
+                        <a href="#projects" class="hover:text-amber-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">Ventures</a>
+                        <a href="#contact" class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="mission" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                Restoring the Physical.<br>
+                <span class="gradient-text">Architecting the Digital.</span>
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-slate-400 font-light">
+                A.N.W. Foundations is an umbrella organization dedicated to building robust infrastructure. 
+                Whether it's revitalizing housing in our communities or deploying advanced AI frameworks for the web, 
+                we focus on structural integrity and sustainable growth.
+            </p>
+            <div class="mt-10 flex justify-center gap-4">
+                <a href="#projects" class="px-8 py-3 border border-amber-500 text-amber-500 rounded-full font-medium hover:bg-amber-500 hover:text-slate-900 transition-all duration-300">
+                    View Portfolio
+                </a>
+            </div>
+        </div>
+        
+        <!-- Abstract Background Elements -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-amber-500/10 rounded-full blur-3xl -z-10"></div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section id="projects" class="py-20 bg-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Current Avenues</h2>
+                <div class="h-1 w-20 bg-amber-500 mx-auto rounded-full"></div>
+                <p class="mt-4 text-slate-400">Diverse projects united by a commitment to data, design, and utility.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project: Specto -->
+                <a href="https://specto-298595010694.us-west1.run.app/" target="_blank" class="block bg-slate-900 rounded-xl p-8 border border-slate-700 card-hover transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-blue-900/30 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-600/20 transition-colors">
+                        <i class="fa-solid fa-puzzle-piece text-blue-400 text-xl"></i>
+                    </div>
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold text-white">Specto</h3>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-slate-500 text-sm group-hover:text-blue-400 transition-colors"></i>
+                    </div>
+                    <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                        <span class="text-amber-500 font-semibold text-xs uppercase tracking-wide">[In Production]</span><br>
+                        Specto utilizes Gemini's multimodal power to create instant, personalized curriculum materials. Empower your students with visual cues and sensory-friendly interactions designed specifically for neurodiverse learners and their unique growth.
+                    </p>
+                    <div class="flex gap-2 flex-wrap">
+                        <span class="text-xs px-2 py-1 bg-slate-800 text-blue-300 rounded border border-blue-900/50">EdTech</span>
+                        <span class="text-xs px-2 py-1 bg-slate-800 text-blue-300 rounded border border-blue-900/50">Accessibility</span>
+                    </div>
+                </a>
+
+                <!-- Project: RAG -->
+                <div class="bg-slate-900 rounded-xl p-8 border border-slate-700 card-hover transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-purple-900/30 rounded-lg flex items-center justify-center mb-6 group-hover:bg-purple-600/20 transition-colors">
+                        <i class="fa-solid fa-brain text-purple-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">RAG Architecture</h3>
+                    <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                        Retrieval-Augmented Generation implementation. Leveraging vector databases to ground Large Language Models in factual reality, reducing hallucinations and providing industry-specific intelligence.
+                    </p>
+                    <div class="flex gap-2 flex-wrap">
+                        <span class="text-xs px-2 py-1 bg-slate-800 text-purple-300 rounded border border-purple-900/50">AI / LLM</span>
+                        <span class="text-xs px-2 py-1 bg-slate-800 text-purple-300 rounded border border-purple-900/50">Vector DB</span>
+                    </div>
+                </div>
+
+                <!-- Project: Model.Earth -->
+                <a href="https://model.earth/" target="_blank" class="block bg-slate-900 rounded-xl p-8 border border-slate-700 card-hover transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-green-900/30 rounded-lg flex items-center justify-center mb-6 group-hover:bg-green-600/20 transition-colors">
+                        <i class="fa-solid fa-earth-americas text-green-400 text-xl"></i>
+                    </div>
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold text-white">Model.Earth</h3>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-slate-500 text-sm group-hover:text-green-400 transition-colors"></i>
+                    </div>
+                    <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                        <span class="text-amber-500 font-semibold text-xs uppercase tracking-wide">[Open Source Contributor]</span><br>
+                        Collaborating with the Model.Earth community to advance sustainability modeling. We contribute to tools that use Input-Output models to visualize economic and environmental data, helping localities build resilient economies.
+                    </p>
+                    <div class="flex gap-2 flex-wrap">
+                        <span class="text-xs px-2 py-1 bg-slate-800 text-green-300 rounded border border-green-900/50">Sustainability</span>
+                        <span class="text-xs px-2 py-1 bg-slate-800 text-green-300 rounded border border-green-900/50">Open Data</span>
+                    </div>
+                </a>
+
+                <!-- Project: Sky-Harvest -->
+                <div class="bg-slate-900 rounded-xl p-8 border border-slate-700 card-hover transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-teal-900/30 rounded-lg flex items-center justify-center mb-6 group-hover:bg-teal-600/20 transition-colors">
+                        <i class="fa-solid fa-cloud-sun-rain text-teal-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Sky-Harvest</h3>
+                    <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                        <span class="text-amber-500 font-semibold text-xs uppercase tracking-wide">[In Production]</span><br>
+                        Harnessing technology for agricultural and forestry resilience. Combining carbon sequestration data with sustainable land management to create long-term ecological value.
+                    </p>
+                    <div class="flex gap-2 flex-wrap">
+                        <span class="text-xs px-2 py-1 bg-slate-800 text-teal-300 rounded border border-teal-900/50">AgriTech</span>
+                        <span class="text-xs px-2 py-1 bg-slate-800 text-teal-300 rounded border border-teal-900/50">Carbon Credits</span>
+                    </div>
+                </div>
+
+                <!-- Project: Payviah -->
+                <a href="https://freequeenc.github.io/Payviah/" target="_blank" class="block bg-slate-900 rounded-xl p-8 border border-slate-700 card-hover transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-amber-900/30 rounded-lg flex items-center justify-center mb-6 group-hover:bg-amber-600/20 transition-colors">
+                        <i class="fa-solid fa-credit-card text-amber-400 text-xl"></i>
+                    </div>
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold text-white">Payviah</h3>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-slate-500 text-sm group-hover:text-amber-400 transition-colors"></i>
+                    </div>
+                    <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                        <span class="text-amber-500 font-semibold text-xs uppercase tracking-wide">[In Production]</span><br>
+                        Modern financial infrastructure prototype. Currently in development, this project aims to simplify transaction flows and payment processing to create seamless economic exchanges.
+                    </p>
+                    <div class="flex gap-2 flex-wrap">
+                        <span class="text-xs px-2 py-1 bg-slate-800 text-amber-300 rounded border border-amber-900/50">Fintech</span>
+                        <span class="text-xs px-2 py-1 bg-slate-800 text-amber-300 rounded border border-amber-900/50">Prototype</span>
+                    </div>
+                </a>
+
+                <!-- Project: Creative Environmentalism (Future) -->
+                <div class="bg-slate-900/50 rounded-xl p-8 border border-dashed border-slate-700 flex flex-col items-center justify-start text-center group hover:border-orange-500/50 transition-all duration-500 cursor-default overflow-hidden hover:bg-slate-900">
+                    <div class="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center mb-4 group-hover:bg-orange-900/20 transition-colors shrink-0">
+                        <i class="fa-solid fa-paw text-slate-500 text-xl group-hover:text-orange-400 transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-300 mb-2 group-hover:text-white transition-colors shrink-0">Creative Environmentalism</h3>
+                    <p class="text-slate-500 text-sm mb-4 group-hover:text-slate-400 transition-colors px-4 shrink-0">
+                        <span class="text-orange-500 font-semibold text-xs uppercase tracking-wide">[Concept Phase]</span><br>
+                        Envisioning "Clean STL" initiatives that transform riverfront trash into monumental wildlife sculptures. Imagine bears, eagles, and deer built from recovered materials, turning waste management into public landmarks.
+                    </p>
+                    
+                    <!-- Hidden Image Reveal -->
+                    <div class="max-h-0 opacity-0 group-hover:max-h-[800px] group-hover:opacity-100 transition-all duration-700 ease-in-out w-full relative mt-2">
+                        <!-- Updated source to the new filename you will save -->
+                        <img 
+                            src="creative_environmentalism_concept.jpg" 
+                            onerror="this.onerror=null; this.src='https://placehold.co/800x600/1e293b/fbbf24?text=Vision+Concept+Loading...';"
+                            alt="Vision of trash sculptures in St. Louis" 
+                            class="w-full rounded-lg shadow-lg border border-orange-500/20 opacity-90 hover:opacity-100 transition-opacity"
+                        >
+                        <div class="absolute bottom-3 right-3 bg-slate-900/90 text-orange-400 text-[10px] px-2 py-1 rounded border border-orange-500/30 shadow-lg backdrop-blur-sm">
+                            *AI-Generated Vision Concept
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Future: Housing/Restoration -->
+                <div class="bg-slate-900/50 rounded-xl p-8 border border-dashed border-slate-700 flex flex-col items-center justify-center text-center">
+                    <div class="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-hammer text-slate-500 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-300 mb-2">ANW Restorations</h3>
+                    <p class="text-slate-500 text-sm">
+                        Revitalizing historic properties in the St. Louis area. <br> Coming 2026.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About / Footer Section -->
+    <footer id="contact" class="bg-slate-900 border-t border-slate-800 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+                <div>
+                    <h3 class="text-2xl font-playfair font-bold text-white mb-4">A.N.W. Foundations</h3>
+                    <p class="text-slate-400 mb-6">
+                        An umbrella company for diverse avenues of innovation. From the code that powers our web to the foundations that hold up our homes.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/FREEqueenC" target="_blank" class="text-slate-400 hover:text-amber-500 transition-colors"><i class="fa-brands fa-github text-xl"></i></a>
+                        <a href="#" class="text-slate-400 hover:text-amber-500 transition-colors"><i class="fa-brands fa-linkedin text-xl"></i></a>
+                        <a href="mailto:ashleighwalker@anwfoundations.com" class="text-slate-400 hover:text-amber-500 transition-colors"><i class="fa-solid fa-envelope text-xl"></i></a>
+                    </div>
+                </div>
+                <div class="md:text-right">
+                    <h4 class="text-lg font-semibold text-white mb-4">Based In</h4>
+                    <p class="text-slate-400">Missouri, USA</p>
+                    <p class="text-slate-500 text-sm mt-2">Operating Globally</p>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-8 text-center text-slate-600 text-sm">
+                &copy; 2026 A.N.W. Foundations LLC. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Smooth Scroll Script -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return; // Ignore placeholder links
+                
+                e.preventDefault();
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
