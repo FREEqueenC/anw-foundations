@@ -1,0 +1,5 @@
+127.0.0.1 - - [15/Apr/2026 06:44:10] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [15/Apr/2026 06:44:10] "GET /logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [15/Apr/2026 06:44:10] "GET /creative_environmentalism_concept.png HTTP/1.1" 200 -
+127.0.0.1 - - [15/Apr/2026 06:44:14] "GET /privacy.html HTTP/1.1" 200 -
+127.0.0.1 - - [15/Apr/2026 06:44:15] "GET /terms.html HTTP/1.1" 200 -
