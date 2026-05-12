@@ -109,7 +109,7 @@
                 </a>
 
                 <!-- Node: ANW Launch -->
-                <div class="relative group bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-[#00E5FF]/50 transition-all duration-500 overflow-hidden">
+                <div tabindex="0" class="relative group bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-[#00E5FF]/50 focus-visible:ring-2 focus-visible:ring-[#00E5FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none transition-all duration-500 overflow-hidden">
                     <div class="absolute inset-0 bg-gradient-to-br from-[#FFD700]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div class="relative z-10 text-[#FFD700] text-3xl mb-6">
                         <i class="fa-solid fa-rocket"></i>
@@ -133,7 +133,7 @@
                 </a>
 
                 <!-- Node: ANW Restorations (Featured) -->
-                <div class="md:col-span-3 relative group bg-white/5 backdrop-blur-sm rounded-2xl p-10 border border-white/10 hover:border-[#00E5FF]/50 transition-all duration-500 overflow-hidden">
+                <div tabindex="0" class="md:col-span-3 relative group bg-white/5 backdrop-blur-sm rounded-2xl p-10 border border-white/10 hover:border-[#00E5FF]/50 focus-visible:ring-2 focus-visible:ring-[#00E5FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none transition-all duration-500 overflow-hidden">
                     <div class="absolute inset-0 bg-gradient-to-br from-[#FFD700]/5 to-transparent"></div>
                     <div class="flex flex-col md:flex-row gap-8 items-start relative z-10">
                         <div class="w-16 h-16 bg-[#00E5FF]/10 rounded-2xl flex items-center justify-center text-[#FFD700] text-3xl shrink-0">
@@ -204,6 +204,12 @@
                     </p>
                     <div class="flex space-x-6">
                         <a href="https://github.com/FREEqueenC" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" class="text-slate-500 hover:text-[#FFD700] focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none rounded transition-colors"><i class="fa-brands fa-github text-2xl"></i></a>
+                        <a href="javascript:void(0)" title="Coming Soon" aria-label="LinkedIn Profile (Coming Soon)" class="cursor-default text-slate-500 hover:text-[#FFD700] focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none rounded transition-colors"><i class="fa-brands fa-linkedin text-2xl"></i></a>
+                        <div class="relative inline-block group/tooltip">
+                            <a href="mailto:ashleighwalker@anwfoundations.com" id="email-link" aria-label="Send Email" class="text-slate-500 hover:text-[#FFD700] focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none rounded transition-colors">
+                                <i class="fa-solid fa-envelope text-2xl"></i>
+                            </a>
+                            <span id="copy-feedback" class="absolute -top-10 left-1/2 -translate-x-1/2 bg-[#FFD700] text-[#080C14] text-[10px] font-bold px-2 py-1 rounded opacity-0 transition-opacity pointer-events-none whitespace-nowrap" aria-live="polite">Copied!</span>
                         <a href="javascript:void(0)" aria-label="LinkedIn Profile (Connecting Soon)" title="LinkedIn Profile - Connecting Soon" class="text-slate-500 hover:text-[#FFD700] focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none rounded transition-colors cursor-default"><i class="fa-brands fa-linkedin text-2xl"></i></a>
                         <div class="relative flex items-center group/email">
                             <a href="mailto:ashleighwalker@anwfoundations.com" aria-label="Send Email" class="text-slate-500 hover:text-[#FFD700] focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none rounded transition-colors"><i class="fa-solid fa-envelope text-2xl"></i></a>
@@ -225,13 +231,14 @@
                     &copy; 2026 A.N.W. FOUNDATIONS LLC. All rights reserved.
                 </p>
                 <div class="flex gap-8">
-                    <a href="#" class="text-slate-600 hover:text-white text-[10px] font-bold uppercase tracking-widest focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none rounded transition-colors">Privacy</a>
-                    <a href="#" class="text-slate-600 hover:text-white text-[10px] font-bold uppercase tracking-widest focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none rounded transition-colors">Terms</a>
+                    <a href="javascript:void(0)" title="Coming Soon" class="cursor-default text-slate-600 hover:text-white text-[10px] font-bold uppercase tracking-widest focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none rounded transition-colors">Privacy</a>
+                    <a href="javascript:void(0)" title="Coming Soon" class="cursor-default text-slate-600 hover:text-white text-[10px] font-bold uppercase tracking-widest focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none rounded transition-colors">Terms</a>
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- UX Scripts -->
     <!-- Copy Email Script -->
     <script>
         (function() {
@@ -264,10 +271,46 @@
 
     <!-- Smooth Scroll Script -->
     <script>
+        // Email Copy-to-Clipboard
+        const emailLink = document.getElementById('email-link');
+        const feedback = document.getElementById('copy-feedback');
+        let feedbackTimeout;
+
+        emailLink.addEventListener('click', function(e) {
+            const email = this.href.replace('mailto:', '');
+
+            // Attempt to copy
+            navigator.clipboard.writeText(email).then(() => {
+                // Show feedback
+                feedback.classList.remove('opacity-0');
+                feedback.classList.add('opacity-100');
+
+                clearTimeout(feedbackTimeout);
+                feedbackTimeout = setTimeout(() => {
+                    feedback.classList.remove('opacity-100');
+                    feedback.classList.add('opacity-0');
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+            // We don't preventDefault() to allow the mailto: action to still fire if desired,
+            // or we could prevent it. Palette memory suggests extracting and showing feedback.
+            // Let's keep the default behavior but add the copy utility.
+        });
+
+        // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
+
+                if (targetId === '#') {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                    return;
+                }
 
                 e.preventDefault();
                 const targetElement = document.querySelector(targetId);
