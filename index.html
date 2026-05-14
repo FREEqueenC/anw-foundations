@@ -202,26 +202,26 @@
                     <p class="text-slate-400 mb-8 max-w-md">
                         An ecosystem for diverse avenues of innovation. From the protocols that power our digital reality to the foundations that anchor our physical world.
                     </p>
-                    <div class="flex space-x-6">
-                        <a href="https://github.com/FREEqueenC" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" class="text-slate-500 hover:text-[#FFD700] focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none rounded transition-colors"><i class="fa-brands fa-github text-2xl"></i></a>
-                        <a href="javascript:void(0)" title="Coming Soon" aria-label="LinkedIn Profile (Coming Soon)" class="cursor-default text-slate-500 hover:text-[#FFD700] focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none rounded transition-colors"><i class="fa-brands fa-linkedin text-2xl"></i></a>
-                        <div class="relative inline-block group/tooltip">
-                            <a href="mailto:ashleighwalker@anwfoundations.com" id="email-link" aria-label="Send Email" class="text-slate-500 hover:text-[#FFD700] focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none rounded transition-colors">
+                    <div class="flex items-center space-x-6">
+                        <a href="https://github.com/FREEqueenC" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" title="GitHub Profile" class="text-slate-500 hover:text-[#FFD700] focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none rounded transition-colors">
+                            <i class="fa-brands fa-github text-2xl"></i>
+                        </a>
+                        <a href="javascript:void(0)" aria-label="LinkedIn Profile (Coming Soon)" title="LinkedIn Profile - Coming Soon" class="text-slate-500 hover:text-[#FFD700] focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none rounded transition-colors cursor-default">
+                            <i class="fa-brands fa-linkedin text-2xl"></i>
+                        </a>
+                        <div class="relative flex items-center group/email">
+                            <a href="mailto:ashleighwalker@anwfoundations.com" id="email-link" aria-label="Send Email" title="Send Email" class="text-slate-500 hover:text-[#FFD700] focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none rounded transition-colors">
                                 <i class="fa-solid fa-envelope text-2xl"></i>
                             </a>
-                            <span id="copy-feedback" class="absolute -top-10 left-1/2 -translate-x-1/2 bg-[#FFD700] text-[#080C14] text-[10px] font-bold px-2 py-1 rounded opacity-0 transition-opacity pointer-events-none whitespace-nowrap" aria-live="polite">Copied!</span>
-                        <a href="javascript:void(0)" aria-label="LinkedIn Profile (Connecting Soon)" title="LinkedIn Profile - Connecting Soon" class="text-slate-500 hover:text-[#FFD700] focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none rounded transition-colors cursor-default"><i class="fa-brands fa-linkedin text-2xl"></i></a>
-                        <div class="relative flex items-center group/email">
-                            <a href="mailto:ashleighwalker@anwfoundations.com" aria-label="Send Email" class="text-slate-500 hover:text-[#FFD700] focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none rounded transition-colors"><i class="fa-solid fa-envelope text-2xl"></i></a>
                             <button id="copyEmailBtn" aria-label="Copy email address" title="Copy email to clipboard" class="ml-2 text-slate-500 hover:text-[#FFD700] focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none rounded transition-colors opacity-0 group-hover/email:opacity-100 focus-visible:opacity-100 transition-opacity">
                                 <i class="fa-solid fa-copy text-lg"></i>
                             </button>
-                            <span id="copyFeedback" class="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-[#FFD700] text-[#080C14] text-[10px] font-bold rounded opacity-0 transition-opacity pointer-events-none">COPIED!</span>
+                            <span id="copyFeedback" class="absolute -top-10 left-1/2 -translate-x-1/2 bg-[#FFD700] text-[#080C14] text-[10px] font-bold px-2 py-1 rounded opacity-0 transition-opacity pointer-events-none whitespace-nowrap" aria-live="polite">COPIED!</span>
                         </div>
                     </div>
                 </div>
                 <div class="md:text-right">
-                    <h4 class="text-lg font-bold text-white mb-4 uppercase tracking-widest text-xs">Based In</h4>
+                    <h4 class="font-bold text-white mb-4 uppercase tracking-widest text-xs">Based In</h4>
                     <p class="text-slate-400 font-medium">Missouri, USA</p>
                     <p class="text-slate-500 text-sm mt-2">Operating Globally</p>
                 </div>
@@ -239,88 +239,73 @@
     </footer>
 
     <!-- UX Scripts -->
-    <!-- Copy Email Script -->
     <script>
         (function() {
+            // --- Email Copy-to-Clipboard ---
+            const emailLink = document.getElementById('email-link');
             const copyBtn = document.getElementById('copyEmailBtn');
             const feedback = document.getElementById('copyFeedback');
-            const emailLink = copyBtn?.previousElementSibling;
-            let timeoutId = null;
+            let copyTimeout = null;
 
-            if (copyBtn && feedback && emailLink) {
+            function handleCopy(e) {
+                if (!emailLink) return;
+
+                // If it's a click on the link itself, we don't prevent default mailto action
+                // but we still copy the email for convenience.
                 const email = emailLink.href.replace('mailto:', '');
 
-                copyBtn.addEventListener('click', () => {
-                    navigator.clipboard.writeText(email).then(() => {
-                        feedback.classList.remove('opacity-0');
-                        const icon = copyBtn.querySelector('i');
-                        icon.classList.replace('fa-copy', 'fa-check');
+                navigator.clipboard.writeText(email).then(() => {
+                    if (!feedback) return;
 
-                        if (timeoutId) clearTimeout(timeoutId);
+                    feedback.classList.remove('opacity-0');
+                    feedback.classList.add('opacity-100');
 
-                        timeoutId = setTimeout(() => {
-                            feedback.classList.add('opacity-0');
-                            icon.classList.replace('fa-check', 'fa-copy');
-                            timeoutId = null;
-                        }, 2000);
-                    });
+                    const icon = copyBtn?.querySelector('i');
+                    if (icon) icon.classList.replace('fa-copy', 'fa-check');
+
+                    if (copyTimeout) clearTimeout(copyTimeout);
+
+                    copyTimeout = setTimeout(() => {
+                        feedback.classList.remove('opacity-100');
+                        feedback.classList.add('opacity-0');
+                        if (icon) icon.classList.replace('fa-check', 'fa-copy');
+                        copyTimeout = null;
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Failed to copy: ', err);
                 });
             }
-        })();
-    </script>
 
-    <!-- Smooth Scroll Script -->
-    <script>
-        // Email Copy-to-Clipboard
-        const emailLink = document.getElementById('email-link');
-        const feedback = document.getElementById('copy-feedback');
-        let feedbackTimeout;
-
-        emailLink.addEventListener('click', function(e) {
-            const email = this.href.replace('mailto:', '');
-
-            // Attempt to copy
-            navigator.clipboard.writeText(email).then(() => {
-                // Show feedback
-                feedback.classList.remove('opacity-0');
-                feedback.classList.add('opacity-100');
-
-                clearTimeout(feedbackTimeout);
-                feedbackTimeout = setTimeout(() => {
-                    feedback.classList.remove('opacity-100');
-                    feedback.classList.add('opacity-0');
-                }, 2000);
-            }).catch(err => {
-                console.error('Failed to copy: ', err);
-            });
-            // We don't preventDefault() to allow the mailto: action to still fire if desired,
-            // or we could prevent it. Palette memory suggests extracting and showing feedback.
-            // Let's keep the default behavior but add the copy utility.
-        });
-
-        // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const targetId = this.getAttribute('href');
-
-                if (targetId === '#') {
-                    e.preventDefault();
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth'
-                    });
-                    return;
-                }
-
+            if (emailLink) emailLink.addEventListener('click', handleCopy);
+            if (copyBtn) copyBtn.addEventListener('click', (e) => {
                 e.preventDefault();
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
+                handleCopy(e);
             });
-        });
+
+            // --- Smooth Scroll ---
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const targetId = this.getAttribute('href');
+
+                    if (targetId === '#') {
+                        e.preventDefault();
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                        return;
+                    }
+
+                    e.preventDefault();
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        })();
     </script>
 </body>
 </html>

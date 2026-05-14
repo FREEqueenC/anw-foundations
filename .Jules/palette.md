@@ -8,3 +8,7 @@
 ## 2026-04-15 - [Robust Micro-Interactions & Placeholder UX]
 **Learning:** For "Coming Soon" features, using `href="javascript:void(0)"` with `cursor-default` prevents disruptive page jumps while allowing the use of `title` and `aria-label` to manage user expectations. Additionally, UI feedback scripts (like copy-to-clipboard) should extract data dynamically from the DOM and include timeout management to prevent state conflicts during rapid interactions.
 **Action:** Implement placeholder links with `javascript:void(0)` and ensure micro-interaction scripts are robust against rapid clicks and maintainable via dynamic data extraction.
+
+## 2026-05-15 - [Script Consolidation in Static Environments]
+**Learning:** In a project with multiple micro-interactions (smooth scroll, clipboard utilities) but no build step, consolidating all JavaScript into a single, well-structured IIFE prevents global namespace pollution and allows for shared state management (like timeout IDs for UI feedback).
+**Action:** For static sites, merge disparate script blocks into a cohesive utility script to improve maintainability and interaction consistency.
