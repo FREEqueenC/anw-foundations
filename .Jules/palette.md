@@ -12,3 +12,7 @@
 ## 2026-05-15 - [Script Consolidation in Static Environments]
 **Learning:** In a project with multiple micro-interactions (smooth scroll, clipboard utilities) but no build step, consolidating all JavaScript into a single, well-structured IIFE prevents global namespace pollution and allows for shared state management (like timeout IDs for UI feedback).
 **Action:** For static sites, merge disparate script blocks into a cohesive utility script to improve maintainability and interaction consistency.
+
+## 2026-05-18 - [Optimized & Accessible Scroll Tracking]
+**Learning:** High-frequency events like `scroll` can cause layout thrashing if they trigger synchronous DOM updates. Using `requestAnimationFrame` to throttle updates and `passive: true` on the listener significantly improves scroll performance. Furthermore, progress indicators must be made accessible to screen readers by dynamically updating `aria-valuenow`.
+**Action:** Always throttle scroll-based UI updates with `requestAnimationFrame` and ensure ARIA progress attributes are updated in sync with visual changes.
