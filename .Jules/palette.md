@@ -12,3 +12,7 @@
 ## 2026-05-15 - [Script Consolidation in Static Environments]
 **Learning:** In a project with multiple micro-interactions (smooth scroll, clipboard utilities) but no build step, consolidating all JavaScript into a single, well-structured IIFE prevents global namespace pollution and allows for shared state management (like timeout IDs for UI feedback).
 **Action:** For static sites, merge disparate script blocks into a cohesive utility script to improve maintainability and interaction consistency.
+
+## 2026-05-16 - [Visual Parity & Semantic Scaffolding]
+**Learning:** Keyboard users often miss out on visual cues designed for mouse users (like hover-triggered gradients or translations). Synchronizing 'group-hover' effects with 'group-focus-visible' ensures visual parity. Additionally, small semantic changes like adding a '<main>' tag and correctly targeting skip links provide high-impact accessibility wins in static sites.
+**Action:** Always pair 'group-hover' with 'group-focus-visible' for interactive containers and ensure a semantic '<main>' element exists for skip-link targets.
