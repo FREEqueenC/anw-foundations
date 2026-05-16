@@ -39,17 +39,20 @@
     </style>
 </head>
 <body class="antialiased selection:bg-[#FFD700] selection:text-white">
-    <a href="#mission" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-[#FFD700] focus:text-[#080C14] focus:px-4 focus:py-2 focus:rounded-md focus:font-bold focus:outline-none focus:ring-2 focus:ring-[#FFD700] focus:ring-offset-2 focus:ring-offset-[#080C14]">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-[#FFD700] focus:text-[#080C14] focus:px-4 focus:py-2 focus:rounded-md focus:font-bold focus:outline-none focus:ring-2 focus:ring-[#FFD700] focus:ring-offset-2 focus:ring-offset-[#080C14]">
         Skip to Main Content
     </a>
+
+    <!-- Scroll Progress Indicator -->
+    <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-[#FFD700] to-[#00E5FF] z-[100] w-0 transition-all duration-150 ease-out" role="progressbar" aria-label="Scroll progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 bg-[#080C14]/90 backdrop-blur-md border-b border-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <a href="#" class="flex items-center space-x-3 group focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none rounded transition-all" aria-label="A.N.W. Foundations - Back to top">
-                    <img src="logo.png" alt="A.N.W. FOUNDATIONS Logo" class="h-10 w-10 rounded shadow-lg group-hover:opacity-80 transition-opacity">
-                    <span class="text-xl font-bold tracking-tighter text-[#FFD700] uppercase font-black">A.N.W. <span class="text-white font-medium group-hover:text-[#FFD700] transition-colors">FOUNDATIONS</span></span>
+                    <img src="logo.png" alt="A.N.W. FOUNDATIONS Logo" class="h-10 w-10 rounded shadow-lg group-hover:opacity-80 group-focus-visible:opacity-80 transition-opacity">
+                    <span class="text-xl font-bold tracking-tighter text-[#FFD700] uppercase font-black">A.N.W. <span class="text-white font-medium group-hover:text-[#FFD700] group-focus-visible:text-[#FFD700] transition-colors">FOUNDATIONS</span></span>
                 </a>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
@@ -62,6 +65,7 @@
         </div>
     </nav>
 
+    <main id="main-content">
     <!-- Hero Section -->
     <section id="mission" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
@@ -97,20 +101,20 @@
 
                 <!-- Node: NICOLE Portal -->
                 <a href="https://nicole-disclose.world" target="_blank" rel="noopener noreferrer" class="relative group bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-[#00E5FF]/50 focus-visible:ring-2 focus-visible:ring-[#00E5FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none transition-all duration-500 overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-br from-[#00E5FF]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#00E5FF]/10 to-transparent opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-500"></div>
                     <div class="relative z-10 text-[#00E5FF] text-3xl mb-6">
                         <i class="fa-solid fa-brain"></i>
                     </div>
                     <h3 class="text-2xl font-bold text-white mb-3 relative z-10">NICOLE Portal</h3>
                     <p class="text-slate-400 text-sm leading-relaxed relative z-10 mb-4">Networked Intelligence & Cryptographic Oracle. A nexus for decentralized data and autonomous insights.</p>
                     <div class="text-[#00E5FF] text-xs font-semibold tracking-widest uppercase flex items-center gap-2 relative z-10">
-                        Launch Nexus <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
+                        Launch Nexus <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 group-focus-visible:translate-x-1 transition-transform"></i>
                     </div>
                 </a>
 
                 <!-- Node: ANW Launch -->
                 <div tabindex="0" class="relative group bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-[#00E5FF]/50 focus-visible:ring-2 focus-visible:ring-[#00E5FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none transition-all duration-500 overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-br from-[#FFD700]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#FFD700]/10 to-transparent opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-500"></div>
                     <div class="relative z-10 text-[#FFD700] text-3xl mb-6">
                         <i class="fa-solid fa-rocket"></i>
                     </div>
@@ -121,14 +125,14 @@
 
                 <!-- Node: Disclosure Project -->
                 <a href="https://disclosure-project.org" target="_blank" rel="noopener noreferrer" class="relative group bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-[#00E5FF]/50 focus-visible:ring-2 focus-visible:ring-[#00E5FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none transition-all duration-500 overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-br from-[#00E5FF]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#00E5FF]/10 to-transparent opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-500"></div>
                     <div class="relative z-10 text-[#00E5FF] text-3xl mb-6">
                         <i class="fa-solid fa-star"></i>
                     </div>
                     <h3 class="text-2xl font-bold text-white mb-3 relative z-10">Disclosure Project</h3>
                     <p class="text-slate-400 text-sm leading-relaxed relative z-10 mb-4">Stargate Mapping & UAP Archive. Navigating the boundaries of known reality and archival transparency.</p>
                     <div class="text-[#00E5FF] text-xs font-semibold tracking-widest uppercase flex items-center gap-2 relative z-10">
-                        Open Archive <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
+                        Open Archive <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 group-focus-visible:translate-x-1 transition-transform"></i>
                     </div>
                 </a>
 
@@ -163,7 +167,7 @@
 
                 <!-- Project: Specto -->
                 <a href="https://specto-298595010694.us-west1.run.app/" target="_blank" rel="noopener noreferrer" class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-[#00E5FF]/50 focus-visible:ring-2 focus-visible:ring-[#00E5FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none transition-all duration-500 group">
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-[#00E5FF] transition-colors">Specto</h3>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-[#00E5FF] group-focus-visible:text-[#00E5FF] transition-colors">Specto</h3>
                     <p class="text-slate-400 text-xs mb-4">Multimodal EdTech curriculum generator for neurodiverse learners.</p>
                     <div class="flex gap-2">
                         <span class="text-[10px] px-2 py-1 bg-white/5 text-slate-300 rounded">AI</span>
@@ -173,7 +177,7 @@
 
                 <!-- Project: Model.Earth -->
                 <a href="https://model.earth/" target="_blank" rel="noopener noreferrer" class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-[#00E5FF]/50 focus-visible:ring-2 focus-visible:ring-[#00E5FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none transition-all duration-500 group">
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-[#00E5FF] transition-colors">Model.Earth</h3>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-[#00E5FF] group-focus-visible:text-[#00E5FF] transition-colors">Model.Earth</h3>
                     <p class="text-slate-400 text-xs mb-4">Open source contributor for sustainability modeling and data visualization.</p>
                     <div class="flex gap-2">
                         <span class="text-[10px] px-2 py-1 bg-white/5 text-slate-300 rounded">Sustainability</span>
@@ -183,7 +187,7 @@
 
                 <!-- Project: Payviah -->
                 <a href="https://freequeenc.github.io/Payviah/" target="_blank" rel="noopener noreferrer" class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-[#00E5FF]/50 focus-visible:ring-2 focus-visible:ring-[#00E5FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none transition-all duration-500 group">
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-[#00E5FF] transition-colors">Payviah</h3>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-[#00E5FF] group-focus-visible:text-[#00E5FF] transition-colors">Payviah</h3>
                     <p class="text-slate-400 text-xs mb-4">Modern financial infrastructure prototype and transaction flow mapping.</p>
                     <div class="flex gap-2">
                         <span class="text-[10px] px-2 py-1 bg-white/5 text-slate-300 rounded">Fintech</span>
@@ -194,6 +198,8 @@
             </div>
         </div>
     </section>
+    </main>
+
     <footer id="contact" class="bg-[#080C14] border-t border-white/10 pt-24 pb-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mb-16">
@@ -281,6 +287,29 @@
                 e.preventDefault();
                 handleCopy(e);
             });
+
+            // --- Scroll Progress ---
+            const progressBar = document.getElementById('scroll-progress');
+            let isTicking = false;
+
+            function updateScrollProgress() {
+                const totalHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                if (totalHeight <= 0) return;
+
+                const progress = (window.scrollY / totalHeight) * 100;
+                if (progressBar) {
+                    progressBar.style.width = `${progress}%`;
+                    progressBar.setAttribute('aria-valuenow', Math.round(progress));
+                }
+                isTicking = false;
+            }
+
+            window.addEventListener('scroll', () => {
+                if (!isTicking) {
+                    window.requestAnimationFrame(updateScrollProgress);
+                    isTicking = true;
+                }
+            }, { passive: true });
 
             // --- Smooth Scroll ---
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
