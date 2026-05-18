@@ -12,3 +12,7 @@
 ## 2026-05-15 - [Script Consolidation in Static Environments]
 **Learning:** In a project with multiple micro-interactions (smooth scroll, clipboard utilities) but no build step, consolidating all JavaScript into a single, well-structured IIFE prevents global namespace pollution and allows for shared state management (like timeout IDs for UI feedback).
 **Action:** For static sites, merge disparate script blocks into a cohesive utility script to improve maintainability and interaction consistency.
+
+## 2026-05-20 - [Keyboard-Hover Parity via Focus Variants]
+**Learning:** In highly interactive UIs using Tailwind's 'group-hover' for visual delight (background shifts, icon animations), keyboard users often miss out on the 'delight' if focus states aren't synchronized. Adding 'group-focus-visible' ensures parity and reinforces the interactive nature of cards for tabbing users.
+**Action:** Always pair 'group-hover' utility classes with their 'group-focus-visible' counterparts to ensure accessible visual feedback matches hover-state delight.
