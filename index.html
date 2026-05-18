@@ -310,12 +310,14 @@
                 ticking = false;
             }
 
-            window.addEventListener('scroll', () => {
-                if (!ticking) {
-                    window.requestAnimationFrame(updateScrollProgress);
-                    ticking = true;
-                }
-            }, { passive: true });
+            if (progressBar) {
+                window.addEventListener('scroll', () => {
+                    if (!ticking) {
+                        window.requestAnimationFrame(updateScrollProgress);
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
 
             // --- Smooth Scroll ---
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
