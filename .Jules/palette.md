@@ -16,3 +16,7 @@
 ## 2026-05-17 - [Accessible & High-Performance Progress Indicators]
 **Learning:** When implementing scroll progress bars, use `requestAnimationFrame` with a throttling flag and `{ passive: true }` scroll listeners to ensure 60FPS performance. Accessibility is crucial: always include `role="progressbar"` and keep `aria-valuenow` synchronized with the visual width.
 **Action:** Prioritize performance and ARIA synchronization for all dynamic UI indicators to ensure a smooth, inclusive experience.
+
+## 2026-05-20 - [A11y-First Smooth Scrolling & Icon Hygiene]
+**Learning:** Smooth scrolling to anchors improves visual flow but breaks keyboard navigation if focus isn't programmatically moved. Additionally, decorative Font Awesome icons often leak garbage characters to screen readers unless explicitly hidden with 'aria-hidden="true"'.
+**Action:** Always pair smooth-scroll logic with 'target.focus()' and ensure all decorative icons are marked with 'aria-hidden="true"'.
