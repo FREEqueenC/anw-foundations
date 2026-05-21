@@ -39,7 +39,7 @@
     </style>
 </head>
 <body class="antialiased selection:bg-[#FFD700] selection:text-white">
-    <a href="#mission" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-[#FFD700] focus:text-[#080C14] focus:px-4 focus:py-2 focus:rounded-md focus:font-bold focus:outline-none focus:ring-2 focus:ring-[#FFD700] focus:ring-offset-2 focus:ring-offset-[#080C14]">
+    <a href="#mission" id="skip-link" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-[#FFD700] focus:text-[#080C14] focus:px-4 focus:py-2 focus:rounded-md focus:font-bold focus:outline-none focus:ring-2 focus:ring-[#FFD700] focus:ring-offset-2 focus:ring-offset-[#080C14]">
         Skip to Main Content
     </a>
 
@@ -293,30 +293,51 @@
                 handleCopy(e);
             });
 
-            // --- Scroll Progress Bar ---
+            // --- Scroll Handling (Progress & Back-to-Top) ---
             const progressBar = document.getElementById('scroll-progress');
+            const backToTopBtn = document.getElementById('back-to-top');
+            const skipLink = document.getElementById('skip-link');
             let ticking = false;
 
-            function updateScrollProgress() {
+            function updateScrollUI() {
                 const scrollHeight = document.documentElement.scrollHeight;
                 const clientHeight = document.documentElement.clientHeight;
-                const scrollTop = window.scrollY || document.documentElement.scrollTop;
+                const scrollTop = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
 
-                if (scrollHeight - clientHeight > 0) {
+                // Progress Bar
+                if (progressBar && (scrollHeight - clientHeight > 0)) {
                     const scrollPercentage = Math.min(100, Math.max(0, (scrollTop / (scrollHeight - clientHeight)) * 100));
                     progressBar.style.width = scrollPercentage + '%';
                     progressBar.setAttribute('aria-valuenow', Math.round(scrollPercentage));
                 }
+
+                // Back to Top Visibility
+                if (backToTopBtn) {
+                    if (scrollTop > 400) {
+                        backToTopBtn.classList.add('opacity-100', 'pointer-events-auto');
+                        backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+                    } else {
+                        backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+                        backToTopBtn.classList.remove('opacity-100', 'pointer-events-auto');
+                    }
+                }
                 ticking = false;
             }
 
-            if (progressBar) {
-                window.addEventListener('scroll', () => {
-                    if (!ticking) {
-                        window.requestAnimationFrame(updateScrollProgress);
-                        ticking = true;
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    window.requestAnimationFrame(updateScrollUI);
+                    ticking = true;
+                }
+            }, { passive: true });
+
+            if (backToTopBtn) {
+                backToTopBtn.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    if (skipLink) {
+                        skipLink.focus({ preventScroll: true });
                     }
-                }, { passive: true });
+                });
             }
 
             // --- Smooth Scroll ---
@@ -326,23 +347,31 @@
 
                     if (targetId === '#') {
                         e.preventDefault();
-                        window.scrollTo({
-                            top: 0,
-                            behavior: 'smooth'
-                        });
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        if (skipLink) {
+                            skipLink.focus({ preventScroll: true });
+                        }
                         return;
                     }
 
                     e.preventDefault();
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth'
-                        });
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                        // Accessibility: Move focus to the target
+                        targetElement.setAttribute('tabindex', '-1');
+                        targetElement.focus({ preventScroll: true });
                     }
                 });
             });
         })();
     </script>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top"
+            aria-label="Back to top"
+            class="fixed bottom-8 right-8 z-[60] bg-gradient-to-br from-[#FFD700] to-[#00E5FF] text-[#080C14] w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:scale-110 focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none">
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    </button>
 </body>
 </html>

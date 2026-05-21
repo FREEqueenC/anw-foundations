@@ -16,3 +16,7 @@
 ## 2026-05-17 - [Accessible & High-Performance Progress Indicators]
 **Learning:** When implementing scroll progress bars, use `requestAnimationFrame` with a throttling flag and `{ passive: true }` scroll listeners to ensure 60FPS performance. Accessibility is crucial: always include `role="progressbar"` and keep `aria-valuenow` synchronized with the visual width.
 **Action:** Prioritize performance and ARIA synchronization for all dynamic UI indicators to ensure a smooth, inclusive experience.
+
+## 2026-05-20 - [Back to Top & Focus Management Synergy]
+**Learning:** When implementing a "Back to Top" feature, restoring focus to the 'Skip to Main Content' link ensures that keyboard users maintain a logical navigation flow. Critically, avoid adding `tabindex="-1"` to elements that are already naturally focusable (like anchors), as it can remove them from the default tab sequence.
+**Action:** Use `{ preventScroll: true }` when programmatically focusing elements during smooth animations to avoid visual jitter, and ensure skip links are always kept in the natural tab order.
