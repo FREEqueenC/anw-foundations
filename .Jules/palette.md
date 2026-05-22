@@ -16,3 +16,7 @@
 ## 2026-05-17 - [Accessible & High-Performance Progress Indicators]
 **Learning:** When implementing scroll progress bars, use `requestAnimationFrame` with a throttling flag and `{ passive: true }` scroll listeners to ensure 60FPS performance. Accessibility is crucial: always include `role="progressbar"` and keep `aria-valuenow` synchronized with the visual width.
 **Action:** Prioritize performance and ARIA synchronization for all dynamic UI indicators to ensure a smooth, inclusive experience.
+
+## 2026-05-20 - [Accessible Navigation Loops]
+**Learning:** In single-page applications with smooth-scrolling, focus management is essential to maintain a logical tab order. Simply scrolling the viewport does not move the keyboard focus, which disorients users. Additionally, "Back to Top" links should restore focus to the initial 'Skip to Content' link to create a closed, predictable navigation loop.
+**Action:** Always pair smooth-scroll logic with programmatic .focus() calls, using tabindex="-1" on section targets, and ensure scroll-to-top actions reset focus to the top-of-page navigation anchors.
