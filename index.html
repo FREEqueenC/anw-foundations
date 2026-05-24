@@ -39,7 +39,7 @@
     </style>
 </head>
 <body class="antialiased selection:bg-[#FFD700] selection:text-white">
-    <a href="#mission" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-[#FFD700] focus:text-[#080C14] focus:px-4 focus:py-2 focus:rounded-md focus:font-bold focus:outline-none focus:ring-2 focus:ring-[#FFD700] focus:ring-offset-2 focus:ring-offset-[#080C14]">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-[#FFD700] focus:text-[#080C14] focus:px-4 focus:py-2 focus:rounded-md focus:font-bold focus:outline-none focus:ring-2 focus:ring-[#FFD700] focus:ring-offset-2 focus:ring-offset-[#080C14]">
         Skip to Main Content
     </a>
 
@@ -73,8 +73,9 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="mission" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section id="mission" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
             <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
                 RESTORING THE PHYSICAL.<br>
@@ -120,12 +121,12 @@
                 </a>
 
                 <!-- Node: ANW Launch -->
-                <div tabindex="0" class="relative group bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-[#00E5FF]/50 focus-visible:ring-2 focus-visible:ring-[#00E5FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none transition-all duration-500 overflow-hidden">
+                <div tabindex="0" role="article" aria-labelledby="heading-anw-launch" class="relative group bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-[#00E5FF]/50 focus-visible:ring-2 focus-visible:ring-[#00E5FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none transition-all duration-500 overflow-hidden">
                     <div class="absolute inset-0 bg-gradient-to-br from-[#FFD700]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div class="relative z-10 text-[#FFD700] text-3xl mb-6">
                         <i class="fa-solid fa-rocket"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-3 relative z-10">ANW Launch</h3>
+                    <h3 id="heading-anw-launch" class="text-2xl font-bold text-white mb-3 relative z-10">ANW Launch</h3>
                     <p class="text-slate-400 text-sm leading-relaxed relative z-10 mb-4">ANW Launch to ASHELON. Deploying the next generation of infrastructure systems and protocols.</p>
                     <span class="text-[#FFD700]/50 text-[10px] font-bold tracking-widest uppercase relative z-10">Mission Initializing</span>
                 </div>
@@ -144,7 +145,7 @@
                 </a>
 
                 <!-- Node: ANW Restorations (Featured) -->
-                <div tabindex="0" class="md:col-span-3 relative group bg-white/5 backdrop-blur-sm rounded-2xl p-10 border border-white/10 hover:border-[#00E5FF]/50 focus-visible:ring-2 focus-visible:ring-[#00E5FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none transition-all duration-500 overflow-hidden">
+                <div tabindex="0" role="article" aria-labelledby="heading-anw-restorations" class="md:col-span-3 relative group bg-white/5 backdrop-blur-sm rounded-2xl p-10 border border-white/10 hover:border-[#00E5FF]/50 focus-visible:ring-2 focus-visible:ring-[#00E5FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none transition-all duration-500 overflow-hidden">
                     <div class="absolute inset-0 bg-gradient-to-br from-[#FFD700]/5 to-transparent"></div>
                     <div class="flex flex-col md:flex-row gap-8 items-start relative z-10">
                         <div class="w-16 h-16 bg-[#00E5FF]/10 rounded-2xl flex items-center justify-center text-[#FFD700] text-3xl shrink-0">
@@ -152,7 +153,7 @@
                         </div>
                         <div>
                             <div class="flex items-center gap-3 mb-2">
-                                <h3 class="text-3xl font-bold text-white">ANW Restorations</h3>
+                                <h3 id="heading-anw-restorations" class="text-3xl font-bold text-white">ANW Restorations</h3>
                                 <span class="px-2 py-0.5 bg-[#FFD700]/20 text-[#FFD700] text-[10px] font-bold rounded uppercase tracking-tighter">Active Service</span>
                             </div>
                             <p class="text-[#FFD700] font-medium text-lg mb-4">Restoring the Material World.</p>
@@ -205,6 +206,8 @@
             </div>
         </div>
     </section>
+    </main>
+
     <footer id="contact" class="bg-[#080C14] border-t border-white/10 pt-24 pb-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mb-16">
@@ -319,26 +322,40 @@
                 }, { passive: true });
             }
 
-            // --- Smooth Scroll ---
+            // --- Smooth Scroll & Focus Management ---
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     const targetId = this.getAttribute('href');
+                    const skipLink = document.querySelector('a[href="#main-content"]');
 
                     if (targetId === '#') {
                         e.preventDefault();
-                        window.scrollTo({
-                            top: 0,
-                            behavior: 'smooth'
-                        });
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        // Focus skip link or first focusable element for keyboard users
+                        if (skipLink) skipLink.focus({ preventScroll: true });
                         return;
                     }
 
-                    e.preventDefault();
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth'
-                        });
+                        e.preventDefault();
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+
+                        // Handle focus shift
+                        const isInteractive = (el) => {
+                            const interactiveTags = ['A', 'BUTTON', 'INPUT', 'SELECT', 'TEXTAREA'];
+                            return interactiveTags.includes(el.tagName) || el.hasAttribute('tabindex');
+                        };
+
+                        if (!isInteractive(targetElement)) {
+                            targetElement.setAttribute('tabindex', '-1');
+                            targetElement.addEventListener('blur', () => targetElement.removeAttribute('tabindex'), { once: true });
+                        }
+
+                        // Wait for scroll to finish approximately, then focus
+                        setTimeout(() => {
+                            targetElement.focus({ preventScroll: true });
+                        }, 800);
                     }
                 });
             });
