@@ -401,12 +401,12 @@
                 });
             }
 
-            // --- Smooth Scroll ---
+            // --- Smooth Scroll & Focus Management ---
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
-                    const targetId = this.getAttribute('href');
+                    const href = this.getAttribute('href');
 
-                    if (targetId === '#') {
+                    if (href === '#') {
                         e.preventDefault();
                         window.scrollTo({
                             top: 0,
