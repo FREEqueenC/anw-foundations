@@ -13,6 +13,6 @@
 **Learning:** In a project with multiple micro-interactions (smooth scroll, clipboard utilities) but no build step, consolidating all JavaScript into a single, well-structured IIFE prevents global namespace pollution and allows for shared state management (like timeout IDs for UI feedback).
 **Action:** For static sites, merge disparate script blocks into a cohesive utility script to improve maintainability and interaction consistency.
 
-## 2026-05-20 - [Keyboard-Hover Parity via Focus Variants]
-**Learning:** In highly interactive UIs using Tailwind's 'group-hover' for visual delight (background shifts, icon animations), keyboard users often miss out on the 'delight' if focus states aren't synchronized. Adding 'group-focus-visible' ensures parity and reinforces the interactive nature of cards for tabbing users.
-**Action:** Always pair 'group-hover' utility classes with their 'group-focus-visible' counterparts to ensure accessible visual feedback matches hover-state delight.
+## 2026-05-17 - [Accessible & High-Performance Progress Indicators]
+**Learning:** When implementing scroll progress bars, use `requestAnimationFrame` with a throttling flag and `{ passive: true }` scroll listeners to ensure 60FPS performance. Accessibility is crucial: always include `role="progressbar"` and keep `aria-valuenow` synchronized with the visual width.
+**Action:** Prioritize performance and ARIA synchronization for all dynamic UI indicators to ensure a smooth, inclusive experience.
