@@ -345,7 +345,7 @@
 
                         // Accessibility: Move focus to target section
                         // Use -1 to make non-interactive elements focusable via script
-                        if (!/^(A|BUTTON|INPUT|TEXTAREA|SELECT)$/.test(targetElement.tagName)) {
+                        if (!targetElement.hasAttribute('tabindex') && !/^(A|BUTTON|INPUT|TEXTAREA|SELECT)$/.test(targetElement.tagName)) {
                             targetElement.setAttribute('tabindex', '-1');
                         }
                         targetElement.focus({ preventScroll: true });
