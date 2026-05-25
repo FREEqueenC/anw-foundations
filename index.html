@@ -342,7 +342,7 @@
                         target.scrollIntoView({ behavior: 'smooth' });
 
                         // Handle focus management after scroll
-                        if (!/^(?:a|select|input|button|textarea)$/i.test(target.tagName)) {
+                        if (target.tabIndex < 0) {
                             target.setAttribute('tabindex', '-1');
                         }
                         // Timeout allows smooth scroll to initiate before focus jump
