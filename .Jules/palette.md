@@ -17,6 +17,6 @@
 **Learning:** When implementing scroll progress bars, use `requestAnimationFrame` with a throttling flag and `{ passive: true }` scroll listeners to ensure 60FPS performance. Accessibility is crucial: always include `role="progressbar"` and keep `aria-valuenow` synchronized with the visual width.
 **Action:** Prioritize performance and ARIA synchronization for all dynamic UI indicators to ensure a smooth, inclusive experience.
 
-## 2026-05-20 - [A11y-First Smooth Scrolling & Icon Hygiene]
-**Learning:** Smooth scrolling to anchors improves visual flow but breaks keyboard navigation if focus isn't programmatically moved. Additionally, decorative Font Awesome icons often leak garbage characters to screen readers unless explicitly hidden with 'aria-hidden="true"'.
-**Action:** Always pair smooth-scroll logic with 'target.focus()' and ensure all decorative icons are marked with 'aria-hidden="true"'.
+## 2026-05-20 - [Accessible Smooth Scrolling & Focus Management]
+**Learning:** In single-page applications using smooth scroll, visual movement must be paired with programmatic focus management. Without explicitly moving focus (using `element.focus()` and `tabindex="-1"`), keyboard and screen reader users remain at the source of the click, losing context and breaking the logical navigation flow.
+**Action:** Always synchronize smooth scroll animations with programmatic focus updates to the target element to maintain accessibility parity with visual transitions.
