@@ -328,12 +328,15 @@
 
                 // Toggle Back to Top button visibility
                 if (backToTopBtn) {
-                    if (scrollTop > 500) {
-                        backToTopBtn.classList.remove('opacity-0', 'translate-y-10', 'pointer-events-none');
-                        backToTopBtn.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
-                    } else {
-                        backToTopBtn.classList.add('opacity-0', 'translate-y-10', 'pointer-events-none');
-                        backToTopBtn.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+                    const shouldShow = scrollTop > 500;
+                    if (shouldShow !== backToTopBtn.classList.contains('opacity-100')) {
+                        backToTopBtn.classList.toggle('opacity-0', !shouldShow);
+                        backToTopBtn.classList.toggle('translate-y-10', !shouldShow);
+                        backToTopBtn.classList.toggle('pointer-events-none', !shouldShow);
+                        backToTopBtn.classList.toggle('invisible', !shouldShow);
+                        backToTopBtn.classList.toggle('opacity-100', shouldShow);
+                        backToTopBtn.classList.toggle('translate-y-0', shouldShow);
+                        backToTopBtn.classList.toggle('pointer-events-auto', shouldShow);
                     }
                 }
 
