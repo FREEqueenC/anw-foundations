@@ -36,6 +36,13 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 25px -5px rgba(251, 191, 36, 0.1), 0 8px 10px -6px rgba(251, 191, 36, 0.1);
         }
+        @keyframes soft-pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.05); }
+        }
+        .animate-soft-pulse {
+            animation: soft-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-[#FFD700] selection:text-white">
@@ -255,6 +262,13 @@
         </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <button id="backToTop"
+            aria-label="Back to top"
+            class="fixed bottom-8 right-8 z-50 bg-[#FFD700] text-[#080C14] w-12 h-12 rounded-full shadow-2xl flex items-center justify-center opacity-0 translate-y-10 pointer-events-none invisible transition-all duration-300 hover:bg-white focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none">
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
     <!-- UX Scripts -->
     <script>
         (function() {
@@ -338,8 +352,24 @@
                 // Progress Bar
                 if (progressBar && (scrollHeight - clientHeight > 0)) {
                     const scrollPercentage = Math.min(100, Math.max(0, (scrollTop / (scrollHeight - clientHeight)) * 100));
-                    progressBar.style.width = scrollPercentage + '%';
-                    progressBar.setAttribute('aria-valuenow', Math.round(scrollPercentage));
+                    if (progressBar) {
+                        progressBar.style.width = scrollPercentage + '%';
+                        progressBar.setAttribute('aria-valuenow', Math.round(scrollPercentage));
+                    }
+                }
+
+                // Toggle Back to Top button visibility
+                if (backToTopBtn) {
+                    const shouldShow = scrollTop > 500;
+                    if (shouldShow !== backToTopBtn.classList.contains('opacity-100')) {
+                        backToTopBtn.classList.toggle('opacity-0', !shouldShow);
+                        backToTopBtn.classList.toggle('translate-y-10', !shouldShow);
+                        backToTopBtn.classList.toggle('pointer-events-none', !shouldShow);
+                        backToTopBtn.classList.toggle('invisible', !shouldShow);
+                        backToTopBtn.classList.toggle('opacity-100', shouldShow);
+                        backToTopBtn.classList.toggle('translate-y-0', shouldShow);
+                        backToTopBtn.classList.toggle('pointer-events-auto', shouldShow);
+                    }
                 }
 
                 // Back to Top Visibility
