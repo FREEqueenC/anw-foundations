@@ -331,7 +331,7 @@
                         e.preventDefault();
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                         // Restore focus to skip link for consistent navigation loop
-                        const skipLink = document.querySelector('a[href="#main-content"]');
+                        const skipLink = document.getElementById('skip-link');
                         if (skipLink) skipLink.focus({ preventScroll: true });
                         return;
                     }
