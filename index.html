@@ -302,7 +302,7 @@
             function updateScrollUI() {
                 const scrollHeight = document.documentElement.scrollHeight;
                 const clientHeight = document.documentElement.clientHeight;
-                const scrollTop = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+                const scrollTop = window.scrollY || document.documentElement.scrollTop;
 
                 // Progress Bar
                 if (progressBar && (scrollHeight - clientHeight > 0)) {
