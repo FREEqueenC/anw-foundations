@@ -359,7 +359,9 @@
                     if (targetElement) {
                         targetElement.scrollIntoView({ behavior: 'smooth' });
                         // Accessibility: Move focus to the target
-                        targetElement.setAttribute('tabindex', '-1');
+                        if (!targetElement.matches('a, button, input, textarea, select, details, [tabindex]')) {
+                            targetElement.setAttribute('tabindex', '-1');
+                        }
                         targetElement.focus({ preventScroll: true });
                     }
                 });
