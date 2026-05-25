@@ -17,6 +17,6 @@
 **Learning:** When implementing scroll progress bars, use `requestAnimationFrame` with a throttling flag and `{ passive: true }` scroll listeners to ensure 60FPS performance. Accessibility is crucial: always include `role="progressbar"` and keep `aria-valuenow` synchronized with the visual width.
 **Action:** Prioritize performance and ARIA synchronization for all dynamic UI indicators to ensure a smooth, inclusive experience.
 
-## 2026-05-24 - [Programmatic Focus Management for Single Page Apps]
-**Learning:** In static single-page sites, standard anchor links often fail to move keyboard focus even when they scroll the viewport. Implementing a manual focus-management script—using temporary `tabindex="-1"` for non-interactive targets and explicitly focusing the "Skip Link" on "Back to Top" actions—ensures that the visual and logical positions of the user stay synchronized.
-**Action:** Always pair smooth-scroll animations with programmatic `.focus()` calls to the target element (or skip link for top-of-page navigation) to maintain keyboard accessibility.
+## 2026-05-20 - [Accessible Smooth Scrolling & Focus Management]
+**Learning:** In single-page applications using smooth scroll, visual movement must be paired with programmatic focus management. Without explicitly moving focus (using `element.focus()` and `tabindex="-1"`), keyboard and screen reader users remain at the source of the click, losing context and breaking the logical navigation flow.
+**Action:** Always synchronize smooth scroll animations with programmatic focus updates to the target element to maintain accessibility parity with visual transitions.
