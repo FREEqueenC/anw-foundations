@@ -20,3 +20,7 @@
 ## 2026-05-20 - [Accessible Smooth Scrolling & Focus Management]
 **Learning:** In single-page applications using smooth scroll, visual movement must be paired with programmatic focus management. Without explicitly moving focus (using `element.focus()` and `tabindex="-1"`), keyboard and screen reader users remain at the source of the click, losing context and breaking the logical navigation flow.
 **Action:** Always synchronize smooth scroll animations with programmatic focus updates to the target element to maintain accessibility parity with visual transitions.
+
+## 2026-05-28 - [Consolidated Scroll Management]
+**Learning:** In static sites, managing multiple scroll-dependent UI elements (progress bars, floating buttons) within a single throttled 'scroll' listener prevents redundant calculations and potential race conditions. Pairing this with robust class-toggling (using 'add/remove' for multiple classes) ensures reliable visual state transitions.
+**Action:** Consolidate scroll-dependent logic into a single requestAnimationFrame-throttled listener for optimal performance and cleaner state management.
