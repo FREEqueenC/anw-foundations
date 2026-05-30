@@ -418,13 +418,17 @@
                         return;
                     }
 
-                    const targetElement = document.querySelector(targetId);
+                    const targetElement = document.querySelector(href);
                     if (targetElement) {
                         targetElement.scrollIntoView({
                             behavior: 'smooth'
                         });
                         // Update focus for screen readers and keyboard navigation
                         targetElement.focus({ preventScroll: true });
+                        if (document.activeElement !== targetElement) {
+                            targetElement.setAttribute('tabindex', '-1');
+                            targetElement.focus({ preventScroll: true });
+                        }
                     }
                 });
             });
