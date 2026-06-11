@@ -331,19 +331,18 @@
             function handleCopy(e) {
                 if (!emailLink) return;
                 const email = emailLink.href.replace('mailto:', '');
+                const icon = copyBtn?.querySelector('i');
 
                 navigator.clipboard.writeText(email).then(() => {
                     if (!feedback) return;
                     feedback.classList.remove('opacity-0');
                     feedback.classList.add('opacity-100');
 
-                    const icon = copyBtn?.querySelector('i');
                     if (icon) icon.classList.replace('fa-copy', 'fa-check');
 
                     if (copyTimeout) clearTimeout(copyTimeout);
                     copyTimeout = setTimeout(() => {
-                        feedback.classList.remove('opacity-100');
-                        feedback.classList.add('opacity-0');
+                        feedback.classList.replace('opacity-100', 'opacity-0');
                         if (icon) icon.classList.replace('fa-check', 'fa-copy');
                         copyTimeout = null;
                     }, 2000);
@@ -375,6 +374,13 @@
                     }
                 });
             });
+
+            if (backToTopBtn) {
+                backToTopBtn.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    if (skipLink) skipLink.focus({ preventScroll: true });
+                });
+            }
         })();
     </script>
 
