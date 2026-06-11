@@ -311,22 +311,21 @@
                 }
                 ticking = false;
             }
+            window.addEventListener('scroll', () => { if (!ticking) { window.requestAnimationFrame(updateScrollUI); ticking = true; } }, { passive: true });
+            if (backToTopBtn) backToTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); if (skipLink) skipLink.focus({ preventScroll: true }); });
 
-            window.addEventListener('scroll', () => {
-                if (!ticking) {
-                    window.requestAnimationFrame(updateScrollUI);
-                    ticking = true;
-                }
-            }, { passive: true });
-
-            if (backToTopBtn) {
-                backToTopBtn.addEventListener('click', () => {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                    if (skipLink) {
-                        skipLink.focus({ preventScroll: true });
-                    }
+            function handleCopy() {
+                if (!emailLink) return;
+                navigator.clipboard.writeText(emailLink.href.replace('mailto:', '')).then(() => {
+                    if (!feedback) return;
+                    feedback.classList.add('opacity-100'); feedback.classList.remove('opacity-0');
+                    const icon = copyBtn?.querySelector('i'); if (icon) icon.classList.replace('fa-copy', 'fa-check');
+                    if (copyTimeout) clearTimeout(copyTimeout);
+                    copyTimeout = setTimeout(() => { feedback.classList.add('opacity-0'); feedback.classList.remove('opacity-100'); if (icon) icon.classList.replace('fa-check', 'fa-copy'); copyTimeout = null; }, 2000);
                 });
             }
+            if (emailLink) emailLink.addEventListener('click', handleCopy);
+            if (copyBtn) copyBtn.addEventListener('click', (e) => { e.preventDefault(); handleCopy(); });
 
             // --- Email Copy-to-Clipboard ---
             function handleCopy(e) {
