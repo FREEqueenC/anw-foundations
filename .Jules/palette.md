@@ -20,3 +20,7 @@
 ## 2026-05-20 - [Accessible Smooth Scrolling & Focus Management]
 **Learning:** In single-page applications using smooth scroll, visual movement must be paired with programmatic focus management. Without explicitly moving focus (using `element.focus()` and `tabindex="-1"`), keyboard and screen reader users remain at the source of the click, losing context and breaking the logical navigation flow.
 **Action:** Always synchronize smooth scroll animations with programmatic focus updates to the target element to maintain accessibility parity with visual transitions.
+
+## 2026-06-11 - [Balanced micro-interactions on Mailto links]
+**Learning:** When adding a "copy-to-clipboard" micro-interaction to a `mailto:` link, it's critical to preserve the link's default behavior (opening the mail client) unless the UI is explicitly a "copy only" component. Users clicking an envelope icon expect an email draft, and the copy feedback should be a silent, delightful addition rather than a replacement of the expected action.
+**Action:** Avoid `e.preventDefault()` on primary action links when adding secondary clipboard interactions. Use separate, dedicated buttons for "copy-only" actions where the user expectation is purely cryptographic/data-focused.
