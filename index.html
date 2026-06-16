@@ -356,6 +356,27 @@
                 handleCopy(e);
             });
 
+            // --- Active Section Highlighting ---
+            const observerOptions = { rootMargin: '-50% 0px -50% 0px' };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+                            const href = link.getAttribute('href');
+                            const isMatch = href === `#${id}`;
+                            if (href === '#contact') {
+                                link.classList.toggle('ring-2', isMatch);
+                                link.classList.toggle('ring-[#FFD700]', isMatch);
+                            } else if (href !== '#') {
+                                link.classList.toggle('text-[#FFD700]', isMatch);
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+            document.querySelectorAll('section[id], footer[id]').forEach(s => observer.observe(s));
+
             // --- Smooth Scroll & Focus Management ---
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
