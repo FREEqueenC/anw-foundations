@@ -218,7 +218,7 @@
 
     </main>
 
-    <footer id="contact" class="bg-[#080C14] border-t border-white/10 pt-24 pb-12 outline-none" tabindex="-1">
+    <footer id="contact" class="bg-[#080C14] border-t border-white/10 pt-24 pb-12 outline-none scroll-mt-20" tabindex="-1">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mb-16">
                 <div>
@@ -374,6 +374,37 @@
                         targetElement.focus({ preventScroll: true });
                     }
                 });
+            });
+
+            // --- Active Section Highlighting ---
+            const observerOptions = { rootMargin: '-10% 0px -20% 0px', threshold: 0 };
+            const navLinks = {
+                'mission': document.querySelector('nav a[href="#mission"]'),
+                'projects': document.querySelector('nav a[href="#projects"]'),
+                'contact': document.querySelector('nav a[href="#contact"]')
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        Object.values(navLinks).forEach(link => {
+                            if (link) link.classList.remove('text-[#FFD700]', 'ring-2', 'ring-[#FFD700]');
+                        });
+                        const activeLink = navLinks[entry.target.id];
+                        if (activeLink) {
+                            if (entry.target.id === 'contact') {
+                                activeLink.classList.add('ring-2', 'ring-[#FFD700]');
+                            } else {
+                                activeLink.classList.add('text-[#FFD700]');
+                            }
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            ['mission', 'projects', 'contact'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) observer.observe(el);
             });
         })();
     </script>
