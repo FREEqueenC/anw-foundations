@@ -372,6 +372,10 @@
                         e.preventDefault();
                         targetElement.scrollIntoView({ behavior: 'smooth' });
                         targetElement.focus({ preventScroll: true });
+                        if (document.activeElement !== targetElement) {
+                            targetElement.setAttribute('tabindex', '-1');
+                            targetElement.focus({ preventScroll: true });
+                        }
                     }
                 });
             });
