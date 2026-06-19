@@ -314,6 +314,28 @@
             window.addEventListener('scroll', () => { if (!ticking) { window.requestAnimationFrame(updateScrollUI); ticking = true; } }, { passive: true });
             if (backToTopBtn) backToTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); if (skipLink) skipLink.focus({ preventScroll: true }); });
 
+            // --- Active Section Highlighting ---
+            const navObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        document.querySelectorAll('nav a').forEach(link => {
+                            const isContact = link.getAttribute('href') === '#contact';
+                            const isActive = link.getAttribute('href') === `#${id}`;
+
+                            link.classList.toggle('text-[#FFD700]', isActive && !isContact);
+                            link.classList.toggle('ring-2', isActive && isContact);
+                            link.classList.toggle('ring-[#FFD700]', isActive && isContact);
+
+                            if (isActive) link.setAttribute('aria-current', 'page');
+                            else link.removeAttribute('aria-current');
+                        });
+                    }
+                });
+            }, { rootMargin: '-50% 0px -50% 0px' });
+
+            document.querySelectorAll('section[id], footer[id]').forEach(el => navObserver.observe(el));
+
             function handleCopy() {
                 if (!emailLink) return;
                 navigator.clipboard.writeText(emailLink.href.replace('mailto:', '')).then(() => {
