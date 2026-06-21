@@ -20,3 +20,7 @@
 ## 2026-05-20 - [Accessible Smooth Scrolling & Focus Management]
 **Learning:** In single-page applications using smooth scroll, visual movement must be paired with programmatic focus management. Without explicitly moving focus (using `element.focus()` and `tabindex="-1"`), keyboard and screen reader users remain at the source of the click, losing context and breaking the logical navigation flow.
 **Action:** Always synchronize smooth scroll animations with programmatic focus updates to the target element to maintain accessibility parity with visual transitions.
+
+## 2026-06-21 - [Dynamic Section Highlighting & IntersectionObserver]
+**Learning:** For single-page navigation, visual feedback during scrolling is as critical as smooth scroll clicks. Using an IntersectionObserver with a 50% rootMargin provides a "snappy" and intuitive indication of the user's current location. Complementing this with 'aria-current="page"' ensures accessibility parity.
+**Action:** Implement IntersectionObserver-based highlighting for navigation menus to improve orientation and accessibility in long landing pages.
