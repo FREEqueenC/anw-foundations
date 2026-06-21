@@ -375,6 +375,35 @@
                     }
                 });
             });
+
+            // --- Active Section Highlighting ---
+            const observerOptions = { rootMargin: '-50% 0px -50% 0px', threshold: 0 };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+                            const isActive = link.getAttribute('href') === `#${id}`;
+                            const isContact = link.getAttribute('href') === '#contact';
+
+                            if (isContact) {
+                                link.classList.toggle('ring-2', isActive);
+                                link.classList.toggle('ring-[#FFD700]', isActive);
+                            } else {
+                                link.classList.toggle('text-[#FFD700]', isActive);
+                            }
+
+                            if (isActive) {
+                                link.setAttribute('aria-current', 'page');
+                            } else {
+                                link.removeAttribute('aria-current');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('section[id], footer[id]').forEach(section => observer.observe(section));
         })();
     </script>
 
