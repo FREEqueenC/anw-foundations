@@ -71,9 +71,9 @@
                 </a>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#mission" class="hover:text-[#FFD700] focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none px-3 py-2 rounded-md text-sm font-medium transition-colors">Mission</a>
-                        <a href="#projects" class="hover:text-[#FFD700] focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none px-3 py-2 rounded-md text-sm font-medium transition-colors">Ventures</a>
-                        <a href="#contact" class="bg-[#D4AF37] hover:bg-[#B8860B] focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none text-white px-4 py-2 rounded-md text-sm font-medium transition-colors">Contact</a>
+                        <a href="#mission" data-active-class="text-[#FFD700]" class="hover:text-[#FFD700] focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none px-3 py-2 rounded-md text-sm font-medium transition-colors">Mission</a>
+                        <a href="#projects" data-active-class="text-[#FFD700]" class="hover:text-[#FFD700] focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none px-3 py-2 rounded-md text-sm font-medium transition-colors">Ventures</a>
+                        <a href="#contact" data-active-class="ring-2 ring-[#FFD700]" class="bg-[#D4AF37] hover:bg-[#B8860B] focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none text-white px-4 py-2 rounded-md text-sm font-medium transition-colors">Contact</a>
                     </div>
                 </div>
             </div>
@@ -313,6 +313,35 @@
             }
             window.addEventListener('scroll', () => { if (!ticking) { window.requestAnimationFrame(updateScrollUI); ticking = true; } }, { passive: true });
             if (backToTopBtn) backToTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); if (skipLink) skipLink.focus({ preventScroll: true }); });
+
+            // --- Active Section Highlighting ---
+            const observerOptions = {
+                root: null,
+                rootMargin: '-50% 0px -50% 0px',
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const id = entry.target.getAttribute('id');
+                    const navLink = document.querySelector(`nav a[href="#${id}"]`);
+                    if (!navLink) return;
+
+                    const activeClasses = navLink.getAttribute('data-active-class')?.split(' ') || [];
+
+                    if (entry.isIntersecting) {
+                        navLink.setAttribute('aria-current', 'page');
+                        if (activeClasses.length) navLink.classList.add(...activeClasses);
+                    } else {
+                        navLink.removeAttribute('aria-current');
+                        if (activeClasses.length) navLink.classList.remove(...activeClasses);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('section[id], footer[id]').forEach(section => {
+                observer.observe(section);
+            });
 
             function handleCopy() {
                 if (!emailLink) return;
