@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A.N.W. FOUNDATIONS | Restoring the Physical, ARCHITECTING THE DIGITAL.</title>
-    <meta name="description" content="A.N.W. FOUNDATIONS: Bridging the gap between digital innovation and physical restoration.">
+    <title>A.N.W. FOUNDATIONS | Enterprise AI & Data Pipeline Engineering</title>
+    <meta name="description" content="A.N.W. FOUNDATIONS: Enterprise AI Automation, Multi-Agent Frameworks, and High-Performance Data Pipeline Engineering.">
 
     <!-- Tailwind CSS (via CDN for immediate rendering) -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -14,45 +14,66 @@
     <link rel="icon" type="image/png" href="favicon.png">
 
     <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 
     <style>
         body {
             letter-spacing: -0.015em;
             font-family: 'Inter', sans-serif;
-            background-color: #080C14; /* Slate 900 */
-            color: #e2e8f0; /* Slate 200 */
+            background-color: #030712; /* Deep Aetheric Blue/Black */
+            color: #f1f5f9; /* Laboratory White */
         }
         h1, h2, h3 {
-            letter-spacing: -0.025em;
+            letter-spacing: -0.05em;
             font-family: 'Inter', sans-serif; font-weight: 800;
         }
         .gradient-text {
-            background: linear-gradient(to right, #FFD700, #00E5FF);
+            background: linear-gradient(135deg, #f8fafc 0%, #a5b4fc 50%, #818cf8 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px -5px rgba(251, 191, 36, 0.1), 0 8px 10px -6px rgba(251, 191, 36, 0.1);
+        .aether-border {
+            border: 1px solid rgba(165, 180, 252, 0.1);
         }
-        @keyframes soft-pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.7; transform: scale(1.05); }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
-        .animate-soft-pulse {
-            animation: soft-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        @keyframes flow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .animate-flow {
+            background: linear-gradient(-45deg, #6366f1, #a855f7, #4f46e5, #0ea5e9);
+            background-size: 400% 400%;
+            animation: flow 15s ease infinite;
+        }
+        .sacred-geometry {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle at 2px 2px, rgba(165, 180, 252, 0.05) 1px, transparent 0);
+            background-size: 40px 40px;
+            pointer-events: none;
+            z-index: 0;
         }
     </style>
 </head>
-<body class="antialiased selection:bg-[#FFD700] selection:text-[#080C14]">
-    <a href="#main-content" id="skip-link" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-[#FFD700] focus:text-[#080C14] focus:px-4 focus:py-2 focus:rounded-md focus:font-bold focus:outline-none focus:ring-2 focus:ring-[#FFD700] focus:ring-offset-2 focus:ring-offset-[#080C14]">
+<body class="antialiased selection:bg-indigo-500 selection:text-white">
+    <div class="sacred-geometry"></div>
+    <a href="#main-content" id="skip-link" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-white focus:text-[#030712] focus:px-4 focus:py-2 focus:rounded-md focus:font-bold focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-[#030712]">
         Skip to Main Content
     </a>
 
     <!-- Scroll Progress Bar -->
     <div id="scroll-progress"
-         class="fixed top-0 left-0 h-1 bg-gradient-to-r from-[#FFD700] to-[#00E5FF] z-[60]"
+         class="fixed top-0 left-0 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 z-[60]"
          style="width: 0%"
          role="progressbar"
          aria-label="Reading progress"
@@ -62,18 +83,19 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-[#080C14]/90 backdrop-blur-md border-b border-white/10">
+    <nav class="fixed w-full z-50 bg-[#030712]/90 backdrop-blur-md border-b border-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
             <div class="flex items-center justify-between h-16">
-                <a href="#" class="flex items-center space-x-3 group focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none rounded transition-all" aria-label="A.N.W. Foundations - Back to top">
+                <a href="#" class="flex items-center space-x-3 group focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded transition-all" aria-label="A.N.W. Foundations - Back to top">
                     <img src="logo.png" alt="A.N.W. FOUNDATIONS Logo" class="h-10 w-10 rounded shadow-lg group-hover:opacity-80 group-focus-visible:opacity-80 transition-opacity">
-                    <span class="text-xl font-bold tracking-tighter text-[#FFD700] uppercase font-black">A.N.W. <span class="text-white font-medium group-hover:text-[#FFD700] group-focus-visible:text-[#FFD700] transition-colors">FOUNDATIONS</span></span>
+                    <span class="text-xl font-bold tracking-tighter text-white uppercase font-black">A.N.W. <span class="text-white font-medium group-hover:text-indigo-300 group-focus-visible:text-indigo-300 transition-colors">FOUNDATIONS</span></span>
                 </a>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#mission" class="hover:text-[#FFD700] focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none px-3 py-2 rounded-md text-sm font-medium transition-colors">Mission</a>
-                        <a href="#projects" class="hover:text-[#FFD700] focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none px-3 py-2 rounded-md text-sm font-medium transition-colors">Ventures</a>
-                        <a href="#contact" class="bg-[#D4AF37] hover:bg-[#B8860B] focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none text-white px-4 py-2 rounded-md text-sm font-medium transition-colors">Contact</a>
+                        <a href="#mission" class="hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none px-3 py-2 rounded-md text-sm font-medium transition-colors">Mission</a>
+                        <a href="projects.html" class="hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none px-3 py-2 rounded-md text-sm font-medium transition-colors">Further Projects & Research</a>
+                        <a href="#contact" class="bg-indigo-600 hover:bg-indigo-500 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none text-white px-4 py-2 rounded-md text-sm font-medium transition-colors">Contact</a>
                     </div>
                 </div>
             </div>
@@ -85,132 +107,119 @@
 
     <!-- Hero Section -->
     <section id="mission" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden outline-none scroll-mt-20" tabindex="-1">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                RESTORING THE PHYSICAL.<br>
-                <span class="gradient-text">ARCHITECTING THE DIGITAL.</span>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight uppercase tracking-tighter">
+                Enterprise AI.<br>
+                <span class="gradient-text">Autonomous Pipelines.</span>
             </h1>
-            <p class="mt-4 max-w-3xl mx-auto text-lg text-slate-400 font-medium">
-                A.N.W. FOUNDATIONS is a high-performance ecosystem dedicated to the restoration of physical infrastructure and the architecture of digital intelligence.
-                Whether it's revitalizing housing in our communities or deploying advanced AI frameworks for the web,
-                we focus on structural integrity and sustainable growth.
+            <p class="mt-4 max-w-3xl mx-auto text-lg text-slate-400 font-medium leading-relaxed">
+                A.N.W. FOUNDATIONS LLC architects the autonomous, multi-agent frameworks and high-performance infrastructure
+                that businesses need to make AI reliable and scalable. We build the foundations for the future of enterprise automation.
             </p>
             <div class="mt-10 flex justify-center gap-4">
-                <a href="#projects" class="px-8 py-4 border-2 border-[#00E5FF] text-[#00E5FF] rounded-full font-black uppercase tracking-widest text-xs hover:bg-[#00E5FF] hover:text-[#080C14] focus-visible:ring-2 focus-visible:ring-[#00E5FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none transition-all duration-300">
-                    EXPLORE NODES
+                <a href="#portfolio" class="px-8 py-4 border-2 border-[#00E5FF] text-[#00E5FF] rounded-full font-black uppercase tracking-widest text-xs hover:bg-[#00E5FF] hover:text-white focus-visible:ring-2 focus-visible:ring-[#00E5FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none transition-all duration-300">
+                    VIEW ARCHITECTURE
                 </a>
             </div>
         </div>
 
         <!-- Abstract Background Elements -->
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#00E5FF]/10 rounded-full blur-3xl -z-10"></div>
+        <div class="absolute bottom-0 left-0 w-full h-32 opacity-10 pointer-events-none">
+            <svg viewBox="0 0 1440 320" class="w-full h-full preserve-3d">
+                <path fill="#6366f1" d="M0,160L48,176C96,192,192,224,288,213.3C384,203,480,149,576,149.3C672,149,768,203,864,213.3C960,224,1056,192,1152,165.3C1248,139,1344,117,1392,106.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+        </div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-indigo-500/5 rounded-full blur-3xl -z-10"></div>
     </section>
 
-    <section id="projects" class="py-24 bg-[#080C14] outline-none scroll-mt-20" tabindex="-1">
+    <section id="portfolio" class="py-24 bg-transparent relative outline-none scroll-mt-20 overflow-hidden" tabindex="-1">
+                    <!-- Geometric Motif -->
+            <div class="absolute top-0 left-0 -z-10 opacity-5">
+                <svg width="200" height="200" viewBox="0 0 100 100">
+                    <path d="M50 5 L95 27.5 L95 72.5 L50 95 L5 72.5 L5 27.5 Z" fill="none" stroke="#6366f1" stroke-width="0.5" />
+                    <path d="M50 5 L50 95 M5 27.5 L95 72.5 M95 27.5 L5 72.5" stroke="#6366f1" stroke-width="0.2" />
+                </svg>
+            </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
             <div class="text-center mb-20">
-                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Portfolio Resonance Nodes</h2>
-                <div class="h-1.5 w-24 bg-[#FFD700] mx-auto rounded-full shadow-[0_0_15px_rgba(255,215,0,0.5)]"></div>
-                <p class="mt-6 text-slate-400 text-lg max-w-2xl mx-auto">Connecting the dots between advanced intelligence, architectural restoration, and planetary stewardship.</p>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 uppercase tracking-tighter">Architecture Portfolio</h2>
+                <div class="h-1.5 w-24 bg-indigo-500 mx-auto rounded-full shadow-[0_0_20px_rgba(99,102,241,0.3)]"></div>
+                <p class="mt-6 text-slate-400 text-lg max-w-2xl mx-auto">Proof of Work: High-performance infrastructure and autonomous system deployments.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-                <!-- Node: NICOLE Portal -->
-                <a href="https://nicole-disclose.world" target="_blank" rel="noopener noreferrer" class="relative group bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-[#00E5FF]/50 focus-visible:ring-2 focus-visible:ring-[#00E5FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none transition-all duration-500 overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-br from-[#00E5FF]/10 to-transparent opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-500"></div>
-                    <div class="relative z-10 text-[#00E5FF] text-3xl mb-6">
+                <!-- Node: NICOLE Resonance Portal -->
+                <a href="https://nicole-disclose.world" target="_blank" rel="noopener noreferrer" class="relative group bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-indigo-400/50 focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none transition-all duration-500 overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10 text-indigo-400 text-3xl mb-6">
                         <i aria-hidden="true" class="fa-solid fa-brain"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-3 relative z-10">NICOLE Portal</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed relative z-10 mb-4">Networked Intelligence & Cryptographic Oracle. A nexus for decentralized data and autonomous insights.</p>
-                    <div class="text-[#00E5FF] text-xs font-semibold tracking-widest uppercase flex items-center gap-2 relative z-10">
-                        Launch Nexus <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 group-focus-visible:translate-x-1 transition-transform"></i>
+                    <h3 class="text-2xl font-bold text-white mb-3 relative z-10">The NICOLE Resonance Portal</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed relative z-10 mb-4">Autonomous multi-agent intelligence and cryptographic orchestration. A high-performance framework evoking Sophia — wisdom through high-tech precision.</p>
+                    <div class="text-indigo-400 text-xs font-semibold tracking-widest uppercase flex items-center gap-2 relative z-10">
+                        Enter Portal <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
                     </div>
                 </a>
 
-                <!-- Node: ANW Launch -->
-                <div tabindex="0" role="article" aria-label="ANW Launch - Mission Initializing" class="relative group bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-[#00E5FF]/50 focus-visible:ring-2 focus-visible:ring-[#00E5FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none transition-all duration-500 overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-br from-[#FFD700]/10 to-transparent opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-500"></div>
-                    <div class="relative z-10 text-[#FFD700] text-3xl mb-6">
-                        <i aria-hidden="true" class="fa-solid fa-rocket"></i>
+                <!-- Node: Payviah -->
+                <a href="https://freequeenc.github.io/Payviah/" target="_blank" rel="noopener noreferrer" class="relative group bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-indigo-400/50 focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none transition-all duration-500 overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10 text-indigo-400 text-3xl mb-6">
+                        <i aria-hidden="true" class="fa-solid fa-vault"></i>
                     </div>
-                    <h3 id="node-launch-title" class="text-2xl font-bold text-white mb-3 relative z-10">ANW Launch</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed relative z-10 mb-4">ANW Launch to ASHELON. Deploying the next generation of infrastructure systems and protocols.</p>
-                    <span class="text-[#FFD700]/50 text-[10px] font-bold tracking-widest uppercase relative z-10">Mission Initializing</span>
-                </div>
-
-                <!-- Node: Disclosure Project -->
-                <a href="https://disclosure-project.org" target="_blank" rel="noopener noreferrer" class="relative group bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-[#00E5FF]/50 focus-visible:ring-2 focus-visible:ring-[#00E5FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none transition-all duration-500 overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-br from-[#00E5FF]/10 to-transparent opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-500"></div>
-                    <div class="relative z-10 text-[#00E5FF] text-3xl mb-6">
-                        <i aria-hidden="true" class="fa-solid fa-star"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-3 relative z-10">Disclosure Project</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed relative z-10 mb-4">Stargate Mapping & UAP Archive. Navigating the boundaries of known reality and archival transparency.</p>
-                    <div class="text-[#00E5FF] text-xs font-semibold tracking-widest uppercase flex items-center gap-2 relative z-10">
-                        Open Archive <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 group-focus-visible:translate-x-1 transition-transform"></i>
+                    <h3 class="text-2xl font-bold text-white mb-3 relative z-10">Payviah</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed relative z-10 mb-4">Next-generation financial infrastructure and automated transaction flow protocols. Precision engineering for secure data pipelines.</p>
+                    <div class="text-indigo-400 text-xs font-semibold tracking-widest uppercase flex items-center gap-2 relative z-10">
+                        View Architecture <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
                     </div>
                 </a>
 
-                <!-- Node: ANW Restorations (Featured) -->
-                <div tabindex="0" role="article" aria-label="ANW Restorations - Active Service" class="md:col-span-3 relative group bg-white/5 backdrop-blur-sm rounded-2xl p-10 border border-white/10 hover:border-[#00E5FF]/50 focus-visible:ring-2 focus-visible:ring-[#00E5FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none transition-all duration-500 overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-br from-[#FFD700]/5 to-transparent"></div>
-                    <div class="flex flex-col md:flex-row gap-8 items-start relative z-10">
-                        <div class="w-16 h-16 bg-[#00E5FF]/10 rounded-2xl flex items-center justify-center text-[#FFD700] text-3xl shrink-0">
-                            <i aria-hidden="true" class="fa-solid fa-hammer"></i>
-                        </div>
+                <!-- GCP Proof of Work: Deployment Logs -->
+                <div class="md:col-span-2 glass-panel p-8 rounded-2xl border border-white/10 bg-white/5">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
                         <div>
-                            <div class="flex items-center gap-3 mb-2">
-                                <h3 id="node-restorations-title" class="text-3xl font-bold text-white">ANW Restorations</h3>
-                                <span class="px-2 py-0.5 bg-[#FFD700]/20 text-[#FFD700] text-[10px] font-bold rounded uppercase tracking-tighter">Active Service</span>
-                            </div>
-                            <p class="text-[#FFD700] font-medium text-lg mb-4">Restoring the Material World.</p>
-                            <p class="text-slate-400 text-base leading-relaxed mb-6 max-w-3xl">
-                                Expert handyman, cleaning, and lawn care services dedicated to the physical rejuvenation of properties. From structural repairs to aesthetic refinement, we make the world materially better. Whether it is historic preservation or modern maintenance, we refurbish what has been weathered.
-                            </p>
-                            <div class="flex flex-wrap gap-4">
-                                <span class="flex items-center gap-2 text-xs px-3 py-1.5 bg-white/5 text-white rounded-full border border-white/10"><i aria-hidden="true" class="fa-solid fa-screwdriver-wrench text-[#FFD700]"></i> Handyman</span>
-                                <span class="flex items-center gap-2 text-xs px-3 py-1.5 bg-white/5 text-white rounded-full border border-white/10"><i aria-hidden="true" class="fa-solid fa-sparkles text-[#FFD700]"></i> Deep Cleaning</span>
-                                <span class="flex items-center gap-2 text-xs px-3 py-1.5 bg-white/5 text-white rounded-full border border-white/10"><i aria-hidden="true" class="fa-solid fa-seedling text-[#FFD700]"></i> Lawn Care</span>
-                                <span class="flex items-center gap-2 text-xs px-3 py-1.5 bg-white/5 text-white rounded-full border border-white/10"><i aria-hidden="true" class="fa-solid fa-paint-roller text-[#FFD700]"></i> Refurbishment</span>
-                            </div>
-                            <a href="#contact" class="inline-flex items-center gap-2 mt-8 px-6 py-2.5 bg-[#FFD700] text-[#080C14] rounded-md font-bold text-sm hover:bg-white transition-colors focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:outline-none group">
-                                REQUEST SERVICE <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 group-focus-visible:translate-x-1 transition-transform"></i>
-                            </a>
+                            <h3 class="text-xl font-bold text-white mb-2 uppercase tracking-tight">GCP Infrastructure Build Logs</h3>
+                            <p class="text-slate-400 text-xs">Real-time deployment status and system health from Google Cloud Platform.</p>
                         </div>
+                        <span class="mt-4 md:mt-0 px-3 py-1 bg-green-500/10 text-green-400 text-[10px] font-black rounded uppercase tracking-tighter border border-green-500/20">System Live</span>
+                    </div>
+                    <div class="bg-black/40 rounded-xl p-6 font-mono text-[11px] text-indigo-300 border border-white/5 overflow-x-auto">
+                        <div class="opacity-50 mb-1">[2024-05-20 14:22:01] INITIALIZING ENTERPRISE AI CLUSTER...</div>
+                        <div class="opacity-70 mb-1">[2024-05-20 14:22:05] PROVISIONING COMPUTE ENGINE INSTANCES [REGION: US-CENTRAL1]...</div>
+                        <div class="opacity-90 mb-1 text-white">[2024-05-20 14:22:12] MULTI-AGENT SWARM CONNECTED. PIPELINE READY.</div>
+                        <div class="animate-pulse mt-2">_ [AWAITING USER DEPLOYMENT DATA]</div>
                     </div>
                 </div>
 
-                <!-- Project: Specto -->
-                <a href="https://specto-298595010694.us-west1.run.app/" target="_blank" rel="noopener noreferrer" class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-[#00E5FF]/50 focus-visible:ring-2 focus-visible:ring-[#00E5FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none transition-all duration-500 group">
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-[#00E5FF] group-focus-visible:text-[#00E5FF] transition-colors">Specto</h3>
-                    <p class="text-slate-400 text-xs mb-4">Multimodal EdTech curriculum generator for neurodiverse learners.</p>
-                    <div class="flex gap-2">
-                        <span class="text-[10px] px-2 py-1 bg-white/5 text-slate-300 rounded">AI</span>
-                        <span class="text-[10px] px-2 py-1 bg-white/5 text-slate-300 rounded">EdTech</span>
+                <!-- GCP Proof of Work: Active Endpoints -->
+                <div class="md:col-span-2 grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white/5 p-6 rounded-xl border border-white/5">
+                        <div class="text-slate-500 text-[10px] uppercase font-bold mb-2">API Endpoint A</div>
+                        <div class="text-white font-mono text-xs truncate">api.anwfoundations.com/v1/swarm</div>
+                        <div class="mt-4 flex items-center gap-2">
+                            <div class="w-1.5 h-1.5 rounded-full bg-green-400"></div>
+                            <span class="text-[10px] text-slate-400">LATENCY: 42ms</span>
+                        </div>
                     </div>
-                </a>
-
-                <!-- Project: Model.Earth -->
-                <a href="https://model.earth/" target="_blank" rel="noopener noreferrer" class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-[#00E5FF]/50 focus-visible:ring-2 focus-visible:ring-[#00E5FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none transition-all duration-500 group">
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-[#00E5FF] group-focus-visible:text-[#00E5FF] transition-colors">Model.Earth</h3>
-                    <p class="text-slate-400 text-xs mb-4">Open source contributor for sustainability modeling and data visualization.</p>
-                    <div class="flex gap-2">
-                        <span class="text-[10px] px-2 py-1 bg-white/5 text-slate-300 rounded">Sustainability</span>
-                        <span class="text-[10px] px-2 py-1 bg-white/5 text-slate-300 rounded">Open Data</span>
+                    <div class="bg-white/5 p-6 rounded-xl border border-white/5">
+                        <div class="text-slate-500 text-[10px] uppercase font-bold mb-2">Data Pipeline B</div>
+                        <div class="text-white font-mono text-xs truncate">ingress.gcp.anw.io/telemetry</div>
+                        <div class="mt-4 flex items-center gap-2">
+                            <div class="w-1.5 h-1.5 rounded-full bg-green-400"></div>
+                            <span class="text-[10px] text-slate-400">STATUS: ACTIVE</span>
+                        </div>
                     </div>
-                </a>
-
-                <!-- Project: Payviah -->
-                <a href="https://freequeenc.github.io/Payviah/" target="_blank" rel="noopener noreferrer" class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-[#00E5FF]/50 focus-visible:ring-2 focus-visible:ring-[#00E5FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none transition-all duration-500 group">
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-[#00E5FF] group-focus-visible:text-[#00E5FF] transition-colors">Payviah</h3>
-                    <p class="text-slate-400 text-xs mb-4">Modern financial infrastructure prototype and transaction flow mapping.</p>
-                    <div class="flex gap-2">
-                        <span class="text-[10px] px-2 py-1 bg-white/5 text-slate-300 rounded">Fintech</span>
-                        <span class="text-[10px] px-2 py-1 bg-white/5 text-slate-300 rounded">Protocols</span>
+                    <div class="bg-white/5 p-6 rounded-xl border border-white/5">
+                        <div class="text-slate-500 text-[10px] uppercase font-bold mb-2">Resonance Nexus</div>
+                        <div class="text-white font-mono text-xs truncate">nexus.nicole.world/v2/stream</div>
+                        <div class="mt-4 flex items-center gap-2">
+                            <div class="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse"></div>
+                            <span class="text-[10px] text-slate-400">SYNCING...</span>
+                        </div>
                     </div>
-                </a>
+                </div>
 
             </div>
         </div>
@@ -218,29 +227,33 @@
 
     </main>
 
-    <footer id="contact" class="bg-[#080C14] border-t border-white/10 pt-24 pb-12 outline-none" tabindex="-1">
+    <footer id="contact" class="bg-[#030712] border-t border-white/5 pt-24 pb-12 outline-none" tabindex="-1">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mb-16">
                 <div>
                     <h3 class="text-2xl font-black text-white mb-6 uppercase tracking-tighter">A.N.W. FOUNDATIONS</h3>
                     <p class="text-slate-400 mb-8 max-w-md">
-                        An ecosystem for diverse avenues of innovation. From the protocols that power our digital reality to the foundations that anchor our physical world.
+                        Architecting the autonomous, multi-agent frameworks and high-performance infrastructure businesses need to make AI reliable and scalable. Enterprise AI Automation and Data Pipeline Engineering.
                     </p>
                     <div class="flex items-center space-x-6">
-                        <a href="https://github.com/FREEqueenC" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" title="GitHub Profile" class="text-slate-500 hover:text-[#FFD700] focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none rounded transition-colors">
+                        <a href="https://github.com/FREEqueenC" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" title="GitHub Profile" class="text-slate-500 hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded transition-colors">
                             <i aria-hidden="true" class="fa-brands fa-github text-2xl"></i>
                         </a>
-                        <a href="javascript:void(0)" aria-label="LinkedIn Profile (Coming Soon)" title="LinkedIn Profile - Coming Soon" class="text-slate-500 hover:text-[#FFD700] focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none rounded transition-colors cursor-default">
+                        <a href="https://www.linkedin.com/in/ashleighnwalker/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" title="LinkedIn Profile" class="text-slate-500 hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded transition-colors">
                             <i aria-hidden="true" class="fa-brands fa-linkedin text-2xl"></i>
                         </a>
+                        <a href="#" aria-label="Book Consulting" title="Book Consulting Session" class="text-slate-500 hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded transition-colors">
+                            <i aria-hidden="true" class="fa-solid fa-calendar-check text-2xl"></i>
+                        </a>
                         <div class="relative flex items-center group/email">
-                            <a href="mailto:ashleighwalker@anwfoundations.com" id="email-link" aria-label="Send Email" title="Send Email" class="text-slate-500 hover:text-[#FFD700] focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none rounded transition-colors">
+                            <a href="mailto:ashleighwalker@anwfoundations.com" id="email-link" aria-label="Send Email" title="Send Email" class="text-slate-500 hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded transition-colors">
                                 <i aria-hidden="true" class="fa-solid fa-envelope text-2xl"></i>
                             </a>
-                            <button id="copyEmailBtn" aria-label="Copy email address" title="Copy email to clipboard" class="ml-2 text-slate-500 hover:text-[#FFD700] focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none rounded transition-all opacity-0 invisible pointer-events-none group-hover/email:opacity-100 group-hover/email:visible group-hover/email:pointer-events-auto group-focus-within/email:opacity-100 group-focus-within/email:visible group-focus-within/email:pointer-events-auto">
+                            <button id="copyEmailBtn" aria-label="Copy email address" title="Copy email to clipboard" class="ml-2 text-slate-500 hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded transition-all opacity-0 invisible pointer-events-none group-hover/email:opacity-100 group-hover/email:visible group-hover/email:pointer-events-auto group-focus-within/email:opacity-100 group-focus-within/email:visible group-focus-within/email:pointer-events-auto">
                                 <i class="fa-solid fa-copy text-lg"></i>
                             </button>
-                            <span id="copyFeedback" class="absolute -top-10 left-1/2 -translate-x-1/2 bg-[#FFD700] text-[#080C14] text-[10px] font-bold px-2 py-1 rounded opacity-0 transition-opacity pointer-events-none whitespace-nowrap" aria-live="polite">COPIED!</span>
+                            <span id="copyFeedback" class="absolute -top-10 left-1/2 -translate-x-1/2 bg-indigo-500 text-white text-[10px] font-bold px-2 py-1 rounded opacity-0 transition-opacity pointer-events-none whitespace-nowrap" aria-live="polite">COPIED!</span>
                         </div>
                     </div>
                 </div>
@@ -255,8 +268,8 @@
                     &copy; 2026 A.N.W. FOUNDATIONS LLC. All rights reserved.
                 </p>
                 <div class="flex gap-8">
-                    <a href="javascript:void(0)" title="Coming Soon" class="cursor-default text-slate-600 hover:text-white text-[10px] font-bold uppercase tracking-widest focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none rounded transition-colors">Privacy</a>
-                    <a href="javascript:void(0)" title="Coming Soon" class="cursor-default text-slate-600 hover:text-white text-[10px] font-bold uppercase tracking-widest focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none rounded transition-colors">Terms</a>
+                    <a href="javascript:void(0)" title="Coming Soon" class="cursor-default text-slate-600 hover:text-white text-[10px] font-bold uppercase tracking-widest focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded transition-colors">Privacy</a>
+                    <a href="javascript:void(0)" title="Coming Soon" class="cursor-default text-slate-600 hover:text-white text-[10px] font-bold uppercase tracking-widest focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded transition-colors">Terms</a>
                 </div>
             </div>
         </div>
@@ -265,7 +278,7 @@
     <!-- Back to Top Button -->
     <button id="back-to-top"
             aria-label="Back to top"
-            class="fixed bottom-8 right-8 z-[70] bg-gradient-to-br from-[#FFD700] to-[#00E5FF] text-[#080C14] w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:scale-110 focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none">
+            class="fixed bottom-8 right-8 z-[70] bg-gradient-to-br from-indigo-500 to-purple-600 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:scale-110 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none">
         <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
     </button>
 
