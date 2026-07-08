@@ -24,3 +24,7 @@
 ## 2026-06-14 - [Synchronized Visibility and Interactivity for Secondary Actions]
 **Learning:** When using Tailwind's `group-hover` to show secondary interactive elements (like copy buttons), relying solely on `opacity` leaves them reachable via keyboard while invisible ("ghost focus"). Using a combination of `invisible`, `pointer-events-none`, and `group-focus-within` ensures these elements are only focusable and interactive when they are visually presented to the user.
 **Action:** Always pair visibility transitions with `invisible` and `pointer-events-none`, and ensure they are toggled via `group-focus-within` to maintain keyboard accessibility and prevent a confusing tab order.
+
+## 2024-05-23 - Accessible Custom Tooltips for Disabled Elements
+**Learning:** Native `title` attributes on disabled elements (or placeholder links) are inaccessible via keyboard navigation. Additionally, using `href='#'` as a placeholder on these disabled links causes disruptive page scrolls when clicked, even with `aria-disabled='true'`.
+**Action:** Replace native `title` with accessible Tailwind custom tooltips using `role="tooltip"`, `aria-describedby`, and `group-focus-visible`. Always use `href='javascript:void(0)'` instead of `href='#'` for placeholder/disabled links to prevent abrupt scrolling, pairing it with `cursor-not-allowed`.
