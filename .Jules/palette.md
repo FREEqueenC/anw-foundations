@@ -24,3 +24,7 @@
 ## 2026-06-14 - [Synchronized Visibility and Interactivity for Secondary Actions]
 **Learning:** When using Tailwind's `group-hover` to show secondary interactive elements (like copy buttons), relying solely on `opacity` leaves them reachable via keyboard while invisible ("ghost focus"). Using a combination of `invisible`, `pointer-events-none`, and `group-focus-within` ensures these elements are only focusable and interactive when they are visually presented to the user.
 **Action:** Always pair visibility transitions with `invisible` and `pointer-events-none`, and ensure they are toggled via `group-focus-within` to maintain keyboard accessibility and prevent a confusing tab order.
+
+## 2026-06-20 - [Accessible Custom Tooltips vs Native Title]
+**Learning:** Native `title` attributes are inaccessible via keyboard focus, leaving screen reader and keyboard-only users without important contextual information for icon-only buttons. Replacing them with custom tooltips triggered by `focus-visible` (and hover) ensures critical context is available to all users. When using `aria-label` alongside `aria-describedby` (e.g., for custom tooltips), ensure the tooltip text differs from the label (or provides additional context) to prevent screen readers from redundantly announcing identical strings.
+**Action:** Always avoid native `title` attributes on interactive elements. Instead, build custom Tailwind tooltips (using `group-focus-visible:opacity-100` and `group-hover:opacity-100`) linked via `aria-describedby`.
