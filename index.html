@@ -10,7 +10,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="icon" type="image/png" href="favicon.png">
 
     <!-- Google Fonts -->
@@ -237,24 +237,28 @@
                         Architecting the autonomous, multi-agent frameworks and high-performance infrastructure businesses need to make AI reliable and scalable. Enterprise AI Automation and Data Pipeline Engineering.
                     </p>
                     <div class="flex items-center space-x-6">
-                        <a href="https://github.com/FREEqueenC" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" title="GitHub Profile" class="text-slate-500 hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded transition-colors">
+                        <a href="https://github.com/FREEqueenC" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" aria-describedby="tooltip-github" class="group relative text-slate-500 hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded transition-colors">
                             <i aria-hidden="true" class="fa-brands fa-github text-2xl"></i>
+                            <span role="tooltip" id="tooltip-github" class="absolute -top-10 left-1/2 -translate-x-1/2 bg-indigo-500 text-white text-[10px] font-bold px-2 py-1 rounded opacity-0 transition-opacity pointer-events-none whitespace-nowrap group-hover:opacity-100 group-focus-visible:opacity-100 z-10">View Code</span>
                         </a>
-                        <a href="https://www.linkedin.com/in/ashleighnwalker/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" title="LinkedIn Profile" class="text-slate-500 hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded transition-colors">
+                        <a href="https://www.linkedin.com/in/ashleighnwalker/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" aria-describedby="tooltip-linkedin" class="group relative text-slate-500 hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded transition-colors">
                             <i aria-hidden="true" class="fa-brands fa-linkedin text-2xl"></i>
+                            <span role="tooltip" id="tooltip-linkedin" class="absolute -top-10 left-1/2 -translate-x-1/2 bg-indigo-500 text-white text-[10px] font-bold px-2 py-1 rounded opacity-0 transition-opacity pointer-events-none whitespace-nowrap group-hover:opacity-100 group-focus-visible:opacity-100 z-10">Connect on LinkedIn</span>
                         </a>
-                        <button type="button" aria-disabled="true" aria-describedby="tooltip-consulting" aria-label="Book Consulting" class="group relative text-slate-500 hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded transition-colors cursor-not-allowed opacity-50">
+                        <a href="#" aria-label="Book Consulting" aria-describedby="tooltip-book" class="group relative text-slate-500 hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded transition-colors">
                             <i aria-hidden="true" class="fa-solid fa-calendar-check text-2xl"></i>
-                            <span id="tooltip-consulting" role="tooltip" aria-hidden="true" class="absolute -top-10 left-1/2 -translate-x-1/2 bg-indigo-500 text-white text-[10px] font-bold px-2 py-1 rounded opacity-0 invisible pointer-events-none group-hover:opacity-100 group-hover:visible group-focus-visible:opacity-100 group-focus-visible:visible transition-all whitespace-nowrap z-10">Coming Soon</span>
-                        </button>
+                            <span role="tooltip" id="tooltip-book" class="absolute -top-10 left-1/2 -translate-x-1/2 bg-indigo-500 text-white text-[10px] font-bold px-2 py-1 rounded opacity-0 transition-opacity pointer-events-none whitespace-nowrap group-hover:opacity-100 group-focus-visible:opacity-100 z-10">Schedule Meeting</span>
+                        </a>
                         <div class="relative flex items-center group/email">
-                            <a href="mailto:ashleighwalker@anwfoundations.com" id="email-link" aria-label="Send Email" title="Send Email" class="text-slate-500 hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded transition-colors">
+                            <a href="mailto:ashleighwalker@anwfoundations.com" id="email-link" aria-label="Send Email" aria-describedby="tooltip-email" class="group relative text-slate-500 hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded transition-colors">
                                 <i aria-hidden="true" class="fa-solid fa-envelope text-2xl"></i>
+                                <span role="tooltip" id="tooltip-email" class="absolute -top-10 left-1/2 -translate-x-1/2 bg-indigo-500 text-white text-[10px] font-bold px-2 py-1 rounded opacity-0 transition-opacity pointer-events-none whitespace-nowrap group-hover:opacity-100 group-focus-visible:opacity-100 z-10">Message Directly</span>
                             </a>
-                            <button id="copyEmailBtn" aria-label="Copy email address" title="Copy email to clipboard" class="ml-2 text-slate-500 hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded transition-all opacity-0 invisible pointer-events-none group-hover/email:opacity-100 group-hover/email:visible group-hover/email:pointer-events-auto group-focus-within/email:opacity-100 group-focus-within/email:visible group-focus-within/email:pointer-events-auto">
+                            <button id="copyEmailBtn" aria-label="Copy email address" aria-describedby="tooltip-copy" class="group relative ml-2 text-slate-500 hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded transition-all opacity-0 invisible pointer-events-none group-hover/email:opacity-100 group-hover/email:visible group-hover/email:pointer-events-auto group-focus-within/email:opacity-100 group-focus-within/email:visible group-focus-within/email:pointer-events-auto">
                                 <i class="fa-solid fa-copy text-lg"></i>
+                                <span role="tooltip" id="tooltip-copy" class="absolute -top-10 left-1/2 -translate-x-1/2 bg-indigo-500 text-white text-[10px] font-bold px-2 py-1 rounded opacity-0 transition-opacity pointer-events-none whitespace-nowrap group-hover:opacity-100 group-focus-visible:opacity-100 z-10">Copy to Clipboard</span>
                             </button>
-                            <span id="copyFeedback" class="absolute -top-10 left-1/2 -translate-x-1/2 bg-indigo-500 text-white text-[10px] font-bold px-2 py-1 rounded opacity-0 transition-opacity pointer-events-none whitespace-nowrap" aria-live="polite">COPIED!</span>
+                            <span id="copyFeedback" class="absolute -top-10 left-1/2 -translate-x-1/2 bg-indigo-500 text-white text-[10px] font-bold px-2 py-1 rounded opacity-0 transition-opacity pointer-events-none whitespace-nowrap z-20" aria-live="polite">COPIED!</span>
                         </div>
                     </div>
                 </div>
