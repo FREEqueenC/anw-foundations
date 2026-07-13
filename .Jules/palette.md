@@ -26,5 +26,5 @@
 **Action:** Always pair visibility transitions with `invisible` and `pointer-events-none`, and ensure they are toggled via `group-focus-within` to maintain keyboard accessibility and prevent a confusing tab order.
 
 ## 2026-07-07 - [Accessible Tooltips for Disabled States]
-**Learning:** Native `title` attributes on disabled elements or anchor links are inaccessible to keyboard users and provide inconsistent experiences across screen readers. Using  for placeholder links causes disruptive page scroll jumps.
-**Action:** Replace  with `javascript:void(0)` and use Tailwind-based custom tooltips triggered by `group-hover` and `group-focus-visible`. Ensure these are paired with `aria-disabled="true"` and `aria-describedby` to explicitly provide access for all users.
+**Learning:** Native `title` attributes on disabled elements or anchor links are inaccessible to keyboard users and provide inconsistent experiences across screen readers. Using `#` or `javascript:void(0)` on anchor links is an anti-pattern that can violate Content Security Policies (CSP) and convey incorrect semantics. Using `<button type="button">` with `aria-disabled="true"` is a more robust and compliant approach.
+**Action:** Convert placeholder links to `<button type="button">` elements with `aria-disabled="true"` and use Tailwind-based custom tooltips triggered by `group-hover` and `group-focus-visible`. Ensure these are paired with `aria-describedby` to explicitly provide access for all users.
