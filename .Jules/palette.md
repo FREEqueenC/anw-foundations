@@ -28,3 +28,7 @@
 ## 2026-06-20 - [Accessible Custom Tooltips vs Native Title]
 **Learning:** Native `title` attributes are inaccessible via keyboard focus, leaving screen reader and keyboard-only users without important contextual information for icon-only buttons. Replacing them with custom tooltips triggered by `focus-visible` (and hover) ensures critical context is available to all users. When using `aria-label` alongside `aria-describedby` (e.g., for custom tooltips), ensure the tooltip text differs from the label (or provides additional context) to prevent screen readers from redundantly announcing identical strings.
 **Action:** Always avoid native `title` attributes on interactive elements. Instead, build custom Tailwind tooltips (using `group-focus-visible:opacity-100` and `group-hover:opacity-100`) linked via `aria-describedby`.
+
+## 2026-07-26 - [Secondary Page Keyboard Accessibility Parity]
+**Learning:** Secondary pages often suffer from degraded keyboard accessibility compared to heavily optimized landing pages. Elements like navigation links and project cards frequently miss `focus-visible` styles, leading to a disconnected keyboard navigation experience.
+**Action:** Always verify keyboard focus parity across all pages and ensure consistent `focus-visible:ring-*` classes on all interactive elements.
