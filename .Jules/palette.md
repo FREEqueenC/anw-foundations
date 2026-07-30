@@ -32,3 +32,7 @@
 ## 2026-07-26 - [Secondary Page Keyboard Accessibility Parity]
 **Learning:** Secondary pages often suffer from degraded keyboard accessibility compared to heavily optimized landing pages. Elements like navigation links and project cards frequently miss `focus-visible` styles, leading to a disconnected keyboard navigation experience.
 **Action:** Always verify keyboard focus parity across all pages and ensure consistent `focus-visible:ring-*` classes on all interactive elements.
+
+## 2026-07-30 - [Subresource Integrity (SRI) for Third-Party CDNs]
+**Learning:** Loading external scripts or stylesheets (like Tailwind CSS or Font Awesome) via CDNs without Subresource Integrity (SRI) attributes creates a significant security vulnerability. If the CDN is compromised, malicious code could be injected and executed on all client browsers. Hardcoding a specific version alongside an SRI hash mitigates this risk by ensuring the browser only executes the script if its content perfectly matches the expected cryptographic hash.
+**Action:** Always include `integrity` and `crossorigin="anonymous"` attributes for scripts and stylesheets loaded from third-party CDNs, pinning to a specific version to prevent hash mismatches during minor updates.
