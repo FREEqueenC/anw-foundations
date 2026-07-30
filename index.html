@@ -250,7 +250,7 @@
                             <span role="tooltip" id="tooltip-book" class="absolute -top-10 left-1/2 -translate-x-1/2 bg-slate-700 text-white text-[10px] font-bold px-2 py-1 rounded opacity-0 transition-opacity pointer-events-none whitespace-nowrap group-hover:opacity-100 group-focus-visible:opacity-100 z-10">Coming Soon</span>
                         </a>
                         <div class="relative flex items-center group/email">
-                            <a href="javascript:void(0)" id="email-link" data-e="YXNobGVpZ2h3YWxrZXJAYW53Zm91bmRhdGlvbnMuY29t" aria-label="Send Email" aria-describedby="tooltip-email" class="group relative text-slate-500 hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded transition-colors">
+                            <a href="#" data-contact="YXNobGVpZ2h3YWxrZXJAYW53Zm91bmRhdGlvbnMuY29t" id="email-link" aria-label="Send Email" aria-describedby="tooltip-email" class="obfuscated-email group relative text-slate-500 hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded transition-colors">
                                 <i aria-hidden="true" class="fa-solid fa-envelope text-2xl"></i>
                                 <span role="tooltip" id="tooltip-email" class="absolute -top-10 left-1/2 -translate-x-1/2 bg-indigo-500 text-white text-[10px] font-bold px-2 py-1 rounded opacity-0 transition-opacity pointer-events-none whitespace-nowrap group-hover:opacity-100 group-focus-visible:opacity-100 z-10">Message Directly</span>
                             </a>
@@ -291,6 +291,14 @@
     <!-- UX Scripts -->
     <script>
         (function() {
+            // --- Obfuscated Emails ---
+            document.querySelectorAll('.obfuscated-email').forEach(link => {
+                const contact = link.getAttribute('data-contact');
+                if (contact) {
+                    link.href = 'mailto:' + atob(contact);
+                }
+            });
+
             // --- DOM Elements ---
             const progressBar = document.getElementById('scroll-progress');
             const backToTopBtn = document.getElementById('back-to-top');
@@ -336,7 +344,17 @@
             // --- Email Copy-to-Clipboard ---
             function handleCopy() {
                 if (!emailLink || !feedback) return;
-                const email = atob(emailLink.getAttribute('data-e'));
+                let email = '';
+                if(emailLink.classList.contains('obfuscated-email')) {
+                    const contact = emailLink.getAttribute('data-contact');
+                    if (contact) {
+                        email = atob(contact);
+                    }
+                } else {
+                    email = emailLink.href.replace('mailto:', '');
+                }
+
+                if(!email) return;
 
                 navigator.clipboard.writeText(email).then(() => {
                     feedback.classList.remove('opacity-0');
