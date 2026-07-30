@@ -372,7 +372,7 @@
                 }).catch(err => console.error('Failed to copy email: ', err));
             }
 
-            if (emailLink) emailLink.addEventListener('click', handleCopy);
+            if (emailLink) emailLink.addEventListener('click', () => { window.location.href = 'mailto:' + atob(emailLink.getAttribute('data-e')); });
             if (copyBtn) copyBtn.addEventListener('click', (e) => {
                 e.preventDefault();
                 handleCopy();
