@@ -146,7 +146,7 @@
                 <div class="relative z-10">
                     <h2 class="text-3xl font-black text-white mb-8 uppercase tracking-tighter">Enterprise Consulting & Booking</h2>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <a href="mailto:ashleighwalker@anwfoundations.com" class="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none transition-colors group">
+                        <a href="#" data-contact="YXNobGVpZ2h3YWxrZXJAYW53Zm91bmRhdGlvbnMuY29t" class="obfuscated-email flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none transition-colors group">
                             <div class="w-10 h-10 bg-indigo-500/20 rounded-lg flex items-center justify-center text-indigo-400">
                                 <i aria-hidden="true" class="fa-solid fa-envelope"></i>
                             </div>
@@ -188,5 +188,17 @@
             </div>
         </div>
     </footer>
+
+    <!-- Security Scripts -->
+    <script>
+        (function() {
+            document.querySelectorAll('.obfuscated-email').forEach(link => {
+                const contact = link.getAttribute('data-contact');
+                if (contact) {
+                    link.href = 'mailto:' + atob(contact);
+                }
+            });
+        })();
+    </script>
 </body>
 </html>
