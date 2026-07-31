@@ -20,3 +20,19 @@
 ## 2026-05-20 - [Accessible Smooth Scrolling & Focus Management]
 **Learning:** In single-page applications using smooth scroll, visual movement must be paired with programmatic focus management. Without explicitly moving focus (using `element.focus()` and `tabindex="-1"`), keyboard and screen reader users remain at the source of the click, losing context and breaking the logical navigation flow.
 **Action:** Always synchronize smooth scroll animations with programmatic focus updates to the target element to maintain accessibility parity with visual transitions.
+
+## 2026-06-14 - [Synchronized Visibility and Interactivity for Secondary Actions]
+**Learning:** When using Tailwind's `group-hover` to show secondary interactive elements (like copy buttons), relying solely on `opacity` leaves them reachable via keyboard while invisible ("ghost focus"). Using a combination of `invisible`, `pointer-events-none`, and `group-focus-within` ensures these elements are only focusable and interactive when they are visually presented to the user.
+**Action:** Always pair visibility transitions with `invisible` and `pointer-events-none`, and ensure they are toggled via `group-focus-within` to maintain keyboard accessibility and prevent a confusing tab order.
+
+## 2026-06-20 - [Accessible Custom Tooltips vs Native Title]
+**Learning:** Native `title` attributes are inaccessible via keyboard focus, leaving screen reader and keyboard-only users without important contextual information for icon-only buttons. Replacing them with custom tooltips triggered by `focus-visible` (and hover) ensures critical context is available to all users. When using `aria-label` alongside `aria-describedby` (e.g., for custom tooltips), ensure the tooltip text differs from the label (or provides additional context) to prevent screen readers from redundantly announcing identical strings.
+**Action:** Always avoid native `title` attributes on interactive elements. Instead, build custom Tailwind tooltips (using `group-focus-visible:opacity-100` and `group-hover:opacity-100`) linked via `aria-describedby`.
+
+## 2026-07-26 - [Secondary Page Keyboard Accessibility Parity]
+**Learning:** Secondary pages often suffer from degraded keyboard accessibility compared to heavily optimized landing pages. Elements like navigation links and project cards frequently miss `focus-visible` styles, leading to a disconnected keyboard navigation experience.
+**Action:** Always verify keyboard focus parity across all pages and ensure consistent `focus-visible:ring-*` classes on all interactive elements.
+
+## 2026-07-30 - [Subresource Integrity (SRI) for Third-Party CDNs]
+**Learning:** Loading external scripts or stylesheets (like Tailwind CSS or Font Awesome) via CDNs without Subresource Integrity (SRI) attributes creates a significant security vulnerability. If the CDN is compromised, malicious code could be injected and executed on all client browsers. Hardcoding a specific version alongside an SRI hash mitigates this risk by ensuring the browser only executes the script if its content perfectly matches the expected cryptographic hash.
+**Action:** Always include `integrity` and `crossorigin="anonymous"` attributes for scripts and stylesheets loaded from third-party CDNs, pinning to a specific version to prevent hash mismatches during minor updates.
