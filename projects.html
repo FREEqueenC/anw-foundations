@@ -20,7 +20,7 @@
         body {
             letter-spacing: -0.015em;
             font-family: 'Inter', sans-serif;
-            background-color: #030712; /* Slate 900 */
+            background-color: #050505; /* Deep Void Obsidian */
             color: #f8fafc; /* Slate 50 */
         }
         h1, h2, h3 {
@@ -28,29 +28,135 @@
             font-weight: 800;
         }
         .aether-gradient {
-            background: linear-gradient(135deg, #f8fafc 0%, #a5b4fc 50%, #6366f1 100%);
+            background: linear-gradient(135deg, #e2e8f0 0%, #a5b4fc 50%, #22d3ee 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .dark-glass {
+            background: rgba(10, 10, 15, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .frequency-wave {
+        .dark-glass:hover {
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            transform: translateY(-4px);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
+        /* Aetheric Background Animations */
+        .aether-bg {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            background: radial-gradient(circle at 50% 50%, #080c16 0%, #050505 100%);
+            overflow: hidden;
+        }
+        .aether-wisp {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100px;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%236366f1" fill-opacity="0.05" d="M0,160L48,176C96,192,192,224,288,213.3C384,203,480,149,576,149.3C672,149,768,203,864,213.3C960,224,1056,192,1152,165.3C1248,139,1344,117,1392,106.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
-            background-size: cover;
-            z-index: 0;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.15;
+            animation: drift 20s infinite alternate ease-in-out;
+        }
+        .wisp-1 {
+            width: 600px;
+            height: 600px;
+            background: #6366f1; /* Deep Violet/Indigo */
+            top: -200px;
+            left: -100px;
+            animation-delay: 0s;
+        }
+        .wisp-2 {
+            width: 500px;
+            height: 500px;
+            background: #22d3ee; /* Cyan */
+            bottom: -100px;
+            right: -100px;
+            animation-delay: -5s;
+            animation-duration: 25s;
+        }
+        .wisp-3 {
+            width: 400px;
+            height: 400px;
+            background: #a5b4fc; /* Pale Silver/Violet */
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: -10s;
+            animation-duration: 30s;
+        }
+
+        @keyframes drift {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(50px, 30px) scale(1.1); }
+        }
+
+        .geometric-pattern {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+            opacity: 0.5;
+            mask-image: radial-gradient(circle at center, black, transparent 80%);
+            -webkit-mask-image: radial-gradient(circle at center, black, transparent 80%);
+            animation: phase 15s infinite alternate ease-in-out;
+        }
+
+        @keyframes phase {
+            0% { opacity: 0.2; }
+            100% { opacity: 0.8; }
+        }
+
+        /* Glass panel fallback for existing contact sections */
+        .glass-panel {
+            background: rgba(10, 10, 15, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
     </style>
+
+    <script>
+        class ProjectCard extends HTMLElement {
+            connectedCallback() {
+                const title = this.getAttribute('title') || 'Project Title';
+                const description = this.getAttribute('description') || 'Project description goes here.';
+                const url = this.getAttribute('url') || '#';
+                const icon = this.getAttribute('icon') || 'fa-solid fa-microchip';
+
+                this.innerHTML = `
+                    <a href="${url}" target="_blank" rel="noopener noreferrer" class="dark-glass group p-8 rounded-2xl focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] focus-visible:outline-none block h-full flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-6">
+                                <div class="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-400 text-2xl group-hover:scale-110 group-hover:text-cyan-400 transition-all duration-500 shadow-[0_0_15px_rgba(99,102,241,0.2)]">
+                                    <i aria-hidden="true" class="${icon}"></i>
+                                </div>
+                                <i aria-hidden="true" class="fa-solid fa-arrow-up-right-from-square text-slate-600 group-hover:text-indigo-400 transition-colors"></i>
+                            </div>
+                            <h3 class="text-xl md:text-2xl font-bold text-white mb-3 group-hover:text-indigo-200 transition-colors">${title}</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                                ${description}
+                            </p>
+                        </div>
+                    </a>
+                `;
+            }
+        }
+        customElements.define('project-card', ProjectCard);
+    </script>
 </head>
 <body class="antialiased selection:bg-[#6366f1] selection:text-white">
-    <div class="absolute inset-0 pointer-events-none opacity-[0.03]" style="background-image: radial-gradient(circle at 2px 2px, #6366f1 1px, transparent 0); background-size: 40px 40px;"></div>
+    <!-- Aetheric Environment -->
+    <div class="aether-bg">
+        <div class="aether-wisp wisp-1"></div>
+        <div class="aether-wisp wisp-2"></div>
+        <div class="aether-wisp wisp-3"></div>
+    </div>
+    <div class="geometric-pattern pointer-events-none"></div>
     <!-- Skip Link -->
     <a href="#main-content" id="skip-link" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-white focus:text-[#080C14] focus:px-4 focus:py-2 focus:rounded-md focus:font-bold focus:outline-none focus:ring-2 focus:ring-[#6366f1]">
         Skip to Main Content
@@ -95,50 +201,62 @@
             </header>
 
             <!-- Link Directory -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-32">
-                <!-- Google AI Studio -->
-                <a href="https://aistudio.google.com/" target="_blank" rel="noopener noreferrer" class="glass-panel group p-8 rounded-2xl hover:border-indigo-500/50 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none transition-all duration-500 block">
-                    <div class="flex justify-between items-start mb-6">
-                        <div class="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-400 text-2xl group-hover:scale-110 transition-transform">
-                            <i aria-hidden="true" class="fa-solid fa-microchip"></i>
-                        </div>
-                        <i aria-hidden="true" class="fa-solid fa-arrow-up-right-from-square text-slate-600 group-hover:text-indigo-400 transition-colors"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-3">Google AI Studio</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">
-                        A primary workspace for agentic framework testing. Leveraging advanced LLM capabilities to build autonomous systems and scalable AI-driven workflows.
-                    </p>
-                </a>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-32">
+                <project-card
+                    title="Payviah"
+                    description="Financial installment infrastructure enabling seamless multi-party transactions and adaptive payment routing."
+                    url="javascript:void(0)"
+                    icon="fa-solid fa-money-bill-transfer">
+                </project-card>
 
-                <!-- GitHub -->
-                <a href="https://github.com/freequeenc" target="_blank" rel="noopener noreferrer" class="glass-panel group p-8 rounded-2xl hover:border-indigo-500/50 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none transition-all duration-500 block">
-                    <div class="flex justify-between items-start mb-6">
-                        <div class="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-400 text-2xl group-hover:scale-110 transition-transform">
-                            <i aria-hidden="true" class="fa-brands fa-github"></i>
-                        </div>
-                        <i aria-hidden="true" class="fa-solid fa-arrow-up-right-from-square text-slate-600 group-hover:text-indigo-400 transition-colors"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-3">GitHub Repository</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">
-                        Open-source system architecture and smart contract deployments. Documenting the foundational logic of decentralized protocols and infrastructure builds.
-                    </p>
-                </a>
+                <project-card
+                    title="Techno-Gnosis: Past &amp; Future"
+                    description="An interactive exploration oracle bridging ancient esoteric wisdom with futuristic technological paradigms."
+                    url="javascript:void(0)"
+                    icon="fa-solid fa-om">
+                </project-card>
 
-                <!-- Disclosure Project -->
-                <a href="https://disclosure-project.org/" target="_blank" rel="noopener noreferrer" class="glass-panel md:col-span-2 group p-8 rounded-2xl hover:border-indigo-500/50 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none transition-all duration-500 block">
-                    <div class="flex justify-between items-start mb-6">
-                        <div class="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-400 text-2xl group-hover:scale-110 transition-transform">
-                            <i aria-hidden="true" class="fa-solid fa-atom"></i>
-                        </div>
-                        <i aria-hidden="true" class="fa-solid fa-arrow-up-right-from-square text-slate-600 group-hover:text-indigo-400 transition-colors"></i>
-                    </div>
-                    <div class="max-w-2xl">
-                        <h3 class="text-2xl font-bold text-white mb-3">The Disclosure Project</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">
-                            Framed under independent research and advanced physics/technology exploration. Investigating the frontiers of energy, consciousness, and archival transparency in scientific data.
-                        </p>
-                    </div>
-                </a>
+                <project-card
+                    title="Specto"
+                    description="A comprehensive visual supports suite designed for cognitive accessibility and ambient data visualization."
+                    url="javascript:void(0)"
+                    icon="fa-solid fa-eye">
+                </project-card>
+
+                <project-card
+                    title="Ascension Protocol Toolkit"
+                    description="An audio-visual alchemy toolkit engineered to induce specific bio-rhythmic and cognitive states."
+                    url="javascript:void(0)"
+                    icon="fa-solid fa-bolt">
+                </project-card>
+
+                <project-card
+                    title="Mirror - Personal Data Analyst"
+                    description="Advanced self-quantification framework that synthesizes disparate data streams into coherent actionable insights."
+                    url="javascript:void(0)"
+                    icon="fa-solid fa-chart-line">
+                </project-card>
+
+                <project-card
+                    title="CryptoScope Decoder"
+                    description="Advanced steganography and cryptographic analysis tool for decentralized data verification."
+                    url="javascript:void(0)"
+                    icon="fa-solid fa-qrcode">
+                </project-card>
+
+                <project-card
+                    title="The Disclosure Project"
+                    description="Investigating the frontiers of energy, consciousness, and archival transparency in scientific data."
+                    url="https://disclosure-project.org/"
+                    icon="fa-solid fa-atom">
+                </project-card>
+
+                <project-card
+                    title="GitHub Repository"
+                    description="Open-source system architecture and smart contract deployments documenting foundational infrastructure logic."
+                    url="https://github.com/freequeenc"
+                    icon="fa-brands fa-github">
+                </project-card>
             </div>
 
             <!-- Contact Block -->
@@ -170,8 +288,7 @@
             </section>
         </div>
 
-        <!-- Frequency Wave SVG Background -->
-        <div class="frequency-wave"></div>
+        <!-- Aetheric background managed by classes -->
     </main>
 
         <footer class="bg-[#030712] border-t border-white/5 py-12">
