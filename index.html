@@ -385,22 +385,16 @@
                         return;
                     }
 
-                    const target = document.querySelector(href);
-                    if (target) {
-                        e.preventDefault();
-                        target.scrollIntoView({ behavior: 'smooth' });
-
-                        // Handle focus for accessibility
-                        const prevTabIndex = target.getAttribute('tabindex');
-                        if (!prevTabIndex) target.setAttribute('tabindex', '-1');
-
-                        target.focus({ preventScroll: true });
-
-                        // Cleanup tabindex if it was temporary
-                        if (!prevTabIndex) {
-                            target.addEventListener('blur', () => {
-                                target.removeAttribute('tabindex');
-                            }, { once: true });
+                    const targetElement = document.querySelector(href);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                        // Update focus for screen readers and keyboard navigation
+                        targetElement.focus({ preventScroll: true });
+                        if (document.activeElement !== targetElement) {
+                            targetElement.setAttribute('tabindex', '-1');
+                            targetElement.focus({ preventScroll: true });
                         }
                     }
                 });
