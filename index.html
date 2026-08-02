@@ -66,7 +66,7 @@
     </style>
 </head>
 <body class="antialiased selection:bg-[#FFD700] selection:text-white">
-    <a id="skip-link" href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-[#FFD700] focus:text-[#080C14] focus:px-4 focus:py-2 focus:rounded-md focus:font-bold focus:outline-none focus:ring-2 focus:ring-[#FFD700] focus:ring-offset-2 focus:ring-offset-[#080C14]">
+    <a href="#main-content" id="skip-link" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-[#FFD700] focus:text-[#080C14] focus:px-4 focus:py-2 focus:rounded-md focus:font-bold focus:outline-none focus:ring-2 focus:ring-[#FFD700] focus:ring-offset-2 focus:ring-offset-[#080C14]">
         Skip to Main Content
     </a>
 
@@ -280,75 +280,15 @@
         </div>
     </footer>
 
+
     <!-- UX Scripts -->
     <script>
         (function() {
-            // --- Elements ---
-            const progressBar = document.getElementById('scroll-progress');
-            const backToTopBtn = document.getElementById('back-to-top');
-            const skipLink = document.getElementById('skip-link');
+            // --- Email Copy-to-Clipboard ---
             const emailLink = document.getElementById('email-link');
             const copyBtn = document.getElementById('copyEmailBtn');
             const feedback = document.getElementById('copyFeedback');
-
-            // Decode email links safely
-            document.querySelectorAll('.obfuscated-email').forEach(link => {
-                const contact = link.getAttribute('data-contact');
-                if (contact) {
-                    try {
-                        link.href = 'mailto:' + atob(contact);
-                    } catch (e) {
-                        console.error("Failed to decode email link:", e);
-                    }
-                }
-            });
-
-            let ticking = false;
             let copyTimeout = null;
-
-            // --- Scroll Handling (Progress & Back-to-Top) ---
-            function updateScrollUI() {
-                const scrollHeight = document.documentElement.scrollHeight;
-                const clientHeight = document.documentElement.clientHeight;
-                const scrollTop = window.scrollY || document.documentElement.scrollTop;
-                const scrollMax = scrollHeight - clientHeight;
-
-                // Progress Bar
-                if (progressBar && scrollMax > 0) {
-                    const scrollPercentage = Math.min(100, Math.max(0, (scrollTop / scrollMax) * 100));
-                    progressBar.style.width = scrollPercentage + '%';
-                    progressBar.setAttribute('aria-valuenow', Math.round(scrollPercentage));
-                }
-
-                // Back to Top Visibility
-                if (backToTopBtn) {
-                    const shouldShow = scrollTop > 400;
-                    if (shouldShow) {
-                        backToTopBtn.classList.remove('opacity-0', 'pointer-events-none', 'invisible', 'translate-y-10');
-                        backToTopBtn.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
-                    } else {
-                        backToTopBtn.classList.add('opacity-0', 'pointer-events-none', 'invisible', 'translate-y-10');
-                        backToTopBtn.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
-                    }
-                }
-                ticking = false;
-            }
-
-            window.addEventListener('scroll', () => {
-                if (!ticking) {
-                    window.requestAnimationFrame(updateScrollUI);
-                    ticking = true;
-                }
-            }, { passive: true });
-
-            if (backToTopBtn) {
-                backToTopBtn.addEventListener('click', () => {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                    if (skipLink) {
-                        skipLink.focus({ preventScroll: true });
-                    }
-                });
-            }
 
             // --- Email Copy-to-Clipboard ---
             function handleCopy(e) {
@@ -381,29 +321,81 @@
                 handleCopy(e);
             });
 
+            // --- Scroll Handling (Progress & Back-to-Top) ---
+            const progressBar = document.getElementById('scroll-progress');
+            const backToTopBtn = document.getElementById('back-to-top');
+            const skipLink = document.getElementById('skip-link');
+            let ticking = false;
+
+            function updateScrollUI() {
+                const scrollHeight = document.documentElement.scrollHeight;
+                const clientHeight = document.documentElement.clientHeight;
+                const scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+                // Progress Bar
+                if (progressBar && (scrollHeight - clientHeight > 0)) {
+                    const scrollPercentage = Math.min(100, Math.max(0, (scrollTop / (scrollHeight - clientHeight)) * 100));
+                    if (progressBar) {
+                        progressBar.style.width = scrollPercentage + '%';
+                        progressBar.setAttribute('aria-valuenow', Math.round(scrollPercentage));
+                    }
+                }
+
+                // Toggle Back to Top button visibility
+                if (backToTopBtn) {
+                    const shouldShow = scrollTop > 500;
+                    if (shouldShow !== backToTopBtn.classList.contains('opacity-100')) {
+                        backToTopBtn.classList.toggle('opacity-0', !shouldShow);
+                        backToTopBtn.classList.toggle('translate-y-10', !shouldShow);
+                        backToTopBtn.classList.toggle('pointer-events-none', !shouldShow);
+                        backToTopBtn.classList.toggle('invisible', !shouldShow);
+                        backToTopBtn.classList.toggle('opacity-100', shouldShow);
+                        backToTopBtn.classList.toggle('translate-y-0', shouldShow);
+                        backToTopBtn.classList.toggle('pointer-events-auto', shouldShow);
+                    }
+                }
+                ticking = false;
+            }
+
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    window.requestAnimationFrame(updateScrollUI);
+                    ticking = true;
+                }
+            }, { passive: true });
+
+            if (backToTopBtn) {
+                backToTopBtn.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    if (skipLink) {
+                        skipLink.focus({ preventScroll: true });
+                    }
+                });
+            }
+
             // --- Smooth Scroll & Focus Management ---
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     const href = this.getAttribute('href');
                     if (href === '#') {
                         e.preventDefault();
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                        if (skipLink) skipLink.focus();
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                        // Focus skip link or first element for keyboard users
+                        const skipLink = document.getElementById('skip-link');
+                        if (skipLink) skipLink.focus({ preventScroll: true });
                         return;
                     }
 
                     const targetElement = document.querySelector(href);
                     if (targetElement) {
                         e.preventDefault();
-                        targetElement.scrollIntoView({ behavior: 'smooth' });
-
-                        // Make focusable if not already
-                        if (!targetElement.hasAttribute('tabindex')) {
-                            targetElement.setAttribute('tabindex', '-1');
-                            targetElement.addEventListener('blur', () => {
-                                targetElement.removeAttribute('tabindex');
-                            }, { once: true });
-                        }
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                        // Update focus for screen readers and keyboard navigation
                         targetElement.focus({ preventScroll: true });
                     }
                 });
