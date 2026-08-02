@@ -176,8 +176,26 @@
                             <i aria-hidden="true" class="fa-solid fa-hammer"></i>
                         </div>
                         <div>
-                            <h3 class="text-xl font-bold text-white mb-2 uppercase tracking-tight">GCP Infrastructure Build Logs</h3>
-                            <p class="text-slate-400 text-xs">Real-time deployment status and system health from Google Cloud Platform.</p>
+                            <div class="flex items-center gap-3 mb-2">
+                                <h3 id="node-restorations-title" class="text-3xl font-bold text-white">ANW Restorations</h3>
+                                <span class="inline-flex items-center gap-1.5 px-2 py-0.5 bg-[#FFD700]/20 text-[#FFD700] text-[10px] font-bold rounded uppercase tracking-tighter">
+                                    <span class="flex h-1.5 w-1.5 rounded-full bg-[#FFD700] animate-pulse" aria-hidden="true"></span>
+                                    Active Service
+                                </span>
+                            </div>
+                            <p class="text-[#FFD700] font-medium text-lg mb-4">Restoring the Material World.</p>
+                            <p class="text-slate-400 text-base leading-relaxed mb-6 max-w-3xl">
+                                Expert handyman, cleaning, and lawn care services dedicated to the physical rejuvenation of properties. From structural repairs to aesthetic refinement, we make the world materially better. Whether it is historic preservation or modern maintenance, we refurbish what has been weathered.
+                            </p>
+                            <div class="flex flex-wrap gap-4">
+                                <span class="flex items-center gap-2 text-xs px-3 py-1.5 bg-white/5 text-white rounded-full border border-white/10"><i aria-hidden="true" class="fa-solid fa-screwdriver-wrench text-[#FFD700]"></i> Handyman</span>
+                                <span class="flex items-center gap-2 text-xs px-3 py-1.5 bg-white/5 text-white rounded-full border border-white/10"><i aria-hidden="true" class="fa-solid fa-sparkles text-[#FFD700]"></i> Deep Cleaning</span>
+                                <span class="flex items-center gap-2 text-xs px-3 py-1.5 bg-white/5 text-white rounded-full border border-white/10"><i aria-hidden="true" class="fa-solid fa-seedling text-[#FFD700]"></i> Lawn Care</span>
+                                <span class="flex items-center gap-2 text-xs px-3 py-1.5 bg-white/5 text-white rounded-full border border-white/10"><i aria-hidden="true" class="fa-solid fa-paint-roller text-[#FFD700]"></i> Refurbishment</span>
+                            </div>
+                            <a href="#contact" class="inline-flex items-center gap-2 mt-8 px-6 py-2.5 bg-[#FFD700] text-[#080C14] rounded-md font-bold text-sm hover:bg-white transition-colors focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:outline-none group">
+                                REQUEST SERVICE <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 group-focus-visible:translate-x-1 transition-transform"></i>
+                            </a>
                         </div>
                         <span class="mt-4 md:mt-0 px-3 py-1 bg-green-500/10 text-green-400 text-[10px] font-black rounded uppercase tracking-tighter border border-green-500/20">System Live</span>
                     </div>
@@ -250,9 +268,8 @@
                                 <i aria-hidden="true" class="fa-solid fa-envelope text-2xl"></i>
                                 <span role="tooltip" id="tooltip-email" class="absolute -top-10 left-1/2 -translate-x-1/2 bg-indigo-500 text-white text-[10px] font-bold px-2 py-1 rounded opacity-0 transition-opacity pointer-events-none whitespace-nowrap group-hover:opacity-100 group-focus-visible:opacity-100 z-10">Message Directly</span>
                             </a>
-                            <button id="copyEmailBtn" aria-label="Copy email address" aria-describedby="tooltip-copy" class="group relative ml-2 text-slate-500 hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded transition-all opacity-0 invisible pointer-events-none group-hover/email:opacity-100 group-hover/email:visible group-hover/email:pointer-events-auto group-focus-within/email:opacity-100 group-focus-within/email:visible group-focus-within/email:pointer-events-auto">
-                                <i class="fa-solid fa-copy text-lg"></i>
-                                <span role="tooltip" id="tooltip-copy" class="absolute -top-10 left-1/2 -translate-x-1/2 bg-indigo-500 text-white text-[10px] font-bold px-2 py-1 rounded opacity-0 transition-opacity pointer-events-none whitespace-nowrap group-hover:opacity-100 group-focus-visible:opacity-100 z-10">Copy to Clipboard</span>
+                            <button id="copyEmailBtn" aria-label="Copy email address" title="Copy email to clipboard" class="ml-2 text-slate-500 hover:text-[#FFD700] focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none rounded transition-colors opacity-0 group-hover/email:opacity-100 group-focus-within/email:opacity-100 focus-visible:opacity-100 transition-opacity">
+                                <i class="fa-solid fa-copy text-lg" aria-hidden="true"></i>
                             </button>
                             <span id="copyFeedback" class="absolute -top-10 left-1/2 -translate-x-1/2 bg-indigo-500 text-white text-[10px] font-bold px-2 py-1 rounded opacity-0 transition-opacity pointer-events-none whitespace-nowrap z-20" aria-live="polite">COPIED!</span>
                         </div>
@@ -320,29 +337,8 @@
                 ticking = false;
             }
 
-            window.addEventListener('scroll', () => {
-                if (!ticking) {
-                    window.requestAnimationFrame(updateScrollUI);
-                    ticking = true;
-                }
-            }, { passive: true });
-
-            if (backToTopBtn) {
-                backToTopBtn.addEventListener('click', () => {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                    if (skipLink) {
-                        skipLink.focus({ preventScroll: true });
-                    }
-                });
-            }
-
             // --- Email Copy-to-Clipboard ---
-            const emailLink = document.getElementById('email-link');
-            const copyBtn = document.getElementById('copyEmailBtn');
-            const feedback = document.getElementById('copyFeedback');
-            let copyTimeout = null;
-
-            function handleCopy(e) {
+            function handleCopy() {
                 if (!emailLink) return;
                 const email = emailLink.href.replace('mailto:', '');
                 const icon = copyBtn?.querySelector('i');
@@ -367,15 +363,8 @@
                 });
             }
 
-            if (emailLink) emailLink.addEventListener('click', (e) => {
-                // If the user didn't click the copy button specifically,
-                // we let the mailto proceed but also copy the address.
-                handleCopy(e);
-            });
-            if (copyBtn) copyBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                handleCopy(e);
-            });
+            if (emailLink) emailLink.addEventListener('click', handleCopy);
+            if (copyBtn) copyBtn.addEventListener('click', (e) => { e.preventDefault(); handleCopy(); });
 
             // --- Smooth Scroll & Focus Management ---
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
