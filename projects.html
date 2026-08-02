@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Further Projects & Research | A.N.W. FOUNDATIONS</title>
+    <meta name="description" content="A directory of advanced research, agentic frameworks, and system architecture by A.N.W. Foundations.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com/3.4.17" integrity="sha384-igm5BeiBt36UU4gqwWS7imYmelpTsZlQ45FZf+XBn9MuJbn4nQr7yx1yFydocC/K" crossorigin="anonymous"></script>
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            letter-spacing: -0.015em;
+            font-family: 'Inter', sans-serif;
+            background-color: #050505; /* Deep Void Obsidian */
+            color: #f8fafc; /* Slate 50 */
+        }
+        h1, h2, h3 {
+            letter-spacing: -0.025em;
+            font-weight: 800;
+        }
+        .aether-gradient {
+            background: linear-gradient(135deg, #e2e8f0 0%, #a5b4fc 50%, #22d3ee 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .dark-glass {
+            background: rgba(10, 10, 15, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .dark-glass:hover {
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            transform: translateY(-4px);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
+        /* Aetheric Background Animations */
+        .aether-bg {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            background: radial-gradient(circle at 50% 50%, #080c16 0%, #050505 100%);
+            overflow: hidden;
+        }
+        .aether-wisp {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.15;
+            animation: drift 20s infinite alternate ease-in-out;
+        }
+        .wisp-1 {
+            width: 600px;
+            height: 600px;
+            background: #6366f1; /* Deep Violet/Indigo */
+            top: -200px;
+            left: -100px;
+            animation-delay: 0s;
+        }
+        .wisp-2 {
+            width: 500px;
+            height: 500px;
+            background: #22d3ee; /* Cyan */
+            bottom: -100px;
+            right: -100px;
+            animation-delay: -5s;
+            animation-duration: 25s;
+        }
+        .wisp-3 {
+            width: 400px;
+            height: 400px;
+            background: #a5b4fc; /* Pale Silver/Violet */
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: -10s;
+            animation-duration: 30s;
+        }
+
+        @keyframes drift {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(50px, 30px) scale(1.1); }
+        }
+
+        .geometric-pattern {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+            opacity: 0.5;
+            mask-image: radial-gradient(circle at center, black, transparent 80%);
+            -webkit-mask-image: radial-gradient(circle at center, black, transparent 80%);
+            animation: phase 15s infinite alternate ease-in-out;
+        }
+
+        @keyframes phase {
+            0% { opacity: 0.2; }
+            100% { opacity: 0.8; }
+        }
+
+        /* Glass panel fallback for existing contact sections */
+        .glass-panel {
+            background: rgba(10, 10, 15, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+
+    <script>
+        class ProjectCard extends HTMLElement {
+            connectedCallback() {
+                const title = this.getAttribute('title') || 'Project Title';
+                const description = this.getAttribute('description') || 'Project description goes here.';
+                const url = this.getAttribute('url') || '#';
+                const icon = this.getAttribute('icon') || 'fa-solid fa-microchip';
+
+                this.innerHTML = `
+                    <a href="${url}" target="_blank" rel="noopener noreferrer" class="dark-glass group p-8 rounded-2xl focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] focus-visible:outline-none block h-full flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-6">
+                                <div class="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-400 text-2xl group-hover:scale-110 group-hover:text-cyan-400 transition-all duration-500 shadow-[0_0_15px_rgba(99,102,241,0.2)]">
+                                    <i aria-hidden="true" class="${icon}"></i>
+                                </div>
+                                <i aria-hidden="true" class="fa-solid fa-arrow-up-right-from-square text-slate-600 group-hover:text-indigo-400 transition-colors"></i>
+                            </div>
+                            <h3 class="text-xl md:text-2xl font-bold text-white mb-3 group-hover:text-indigo-200 transition-colors">${title}</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                                ${description}
+                            </p>
+                        </div>
+                    </a>
+                `;
+            }
+        }
+        customElements.define('project-card', ProjectCard);
+    </script>
+</head>
+<body class="antialiased selection:bg-[#6366f1] selection:text-white">
+    <!-- Aetheric Environment -->
+    <div class="aether-bg">
+        <div class="aether-wisp wisp-1"></div>
+        <div class="aether-wisp wisp-2"></div>
+        <div class="aether-wisp wisp-3"></div>
+    </div>
+    <div class="geometric-pattern pointer-events-none"></div>
+    <!-- Skip Link -->
+    <a href="#main-content" id="skip-link" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-white focus:text-[#080C14] focus:px-4 focus:py-2 focus:rounded-md focus:font-bold focus:outline-none focus:ring-2 focus:ring-[#6366f1]">
+        Skip to Main Content
+    </a>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-[#030712]/90 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="flex items-center space-x-3 group focus:outline-none" aria-label="Back to home">
+                    <img src="logo.png" alt="Logo" class="h-8 w-8 rounded opacity-80 group-hover:opacity-100 transition-opacity">
+                    <span class="text-lg font-black tracking-tighter text-white uppercase">A.N.W. <span class="text-indigo-400">FOUNDATIONS</span></span>
+                </a>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-slate-400 hover:text-white focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded px-3 py-2 rounded-md text-sm font-medium transition-colors">Enterprise</a>
+                        <a href="projects.html" aria-current="page" class="text-white focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded px-3 py-2 rounded-md text-sm font-medium border-b-2 border-indigo-500">Further Projects</a>
+                        <a href="index.html#contact" class="bg-indigo-600 hover:bg-indigo-500 text-white focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded px-4 py-2 rounded-md text-sm font-medium transition-all">Consulting</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content" class="pt-32 pb-24 relative overflow-hidden">
+        <!-- Background Decor -->
+        <div class="absolute top-0 right-0 -z-10 opacity-10">
+            <svg width="400" height="400" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" stroke-width="0.5" />
+                <polygon points="50,10 90,50 50,90 10,50" fill="none" stroke="currentColor" stroke-width="0.5" />
+                <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="0.5" />
+            </svg>
+        </div>
+
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <header class="mb-20">
+                <h1 class="text-5xl md:text-6xl font-black mb-6 aether-gradient uppercase tracking-tighter">Further Projects & Research</h1>
+                <p class="text-xl text-slate-400 max-w-3xl leading-relaxed">
+                    A collection of broader system architectures, open-source contributions, and independent exploration into advanced technology and high-performance frameworks.
+                </p>
+            </header>
+
+            <!-- Link Directory -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-32">
+                <project-card
+                    title="Payviah"
+                    description="Financial installment infrastructure enabling seamless multi-party transactions and adaptive payment routing."
+                    url="javascript:void(0)"
+                    icon="fa-solid fa-money-bill-transfer">
+                </project-card>
+
+                <project-card
+                    title="Techno-Gnosis: Past &amp; Future"
+                    description="An interactive exploration oracle bridging ancient esoteric wisdom with futuristic technological paradigms."
+                    url="javascript:void(0)"
+                    icon="fa-solid fa-om">
+                </project-card>
+
+                <project-card
+                    title="Specto"
+                    description="A comprehensive visual supports suite designed for cognitive accessibility and ambient data visualization."
+                    url="javascript:void(0)"
+                    icon="fa-solid fa-eye">
+                </project-card>
+
+                <project-card
+                    title="Ascension Protocol Toolkit"
+                    description="An audio-visual alchemy toolkit engineered to induce specific bio-rhythmic and cognitive states."
+                    url="javascript:void(0)"
+                    icon="fa-solid fa-bolt">
+                </project-card>
+
+                <project-card
+                    title="Mirror - Personal Data Analyst"
+                    description="Advanced self-quantification framework that synthesizes disparate data streams into coherent actionable insights."
+                    url="javascript:void(0)"
+                    icon="fa-solid fa-chart-line">
+                </project-card>
+
+                <project-card
+                    title="CryptoScope Decoder"
+                    description="Advanced steganography and cryptographic analysis tool for decentralized data verification."
+                    url="javascript:void(0)"
+                    icon="fa-solid fa-qrcode">
+                </project-card>
+
+                <project-card
+                    title="The Disclosure Project"
+                    description="Investigating the frontiers of energy, consciousness, and archival transparency in scientific data."
+                    url="https://disclosure-project.org/"
+                    icon="fa-solid fa-atom">
+                </project-card>
+
+                <project-card
+                    title="GitHub Repository"
+                    description="Open-source system architecture and smart contract deployments documenting foundational infrastructure logic."
+                    url="https://github.com/freequeenc"
+                    icon="fa-brands fa-github">
+                </project-card>
+            </div>
+
+            <!-- Contact Block -->
+            <section id="consulting" class="glass-panel rounded-3xl p-12 relative overflow-hidden">
+                <div class="relative z-10">
+                    <h2 class="text-3xl font-black text-white mb-8 uppercase tracking-tighter">Enterprise Consulting & Booking</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <a href="#" data-contact="YXNobGVpZ2h3YWxrZXJAYW53Zm91bmRhdGlvbnMuY29t" class="obfuscated-email flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none transition-colors group">
+                            <div class="w-10 h-10 bg-indigo-500/20 rounded-lg flex items-center justify-center text-indigo-400">
+                                <i aria-hidden="true" class="fa-solid fa-envelope"></i>
+                            </div>
+                            <span class="text-sm font-semibold group-hover:text-indigo-300">Email Me</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/ashleighnwalker/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none transition-colors group">
+                            <div class="w-10 h-10 bg-indigo-500/20 rounded-lg flex items-center justify-center text-indigo-400">
+                                <i aria-hidden="true" class="fa-brands fa-linkedin-in"></i>
+                            </div>
+                            <span class="text-sm font-semibold group-hover:text-indigo-300">LinkedIn</span>
+                        </a>
+                        <button type="button" aria-disabled="true" aria-label="Book a Session" aria-describedby="tooltip-session" class="relative flex items-center gap-4 p-4 rounded-xl bg-indigo-600 hover:bg-indigo-600 transition-colors group opacity-50 cursor-not-allowed focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none">
+                            <div class="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center text-white">
+                                <i aria-hidden="true" class="fa-solid fa-calendar-check"></i>
+                            </div>
+                            <span class="text-sm font-bold text-white">Book a Session</span>
+                            <span id="tooltip-session" role="tooltip" class="absolute -top-10 left-1/2 -translate-x-1/2 bg-slate-700 text-white text-[10px] font-bold px-2 py-1 rounded opacity-0 invisible pointer-events-none group-hover:opacity-100 group-hover:visible group-focus-visible:opacity-100 group-focus-visible:visible transition-all whitespace-nowrap z-10">Coming Soon</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Aetheric background managed by classes -->
+    </main>
+
+        <footer class="bg-[#030712] border-t border-white/5 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-slate-600 text-[10px] uppercase tracking-widest font-bold">
+                    &copy; 2026 A.N.W. FOUNDATIONS LLC. ALL RIGHTS RESERVED.
+                </p>
+                <div class="flex gap-8">
+                    <a href="privacy.html" class="text-slate-600 hover:text-white text-[10px] font-bold uppercase tracking-widest focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded transition-colors">Privacy</a>
+                    <a href="terms.html" class="text-slate-600 hover:text-white text-[10px] font-bold uppercase tracking-widest focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded transition-colors">Terms</a>
+                    <a href="refund.html" class="text-slate-600 hover:text-white text-[10px] font-bold uppercase tracking-widest focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded transition-colors">Refund Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Security Scripts -->
+    <script>
+        (function() {
+            document.querySelectorAll('.obfuscated-email').forEach(link => {
+                const contact = link.getAttribute('data-contact');
+                if (contact) {
+                    link.href = 'mailto:' + atob(contact);
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
