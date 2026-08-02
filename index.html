@@ -282,16 +282,17 @@
 
 
     <!-- Back to Top Button -->
+    <!-- Back to Top Button -->
     <button id="back-to-top"
             aria-label="Back to top"
-            class="fixed bottom-8 right-8 z-[60] bg-gradient-to-br from-[#FFD700] to-[#00E5FF] text-[#080C14] w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:scale-110 focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none">
+            class="fixed bottom-8 right-8 z-[100] bg-gradient-to-br from-[#FFD700] to-[#00E5FF] text-[#080C14] w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 pointer-events-none invisible transition-all duration-300 hover:scale-110 focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none">
         <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
     </button>
 
     <!-- UX Scripts -->
     <script>
         (function() {
-            // --- UI Elements ---
+            // --- Elements ---
             const progressBar = document.getElementById('scroll-progress');
             const backToTopBtn = document.getElementById('back-to-top');
             const skipLink = document.getElementById('skip-link');
@@ -299,7 +300,7 @@
             const copyBtn = document.getElementById('copyEmailBtn');
             const feedback = document.getElementById('copyFeedback');
 
-            // --- State ---
+            // --- Scroll Handling (Progress & Back-to-Top) ---
             let ticking = false;
             let copyTimeout = null;
 
@@ -310,9 +311,8 @@
                 const scrollTop = window.scrollY || document.documentElement.scrollTop;
 
                 // Progress Bar
-                const scrollRange = scrollHeight - clientHeight;
-                if (progressBar && scrollRange > 0) {
-                    const scrollPercentage = Math.min(100, Math.max(0, (scrollTop / scrollRange) * 100));
+                if (progressBar && (scrollHeight - clientHeight > 0)) {
+                    const scrollPercentage = Math.min(100, Math.max(0, (scrollTop / (scrollHeight - clientHeight)) * 100));
                     progressBar.style.width = scrollPercentage + '%';
                     progressBar.setAttribute('aria-valuenow', Math.round(scrollPercentage));
                 }
@@ -320,12 +320,13 @@
                 // Toggle Back to Top button visibility
                 if (backToTopBtn) {
                     const shouldShow = scrollTop > 500;
-                    if (shouldShow) {
-                        backToTopBtn.classList.remove('opacity-0', 'translate-y-10', 'pointer-events-none', 'invisible');
-                        backToTopBtn.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
-                    } else {
-                        backToTopBtn.classList.add('opacity-0', 'translate-y-10', 'pointer-events-none', 'invisible');
-                        backToTopBtn.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+                    if (shouldShow !== backToTopBtn.classList.contains('opacity-100')) {
+                        backToTopBtn.classList.toggle('opacity-100', shouldShow);
+                        backToTopBtn.classList.toggle('pointer-events-auto', shouldShow);
+                        backToTopBtn.classList.toggle('visible', shouldShow);
+                        backToTopBtn.classList.toggle('opacity-0', !shouldShow);
+                        backToTopBtn.classList.toggle('pointer-events-none', !shouldShow);
+                        backToTopBtn.classList.toggle('invisible', !shouldShow);
                     }
                 }
                 ticking = false;
@@ -348,31 +349,40 @@
             }
 
             // --- Email Copy-to-Clipboard ---
-            function handleCopy(e) {
+            let copyTimeout = null;
+
+            function handleCopy() {
                 if (!emailLink) return;
                 const email = emailLink.href.replace('mailto:', '');
 
-                navigator.clipboard.writeText(email).then(() => {
-                    if (!feedback) return;
-                    feedback.classList.replace('opacity-0', 'opacity-100');
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(email).then(() => {
+                        if (!feedback) return;
 
-                    const icon = copyBtn?.querySelector('i');
-                    if (icon) icon.classList.replace('fa-copy', 'fa-check');
+                        feedback.classList.replace('opacity-0', 'opacity-100');
+                        const icon = copyBtn?.querySelector('i');
+                        if (icon) icon.classList.replace('fa-copy', 'fa-check');
 
-                    if (copyTimeout) clearTimeout(copyTimeout);
-                    copyTimeout = setTimeout(() => {
-                        feedback.classList.replace('opacity-100', 'opacity-0');
-                        if (icon) icon.classList.replace('fa-check', 'fa-copy');
-                        copyTimeout = null;
-                    }, 2000);
-                }).catch(err => console.error('Failed to copy:', err));
+                        if (copyTimeout) clearTimeout(copyTimeout);
+
+                        copyTimeout = setTimeout(() => {
+                            feedback.classList.replace('opacity-100', 'opacity-0');
+                            if (icon) icon.classList.replace('fa-check', 'fa-copy');
+                            copyTimeout = null;
+                        }, 2000);
+                    }).catch(err => console.error('Failed to copy:', err));
+                } else {
+                    console.warn('Clipboard API not supported in this browser/context.');
+                }
             }
 
             if (emailLink) emailLink.addEventListener('click', handleCopy);
-            if (copyBtn) copyBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                handleCopy(e);
-            });
+            if (copyBtn) {
+                copyBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    handleCopy();
+                });
+            }
 
             // --- Smooth Scroll & Focus Management ---
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -387,10 +397,8 @@
 
                     const targetElement = document.querySelector(href);
                     if (targetElement) {
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                        // Update focus for screen readers and keyboard navigation
+                        e.preventDefault();
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
                         targetElement.focus({ preventScroll: true });
                         if (document.activeElement !== targetElement) {
                             targetElement.setAttribute('tabindex', '-1');
