@@ -334,21 +334,25 @@
                 if (!emailLink) return;
                 const email = emailLink.href.replace('mailto:', '');
 
-                navigator.clipboard.writeText(email).then(() => {
-                    if (!feedback) return;
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(email).then(() => {
+                        if (!feedback) return;
 
-                    feedback.classList.replace('opacity-0', 'opacity-100');
-                    const icon = copyBtn?.querySelector('i');
-                    if (icon) icon.classList.replace('fa-copy', 'fa-check');
+                        feedback.classList.replace('opacity-0', 'opacity-100');
+                        const icon = copyBtn?.querySelector('i');
+                        if (icon) icon.classList.replace('fa-copy', 'fa-check');
 
-                    if (copyTimeout) clearTimeout(copyTimeout);
+                        if (copyTimeout) clearTimeout(copyTimeout);
 
-                    copyTimeout = setTimeout(() => {
-                        feedback.classList.replace('opacity-100', 'opacity-0');
-                        if (icon) icon.classList.replace('fa-check', 'fa-copy');
-                        copyTimeout = null;
-                    }, 2000);
-                }).catch(err => console.error('Failed to copy:', err));
+                        copyTimeout = setTimeout(() => {
+                            feedback.classList.replace('opacity-100', 'opacity-0');
+                            if (icon) icon.classList.replace('fa-check', 'fa-copy');
+                            copyTimeout = null;
+                        }, 2000);
+                    }).catch(err => console.error('Failed to copy:', err));
+                } else {
+                    console.warn('Clipboard API not supported in this browser/context.');
+                }
             }
 
             if (emailLink) emailLink.addEventListener('click', handleCopy);
