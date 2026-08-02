@@ -354,10 +354,11 @@
                 });
             });
 
+            const navLinks = document.querySelectorAll('nav .ml-10 a');
             const observer = new IntersectionObserver(entries => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        document.querySelectorAll('nav .ml-10 a').forEach(link => {
+                        navLinks.forEach(link => {
                             const active = link.getAttribute('href') === `#${entry.target.id}`;
                             if (link.getAttribute('href') === '#contact') {
                                 link.classList.toggle('ring-2', active);
