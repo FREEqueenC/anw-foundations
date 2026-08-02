@@ -36,3 +36,7 @@
 ## 2026-07-30 - [Subresource Integrity (SRI) for Third-Party CDNs]
 **Learning:** Loading external scripts or stylesheets (like Tailwind CSS or Font Awesome) via CDNs without Subresource Integrity (SRI) attributes creates a significant security vulnerability. If the CDN is compromised, malicious code could be injected and executed on all client browsers. Hardcoding a specific version alongside an SRI hash mitigates this risk by ensuring the browser only executes the script if its content perfectly matches the expected cryptographic hash.
 **Action:** Always include `integrity` and `crossorigin="anonymous"` attributes for scripts and stylesheets loaded from third-party CDNs, pinning to a specific version to prevent hash mismatches during minor updates.
+
+## 2026-08-01 - [De-obfuscation and Micro-Interactions]
+**Learning:** When implementing micro-interactions that rely on dynamically populated elements (e.g., email de-obfuscation for copy-to-clipboard), ensure the de-obfuscation logic executes on DOM load prior to binding the interaction event listeners to avoid capturing empty or placeholder states.
+**Action:** Always verify that dynamic data dependencies are fulfilled before attaching event listeners in utility scripts.

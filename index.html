@@ -291,6 +291,18 @@
             const copyBtn = document.getElementById('copyEmailBtn');
             const feedback = document.getElementById('copyFeedback');
 
+            // Decode email links safely
+            document.querySelectorAll('.obfuscated-email').forEach(link => {
+                const contact = link.getAttribute('data-contact');
+                if (contact) {
+                    try {
+                        link.href = 'mailto:' + atob(contact);
+                    } catch (e) {
+                        console.error("Failed to decode email link:", e);
+                    }
+                }
+            });
+
             let ticking = false;
             let copyTimeout = null;
 
