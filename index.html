@@ -277,12 +277,11 @@
         </div>
     </footer>
 
+
     <!-- UX Scripts -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const progressBar = document.getElementById('scroll-progress');
-            const backToTopBtn = document.getElementById('back-to-top');
-            const skipLink = document.getElementById('skip-link');
+        (function() {
+            // --- Email Copy-to-Clipboard ---
             const emailLink = document.getElementById('email-link');
             const copyBtn = document.getElementById('copyEmailBtn');
             const feedback = document.getElementById('copyFeedback');
@@ -306,14 +305,12 @@
                 // Toggle Back to Top button visibility
                 if (backToTopBtn) {
                     const shouldShow = scrollTop > 500;
-                    if (shouldShow !== backToTopBtn.classList.contains('opacity-100')) {
-                        backToTopBtn.classList.toggle('opacity-0', !shouldShow);
-                        backToTopBtn.classList.toggle('translate-y-10', !shouldShow);
-                        backToTopBtn.classList.toggle('pointer-events-none', !shouldShow);
-                        backToTopBtn.classList.toggle('invisible', !shouldShow);
-                        backToTopBtn.classList.toggle('opacity-100', shouldShow);
-                        backToTopBtn.classList.toggle('translate-y-0', shouldShow);
-                        backToTopBtn.classList.toggle('pointer-events-auto', shouldShow);
+                    if (shouldShow) {
+                        backToTopBtn.classList.remove('opacity-0', 'translate-y-10', 'pointer-events-none', 'invisible');
+                        backToTopBtn.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+                    } else {
+                        backToTopBtn.classList.add('opacity-0', 'translate-y-10', 'pointer-events-none', 'invisible');
+                        backToTopBtn.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
                     }
                 }
                 ticking = false;
@@ -329,7 +326,10 @@
             if (backToTopBtn) {
                 backToTopBtn.addEventListener('click', () => {
                     window.scrollTo({ top: 0, behavior: 'smooth' });
-                    if (skipLink) skipLink.focus({ preventScroll: true });
+                    const skipLink = document.getElementById('skip-link');
+                    if (skipLink) {
+                        skipLink.focus({ preventScroll: true });
+                    }
                 });
             }
 
@@ -365,7 +365,11 @@
                     const href = this.getAttribute('href');
                     if (href === '#') {
                         e.preventDefault();
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                        const skipLink = document.getElementById('skip-link');
                         if (skipLink) skipLink.focus();
                         return;
                     }
@@ -373,12 +377,22 @@
                     const targetElement = document.querySelector(href);
                     if (targetElement) {
                         e.preventDefault();
-                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                        // Update focus for screen readers and keyboard navigation
                         targetElement.focus({ preventScroll: true });
                     }
                 });
             });
         });
     </script>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top"
+            aria-label="Back to top"
+            class="fixed bottom-8 right-8 z-[70] bg-gradient-to-br from-[#FFD700] to-[#00E5FF] text-[#080C14] w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:scale-110 focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none">
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    </button>
 </body>
 </html>
