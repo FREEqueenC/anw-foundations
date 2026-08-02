@@ -106,10 +106,10 @@
 
     <!-- Hero Section -->
     <section id="mission" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden outline-none scroll-mt-20" tabindex="-1">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight uppercase tracking-tighter">
-                Enterprise AI.<br>
-                <span class="gradient-text">Autonomous Pipelines.</span>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                RESTORING THE PHYSICAL.<br>
+                <span class="gradient-text">ARCHITECTING THE DIGITAL.</span>
             </h1>
             <p class="mt-4 max-w-3xl mx-auto text-lg text-slate-400 font-medium leading-relaxed">
                 A.N.W. FOUNDATIONS LLC architects the autonomous, multi-agent frameworks and high-performance infrastructure
@@ -131,14 +131,7 @@
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-indigo-500/5 rounded-full blur-3xl -z-10"></div>
     </section>
 
-    <section id="portfolio" class="py-24 bg-transparent relative outline-none scroll-mt-20 overflow-hidden" tabindex="-1">
-                    <!-- Geometric Motif -->
-            <div class="absolute top-0 left-0 -z-10 opacity-5">
-                <svg width="200" height="200" viewBox="0 0 100 100">
-                    <path d="M50 5 L95 27.5 L95 72.5 L50 95 L5 72.5 L5 27.5 Z" fill="none" stroke="#6366f1" stroke-width="0.5" />
-                    <path d="M50 5 L50 95 M5 27.5 L95 72.5 M95 27.5 L5 72.5" stroke="#6366f1" stroke-width="0.2" />
-                </svg>
-            </div>
+    <section id="projects" class="py-24 bg-[#080C14] outline-none scroll-mt-20" tabindex="-1">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
             <div class="text-center mb-20">
@@ -283,11 +276,8 @@
 
     <!-- UX Scripts -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => { (function() {
-            // --- UI Selectors ---
-            const progressBar = document.getElementById('scroll-progress');
-            const backToTopBtn = document.getElementById('back-to-top');
-            const skipLink = document.getElementById('skip-link');
+        (function() {
+            // --- Email Copy-to-Clipboard ---
             const emailLink = document.getElementById('email-link');
             const copyBtn = document.getElementById('copyEmailBtn');
             const feedback = document.getElementById('copyFeedback');
@@ -367,7 +357,18 @@
                     const href = this.getAttribute('href');
                     if (href === '#') return; // Handled by default or back-to-top
 
-                    e.preventDefault();
+                    if (href === '#') {
+                        e.preventDefault();
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                        // Focus skip link or first element for keyboard users
+                        const skipLink = document.getElementById('skip-link');
+                        if (skipLink) skipLink.focus();
+                        return;
+                    }
+
                     const targetElement = document.querySelector(href);
                     if (targetElement) {
                         targetElement.scrollIntoView({ behavior: 'smooth' });
