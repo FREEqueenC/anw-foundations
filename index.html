@@ -66,7 +66,7 @@
     </style>
 </head>
 <body class="antialiased selection:bg-[#FFD700] selection:text-white">
-    <a href="#main-content" id="skip-link" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-[#FFD700] focus:text-[#080C14] focus:px-4 focus:py-2 focus:rounded-md focus:font-bold focus:outline-none focus:ring-2 focus:ring-[#FFD700] focus:ring-offset-2 focus:ring-offset-[#080C14]">
+    <a id="skip-link" href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-[#FFD700] focus:text-[#080C14] focus:px-4 focus:py-2 focus:rounded-md focus:font-bold focus:outline-none focus:ring-2 focus:ring-[#FFD700] focus:ring-offset-2 focus:ring-offset-[#080C14]">
         Skip to Main Content
     </a>
 
@@ -102,7 +102,7 @@
     </nav>
 
     <!-- Main Content -->
-    <main id="main-content">
+    <main id="main-content" tabindex="-1" class="outline-none">
 
     <!-- Hero Section -->
     <section id="mission" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden outline-none scroll-mt-20" tabindex="-1">
@@ -155,11 +155,11 @@
                     </div>
                 </a>
 
-                <!-- Node: Payviah -->
-                <a href="https://freequeenc.github.io/Payviah/" target="_blank" rel="noopener noreferrer" class="relative group bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-indigo-400/50 focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none transition-all duration-500 overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <div class="relative z-10 text-indigo-400 text-3xl mb-6">
-                        <i aria-hidden="true" class="fa-solid fa-vault"></i>
+                <!-- Node: ANW Launch -->
+                <div tabindex="0" role="article" aria-labelledby="node-launch-title" class="relative group bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-[#00E5FF]/50 focus-visible:ring-2 focus-visible:ring-[#00E5FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none transition-all duration-500 overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#FFD700]/10 to-transparent opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10 text-[#FFD700] text-3xl mb-6">
+                        <i aria-hidden="true" class="fa-solid fa-rocket"></i>
                     </div>
                     <h3 class="text-2xl font-bold text-white mb-3 relative z-10">Payviah</h3>
                     <p class="text-slate-400 text-sm leading-relaxed relative z-10 mb-4">Next-generation financial infrastructure and automated transaction flow protocols. Precision engineering for secure data pipelines.</p>
@@ -168,9 +168,13 @@
                     </div>
                 </a>
 
-                <!-- GCP Proof of Work: Deployment Logs -->
-                <div class="md:col-span-2 glass-panel p-8 rounded-2xl border border-white/10 bg-white/5">
-                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
+                <!-- Node: ANW Restorations (Featured) -->
+                <div tabindex="0" role="article" aria-labelledby="node-restorations-title" class="md:col-span-3 relative group bg-white/5 backdrop-blur-sm rounded-2xl p-10 border border-white/10 hover:border-[#00E5FF]/50 focus-visible:ring-2 focus-visible:ring-[#00E5FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none transition-all duration-500 overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#FFD700]/5 to-transparent"></div>
+                    <div class="flex flex-col md:flex-row gap-8 items-start relative z-10">
+                        <div class="w-16 h-16 bg-[#00E5FF]/10 rounded-2xl flex items-center justify-center text-[#FFD700] text-3xl shrink-0">
+                            <i aria-hidden="true" class="fa-solid fa-hammer"></i>
+                        </div>
                         <div>
                             <h3 class="text-xl font-bold text-white mb-2 uppercase tracking-tight">GCP Infrastructure Build Logs</h3>
                             <p class="text-slate-400 text-xs">Real-time deployment status and system health from Google Cloud Platform.</p>
@@ -273,11 +277,20 @@
         </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <button id="back-to-top"
+            aria-label="Back to top"
+            class="fixed bottom-8 right-8 z-[70] bg-gradient-to-br from-[#FFD700] to-[#00E5FF] text-[#080C14] w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 pointer-events-none invisible transition-all duration-300 hover:scale-110 focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none">
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    </button>
 
     <!-- UX Scripts -->
     <script>
         (function() {
-            // --- Email Copy-to-Clipboard ---
+            // --- UI Elements ---
+            const progressBar = document.getElementById('scroll-progress');
+            const backToTopBtn = document.getElementById('back-to-top');
+            const skipLink = document.getElementById('skip-link');
             const emailLink = document.getElementById('email-link');
             const copyBtn = document.getElementById('copyEmailBtn');
             const feedback = document.getElementById('copyFeedback');
@@ -287,62 +300,45 @@
 
             // --- Scroll Handling (Progress & Back-to-Top) ---
             function updateScrollUI() {
+                const scrollTop = window.scrollY || document.documentElement.scrollTop;
                 const scrollHeight = document.documentElement.scrollHeight;
                 const clientHeight = document.documentElement.clientHeight;
-                const scrollTop = window.scrollY || document.documentElement.scrollTop;
+                const totalScrollable = scrollHeight - clientHeight;
 
                 // Progress Bar
-                if (progressBar && (scrollHeight - clientHeight > 0)) {
-                    const scrollPercentage = Math.min(100, Math.max(0, (scrollTop / (scrollHeight - clientHeight)) * 100));
+                if (progressBar && totalScrollable > 0) {
+                    const scrollPercentage = Math.min(100, Math.max(0, (scrollTop / totalScrollable) * 100));
                     progressBar.style.width = scrollPercentage + '%';
                     progressBar.setAttribute('aria-valuenow', Math.round(scrollPercentage));
                 }
 
-                // Back to Top Visibility
+                // Toggle Back to Top button visibility
                 if (backToTopBtn) {
-                    if (scrollTop > 500) {
-                        backToTopBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-10', 'invisible');
-                        backToTopBtn.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0', 'visible');
-                    } else {
-                        backToTopBtn.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0', 'visible');
-                        backToTopBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-10', 'invisible');
-                    }
+                    const shouldShow = scrollTop > 500;
+                    backToTopBtn.classList.toggle('opacity-0', !shouldShow);
+                    backToTopBtn.classList.toggle('translate-y-10', !shouldShow);
+                    backToTopBtn.classList.toggle('pointer-events-none', !shouldShow);
+                    backToTopBtn.classList.toggle('invisible', !shouldShow);
+                    backToTopBtn.classList.toggle('opacity-100', shouldShow);
+                    backToTopBtn.classList.toggle('translate-y-0', shouldShow);
+                    backToTopBtn.classList.toggle('pointer-events-auto', shouldShow);
                 }
                 ticking = false;
             }
 
-            // --- Active Section Highlighting ---
-            const navLinks = document.querySelectorAll('nav div a[href^="#"]');
-            const observerOptions = { rootMargin: '-50% 0px -50% 0px' };
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const id = entry.target.getAttribute('id');
-                        navLinks.forEach(link => {
-                            const isActive = link.getAttribute('href') === `#${id}`;
-                            if (isActive) link.setAttribute('aria-current', 'page');
-                            else link.removeAttribute('aria-current');
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    window.requestAnimationFrame(updateScrollUI);
+                    ticking = true;
+                }
+            }, { passive: true });
 
-                            if (link.getAttribute('href') === '#contact') {
-                                link.classList.toggle('ring-2', isActive);
-                                link.classList.toggle('ring-[#FFD700]', isActive);
-                            } else {
-                                link.classList.toggle('text-[#FFD700]', isActive);
-                            }
-                        });
+            if (backToTopBtn) {
+                backToTopBtn.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    if (skipLink) {
+                        skipLink.focus({ preventScroll: true });
                     }
-                });
-            }, observerOptions);
-            document.querySelectorAll('section[id], footer[id]').forEach(section => observer.observe(section));
-
-            function handleCopy() {
-                if (!emailLink) return;
-                navigator.clipboard.writeText(emailLink.href.replace('mailto:', '')).then(() => {
-                    if (!feedback) return;
-                    feedback.classList.add('opacity-100'); feedback.classList.remove('opacity-0');
-                    const icon = copyBtn?.querySelector('i'); if (icon) icon.classList.replace('fa-copy', 'fa-check');
-                    if (copyTimeout) clearTimeout(copyTimeout);
-                    copyTimeout = setTimeout(() => { feedback.classList.add('opacity-0'); feedback.classList.remove('opacity-100'); if (icon) icon.classList.replace('fa-check', 'fa-copy'); copyTimeout = null; }, 2000);
                 });
             }
 
@@ -353,7 +349,9 @@
 
                 navigator.clipboard.writeText(email).then(() => {
                     if (!feedback) return;
-                    feedback.classList.replace('opacity-0', 'opacity-100');
+                    feedback.classList.remove('opacity-0');
+                    feedback.classList.add('opacity-100');
+
                     const icon = copyBtn?.querySelector('i');
                     if (icon) icon.classList.replace('fa-copy', 'fa-check');
 
@@ -372,42 +370,26 @@
                 handleCopy(e);
             });
 
-            // --- Accessible Smooth Scroll ---
+            // --- Smooth Scroll & Focus Management ---
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     const href = this.getAttribute('href');
-                    if (href === '#') return; // Handled by default or back-to-top
+                    if (!href) return;
 
+                    e.preventDefault();
                     if (href === '#') {
-                        e.preventDefault();
-                        window.scrollTo({
-                            top: 0,
-                            behavior: 'smooth'
-                        });
-                        // Focus skip link or first element for keyboard users
-                        const skipLink = document.getElementById('skip-link');
-                        if (skipLink) skipLink.focus();
-                        return;
-                    }
-
-                    const targetElement = document.querySelector(href);
-                    if (targetElement) {
-                        targetElement.scrollIntoView({ behavior: 'smooth' });
-                        // Update focus for screen readers and keyboard navigation
-                        targetElement.setAttribute('tabindex', '-1');
-                        targetElement.focus({ preventScroll: true });
-                        targetElement.addEventListener('blur', () => targetElement.removeAttribute('tabindex'), { once: true });
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        if (skipLink) skipLink.focus({ preventScroll: true });
+                    } else {
+                        const targetElement = document.querySelector(href);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({ behavior: 'smooth' });
+                            targetElement.focus({ preventScroll: true });
+                        }
                     }
                 });
             });
         })(); });
     </script>
-
-    <!-- Back to Top Button -->
-    <button id="back-to-top"
-            aria-label="Back to top"
-            class="fixed bottom-8 right-8 z-[60] bg-gradient-to-br from-[#FFD700] to-[#00E5FF] text-[#080C14] w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 pointer-events-none invisible translate-y-10 transition-all duration-300 hover:scale-110 focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none">
-        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
-    </button>
 </body>
 </html>
