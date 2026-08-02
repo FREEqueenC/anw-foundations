@@ -20,3 +20,7 @@
 ## 2026-05-20 - [Accessible Smooth Scrolling & Focus Management]
 **Learning:** In single-page applications using smooth scroll, visual movement must be paired with programmatic focus management. Without explicitly moving focus (using `element.focus()` and `tabindex="-1"`), keyboard and screen reader users remain at the source of the click, losing context and breaking the logical navigation flow.
 **Action:** Always synchronize smooth scroll animations with programmatic focus updates to the target element to maintain accessibility parity with visual transitions.
+
+## 2026-06-05 - [Unified Script Architecture & Focus Resilience]
+**Learning:** Consolidating multiple, often broken or redundant script blocks into a single `DOMContentLoaded` listener in static sites prevents variable re-declaration errors and ensures that all interactive elements (like scroll progress and back-to-top buttons) share a reliable state. This unified approach is essential for implementing robust focus management that survives page-wide interactions.
+**Action:** Prioritize a single, cohesive script structure for static landing pages to eliminate redundancy and provide a stable foundation for complex micro-interactions and accessibility features.
