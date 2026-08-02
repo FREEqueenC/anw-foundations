@@ -315,7 +315,7 @@
             if (backToTopBtn) backToTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); if (skipLink) skipLink.focus({ preventScroll: true }); });
 
             function handleCopy(e) {
-                if (e && e.target !== emailLink) e.preventDefault();
+                if (e && e.currentTarget !== emailLink) e.preventDefault();
                 if (!emailLink) return;
                 const email = emailLink.href.replace('mailto:', '');
                 navigator.clipboard.writeText(email).then(() => {
