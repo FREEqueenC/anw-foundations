@@ -277,19 +277,23 @@
         </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <button id="back-to-top"
+            aria-label="Back to top"
+            class="fixed bottom-8 right-8 z-[60] bg-gradient-to-br from-[#FFD700] to-[#00E5FF] text-[#080C14] w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:scale-110 focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none">
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    </button>
 
     <!-- UX Scripts -->
     <script>
         (function() {
-            // --- Email Copy-to-Clipboard ---
-            const emailLink = document.getElementById('email-link');
-            const copyBtn = document.getElementById('copyEmailBtn');
-            const feedback = document.getElementById('copyFeedback');
-
+            // --- Global State ---
+            const progressBar = document.getElementById('scroll-progress');
+            const backToTopBtn = document.getElementById('back-to-top');
+            const skipLink = document.getElementById('skip-link');
             let ticking = false;
-            let copyTimeout = null;
 
-            // --- Scroll UI Updates (Progress & Back-to-Top) ---
+            // --- Scroll Handling (Progress & Back-to-Top) ---
             function updateScrollUI() {
                 const scrollHeight = document.documentElement.scrollHeight;
                 const clientHeight = document.documentElement.clientHeight;
@@ -306,11 +310,11 @@
                 if (backToTopBtn) {
                     const shouldShow = scrollTop > 500;
                     if (shouldShow) {
-                        backToTopBtn.classList.remove('opacity-0', 'translate-y-10', 'pointer-events-none', 'invisible');
-                        backToTopBtn.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+                        backToTopBtn.classList.remove('opacity-0', 'pointer-events-none', 'invisible');
+                        backToTopBtn.classList.add('opacity-100', 'pointer-events-auto');
                     } else {
-                        backToTopBtn.classList.add('opacity-0', 'translate-y-10', 'pointer-events-none', 'invisible');
-                        backToTopBtn.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+                        backToTopBtn.classList.add('opacity-0', 'pointer-events-none', 'invisible');
+                        backToTopBtn.classList.remove('opacity-100', 'pointer-events-auto');
                     }
                 }
                 ticking = false;
@@ -326,7 +330,6 @@
             if (backToTopBtn) {
                 backToTopBtn.addEventListener('click', () => {
                     window.scrollTo({ top: 0, behavior: 'smooth' });
-                    const skipLink = document.getElementById('skip-link');
                     if (skipLink) {
                         skipLink.focus({ preventScroll: true });
                     }
@@ -334,29 +337,45 @@
             }
 
             // --- Email Copy-to-Clipboard ---
-            function handleCopy() {
+            const emailLink = document.getElementById('email-link');
+            const copyBtn = document.getElementById('copyEmailBtn');
+            const feedback = document.getElementById('copyFeedback');
+            let copyTimeout = null;
+
+            function handleCopy(e) {
                 if (!emailLink) return;
                 const email = emailLink.href.replace('mailto:', '');
 
                 navigator.clipboard.writeText(email).then(() => {
                     if (!feedback) return;
-                    feedback.classList.replace('opacity-0', 'opacity-100');
+
+                    feedback.classList.remove('opacity-0');
+                    feedback.classList.add('opacity-100');
+
                     const icon = copyBtn?.querySelector('i');
                     if (icon) icon.classList.replace('fa-copy', 'fa-check');
 
                     if (copyTimeout) clearTimeout(copyTimeout);
+
                     copyTimeout = setTimeout(() => {
-                        feedback.classList.replace('opacity-100', 'opacity-0');
+                        feedback.classList.remove('opacity-100');
+                        feedback.classList.add('opacity-0');
                         if (icon) icon.classList.replace('fa-check', 'fa-copy');
                         copyTimeout = null;
                     }, 2000);
-                }).catch(err => console.error('Failed to copy: ', err));
+                }).catch(err => {
+                    console.error('Failed to copy: ', err);
+                });
             }
 
-            if (emailLink) emailLink.addEventListener('click', handleCopy);
+            if (emailLink) emailLink.addEventListener('click', (e) => {
+                // If the user didn't click the copy button specifically,
+                // we let the mailto proceed but also copy the address.
+                handleCopy(e);
+            });
             if (copyBtn) copyBtn.addEventListener('click', (e) => {
                 e.preventDefault();
-                handleCopy();
+                handleCopy(e);
             });
 
             // --- Smooth Scroll & Focus Management ---
@@ -365,34 +384,33 @@
                     const href = this.getAttribute('href');
                     if (href === '#') {
                         e.preventDefault();
-                        window.scrollTo({
-                            top: 0,
-                            behavior: 'smooth'
-                        });
-                        const skipLink = document.getElementById('skip-link');
-                        if (skipLink) skipLink.focus();
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        if (skipLink) skipLink.focus({ preventScroll: true });
                         return;
                     }
 
                     const targetElement = document.querySelector(href);
                     if (targetElement) {
                         e.preventDefault();
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                        // Update focus for screen readers and keyboard navigation
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+
+                        // Manage focus
+                        const prevTabIndex = targetElement.getAttribute('tabindex');
+                        targetElement.setAttribute('tabindex', '-1');
                         targetElement.focus({ preventScroll: true });
+
+                        targetElement.addEventListener('blur', () => {
+                            if (prevTabIndex === null) {
+                                targetElement.removeAttribute('tabindex');
+                            } else {
+                                targetElement.setAttribute('tabindex', prevTabIndex);
+                            }
+                        }, { once: true });
                     }
                 });
             });
         });
     </script>
 
-    <!-- Back to Top Button -->
-    <button id="back-to-top"
-            aria-label="Back to top"
-            class="fixed bottom-8 right-8 z-[70] bg-gradient-to-br from-[#FFD700] to-[#00E5FF] text-[#080C14] w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:scale-110 focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none">
-        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
-    </button>
 </body>
 </html>
