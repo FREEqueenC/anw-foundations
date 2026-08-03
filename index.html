@@ -448,35 +448,34 @@
             });
 
             // --- Active Section Highlighting ---
-            const observerOptions = { rootMargin: '-10% 0px -20% 0px', threshold: 0 };
-            const navLinks = {
-                'mission': document.querySelector('nav a[href="#mission"]'),
-                'projects': document.querySelector('nav a[href="#projects"]'),
-                'contact': document.querySelector('nav a[href="#contact"]')
-            };
-
+            const navLinks = document.querySelectorAll('nav a[href^="#"]:not([href="#"])');
+            const observerOptions = { rootMargin: '-50% 0px -50% 0px', threshold: 0 };
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        Object.values(navLinks).forEach(link => {
-                            if (link) link.classList.remove('text-[#FFD700]', 'ring-2', 'ring-[#FFD700]');
-                        });
-                        const activeLink = navLinks[entry.target.id];
-                        if (activeLink) {
-                            if (entry.target.id === 'contact') {
-                                activeLink.classList.add('ring-2', 'ring-[#FFD700]');
+                        const id = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            const isActive = link.getAttribute('href') === `#${id}`;
+                            const isContact = link.getAttribute('href') === '#contact';
+
+                            if (isContact) {
+                                link.classList.toggle('ring-2', isActive);
+                                link.classList.toggle('ring-[#FFD700]', isActive);
                             } else {
-                                activeLink.classList.add('text-[#FFD700]');
+                                link.classList.toggle('text-[#FFD700]', isActive);
                             }
-                        }
+
+                            if (isActive) {
+                                link.setAttribute('aria-current', 'page');
+                            } else {
+                                link.removeAttribute('aria-current');
+                            }
+                        });
                     }
                 });
             }, observerOptions);
 
-            ['mission', 'projects', 'contact'].forEach(id => {
-                const el = document.getElementById(id);
-                if (el) observer.observe(el);
-            });
+            document.querySelectorAll('section[id], footer[id]').forEach(section => observer.observe(section));
         })();
     </script>
 
