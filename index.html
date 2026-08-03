@@ -322,7 +322,7 @@
                     const link = document.querySelector(`nav a[href="#${id}"]`);
                     if (!link) return;
 
-                    const activeClasses = link.getAttribute('data-active-class')?.split(' ') || [];
+                    const activeClasses = link.getAttribute('data-active-class')?.split(/\s+/).filter(Boolean) || [];
                     if (entry.isIntersecting) {
                         link.setAttribute('aria-current', 'page');
                         activeClasses.forEach(cls => link.classList.add(cls));
