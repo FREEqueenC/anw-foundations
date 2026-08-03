@@ -327,7 +327,7 @@
                     const navLink = document.querySelector(`nav a[href="#${id}"]`);
                     if (!navLink) return;
 
-                    const activeClasses = navLink.getAttribute('data-active-class')?.split(' ') || [];
+                    const activeClasses = navLink.getAttribute('data-active-class')?.split(' ').filter(Boolean) || [];
 
                     if (entry.isIntersecting) {
                         navLink.setAttribute('aria-current', 'page');
