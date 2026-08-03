@@ -315,11 +315,12 @@
             if (backToTopBtn) backToTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); if (skipLink) skipLink.focus({ preventScroll: true }); });
 
             // --- Active Section Highlighting ---
+            const navLinks = document.querySelectorAll('nav a');
             const navObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const id = entry.target.getAttribute('id');
-                        document.querySelectorAll('nav a').forEach(link => {
+                        navLinks.forEach(link => {
                             const isContact = link.getAttribute('href') === '#contact';
                             const isActive = link.getAttribute('href') === `#${id}`;
 
