@@ -351,50 +351,28 @@
             if (backToTopBtn) backToTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); if (skipLink) skipLink.focus({ preventScroll: true }); });
 
             // --- Active Section Highlighting ---
-            const observerOptions = {
-                root: null,
-                rootMargin: '-50% 0px -50% 0px',
-                threshold: 0
-            };
-
+            const observerOptions = { rootMargin: '-50% 0px -50% 0px', threshold: 0 };
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     const id = entry.target.getAttribute('id');
-                    const navLink = document.querySelector(`nav a[href="#${id}"]`);
-                    if (!navLink) return;
+                    const link = document.querySelector(`nav a[href="#${id}"]`);
+                    if (!link) return;
 
-                    const activeClasses = navLink.getAttribute('data-active-class')?.split(' ').filter(Boolean) || [];
-
+                    const activeClasses = link.getAttribute('data-active-class')?.split(/\s+/).filter(Boolean) || [];
                     if (entry.isIntersecting) {
-                        navLink.setAttribute('aria-current', 'page');
-                        if (activeClasses.length) navLink.classList.add(...activeClasses);
+                        link.setAttribute('aria-current', 'page');
+                        activeClasses.forEach(cls => link.classList.add(cls));
                     } else {
-                        navLink.removeAttribute('aria-current');
-                        if (activeClasses.length) navLink.classList.remove(...activeClasses);
+                        link.removeAttribute('aria-current');
+                        activeClasses.forEach(cls => link.classList.remove(cls));
                     }
                 });
             }, observerOptions);
 
-            document.querySelectorAll('section[id], footer[id]').forEach(section => {
-                observer.observe(section);
-            });
-
-            function handleCopy() {
-                if (!emailLink) return;
-                navigator.clipboard.writeText(emailLink.href.replace('mailto:', '')).then(() => {
-                    if (!feedback) return;
-                    feedback.classList.add('opacity-100'); feedback.classList.remove('opacity-0');
-                    const icon = copyBtn?.querySelector('i'); if (icon) icon.classList.replace('fa-copy', 'fa-check');
-                    if (copyTimeout) clearTimeout(copyTimeout);
-                    copyTimeout = setTimeout(() => { feedback.classList.add('opacity-0'); feedback.classList.remove('opacity-100'); if (icon) icon.classList.replace('fa-check', 'fa-copy'); copyTimeout = null; }, 2000);
-                });
-            }
-            if (emailLink) emailLink.addEventListener('click', handleCopy);
-            if (copyBtn) copyBtn.addEventListener('click', (e) => { e.preventDefault(); handleCopy(); });
+            document.querySelectorAll('section[id], footer[id]').forEach(section => observer.observe(section));
 
             // --- Email Copy-to-Clipboard ---
-            function handleCopy(e) {
-                if (e && e.currentTarget !== emailLink) e.preventDefault();
+            function handleCopy() {
                 if (!emailLink) return;
                 const email = emailLink.href.replace('mailto:', '');
                 navigator.clipboard.writeText(email).then(() => {
@@ -411,51 +389,7 @@
                 }).catch(err => console.error('Failed to copy: ', err));
             }
             if (emailLink) emailLink.addEventListener('click', handleCopy);
-            if (copyBtn) copyBtn.addEventListener('click', handleCopy);
-
-            // --- Active Section Highlighting ---
-            const observerOptions = { rootMargin: '-50% 0px -50% 0px' };
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const id = entry.target.getAttribute('id');
-                        document.querySelectorAll('nav a[href^="#"]').forEach(link => {
-                            const href = link.getAttribute('href');
-                            const isMatch = href === `#${id}`;
-                            if (href === '#contact') {
-                                link.classList.toggle('ring-2', isMatch);
-                                link.classList.toggle('ring-[#FFD700]', isMatch);
-                            } else if (href !== '#') {
-                                link.classList.toggle('text-[#FFD700]', isMatch);
-                            }
-                        });
-                    }
-                });
-            }, observerOptions);
-            document.querySelectorAll('section[id], footer[id]').forEach(s => observer.observe(s));
-
-            // --- Active Section Highlighting ---
-            const navLinks = document.querySelectorAll('nav a[href^="#"]');
-            const sections = document.querySelectorAll('section[id], footer[id]');
-            const observerOptions = { root: null, rootMargin: '-50% 0px -50% 0px', threshold: 0 };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const id = entry.target.getAttribute('id');
-                        navLinks.forEach(link => {
-                            const isMatch = link.getAttribute('href') === `#${id}`;
-                            link.classList.toggle('text-[#FFD700]', isMatch && id !== 'contact');
-                            if (id === 'contact' && isMatch) link.classList.add('ring-2', 'ring-[#FFD700]');
-                            else link.classList.remove('ring-2', 'ring-[#FFD700]');
-
-                            if (isMatch) link.setAttribute('aria-current', 'page');
-                            else link.removeAttribute('aria-current');
-                        });
-                    }
-                });
-            }, observerOptions);
-            sections.forEach(section => observer.observe(section));
+            if (copyBtn) copyBtn.addEventListener('click', (e) => { e.preventDefault(); handleCopy(); });
 
             // --- Smooth Scroll & Focus Management ---
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
