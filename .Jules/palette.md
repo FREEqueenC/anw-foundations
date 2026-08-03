@@ -21,6 +21,6 @@
 **Learning:** In single-page applications using smooth scroll, visual movement must be paired with programmatic focus management. Without explicitly moving focus (using `element.focus()` and `tabindex="-1"`), keyboard and screen reader users remain at the source of the click, losing context and breaking the logical navigation flow.
 **Action:** Always synchronize smooth scroll animations with programmatic focus updates to the target element to maintain accessibility parity with visual transitions.
 
-## 2026-06-19 - [Accessible Scrollspy with IntersectionObserver]
-**Learning:** For single-page landing pages, an 'active' section highlighter (scrollspy) provides crucial orientation feedback. Using 'IntersectionObserver' with a 'rootMargin' of '-50% 0px -50% 0px' ensures the highlight triggers exactly as the section passes the vertical center of the viewport. Combining this with 'aria-current="page"' ensures accessibility for screen reader users.
-**Action:** Use 'IntersectionObserver' for performant scroll-based UI updates and always pair visual active states with 'aria-current="page"'.
+## 2026-06-20 - [Contextual Navigation with IntersectionObserver]
+**Learning:** In single-page landing pages, users often lose track of their position. Implementing an `IntersectionObserver` with a `rootMargin` of `'-50% 0px -50% 0px'` (effectively a 'center-line' trigger) allows for precise active section highlighting. This must be paired with `aria-current="page"` for accessibility and appropriate scroll margins (`scroll-mt`) to ensure clear visual context after navigation.
+**Action:** Use a centered `IntersectionObserver` to manage both visual active states and `aria-current` attributes on navigation links.
