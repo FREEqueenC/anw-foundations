@@ -262,11 +262,13 @@
                         Architecting the autonomous, multi-agent frameworks and high-performance infrastructure businesses need to make AI reliable and scalable. Enterprise AI Automation and Data Pipeline Engineering.
                     </p>
                     <div class="flex items-center space-x-6">
-                        <a href="https://github.com/FREEqueenC" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" aria-describedby="tooltip-github" class="group relative text-slate-500 hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded transition-colors">
+                        <a href="https://github.com/FREEqueenC" target="_blank" rel="noopener noreferrer" aria-describedby="tooltip-github" class="group relative text-slate-500 hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded transition-colors">
+                            <span class="sr-only">GitHub Profile (opens in a new tab)</span>
                             <i aria-hidden="true" class="fa-brands fa-github text-2xl"></i>
                             <span role="tooltip" id="tooltip-github" class="absolute -top-10 left-1/2 -translate-x-1/2 bg-indigo-500 text-white text-[10px] font-bold px-2 py-1 rounded opacity-0 transition-opacity pointer-events-none whitespace-nowrap group-hover:opacity-100 group-focus-visible:opacity-100 z-10">View Code</span>
                         </a>
-                        <a href="https://www.linkedin.com/in/ashleighnwalker/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" aria-describedby="tooltip-linkedin" class="group relative text-slate-500 hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded transition-colors">
+                        <a href="https://www.linkedin.com/in/ashleighnwalker/" target="_blank" rel="noopener noreferrer" aria-describedby="tooltip-linkedin" class="group relative text-slate-500 hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded transition-colors">
+                            <span class="sr-only">LinkedIn Profile (opens in a new tab)</span>
                             <i aria-hidden="true" class="fa-brands fa-linkedin text-2xl"></i>
                             <span role="tooltip" id="tooltip-linkedin" class="absolute -top-10 left-1/2 -translate-x-1/2 bg-indigo-500 text-white text-[10px] font-bold px-2 py-1 rounded opacity-0 transition-opacity pointer-events-none whitespace-nowrap group-hover:opacity-100 group-focus-visible:opacity-100 z-10">Connect on LinkedIn</span>
                         </a>
@@ -326,7 +328,13 @@
 
                 // If it's a click on the link itself, we don't prevent default mailto action
                 // but we still copy the email for convenience.
-                const email = emailLink.href.replace('mailto:', '');
+                let email = emailLink.getAttribute('href');
+                if (email && email.startsWith('mailto:')) {
+                    email = email.replace('mailto:', '');
+                } else {
+                    const contact = emailLink.getAttribute('data-contact');
+                    if (contact) email = atob(contact);
+                }
 
                 navigator.clipboard.writeText(email).then(() => {
                     if (!feedback) return;
@@ -412,25 +420,13 @@
 
             document.querySelectorAll('section[id], footer[id]').forEach(section => observer.observe(section));
 
-            // --- Email Copy-to-Clipboard ---
-            function handleCopy() {
-                if (!emailLink) return;
-                const email = emailLink.href.replace('mailto:', '');
-                navigator.clipboard.writeText(email).then(() => {
-                    if (!feedback) return;
-                    feedback.classList.remove('opacity-0'); feedback.classList.add('opacity-100');
-                    const icon = copyBtn?.querySelector('i');
-                    if (icon) icon.classList.replace('fa-copy', 'fa-check');
-                    if (copyTimeout) clearTimeout(copyTimeout);
-                    copyTimeout = setTimeout(() => {
-                        feedback.classList.remove('opacity-100'); feedback.classList.add('opacity-0');
-                        if (icon) icon.classList.replace('fa-check', 'fa-copy');
-                        copyTimeout = null;
-                    }, 2000);
-                }).catch(err => console.error('Failed to copy: ', err));
-            }
-            if (emailLink) emailLink.addEventListener('click', handleCopy);
-            if (copyBtn) copyBtn.addEventListener('click', (e) => { e.preventDefault(); handleCopy(); });
+            // --- Email De-obfuscation ---
+            document.querySelectorAll('.obfuscated-email').forEach(link => {
+                const contact = link.getAttribute('data-contact');
+                if (contact) {
+                    link.href = 'mailto:' + atob(contact);
+                }
+            });
 
             // --- Smooth Scroll & Focus Management ---
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -460,35 +456,6 @@
                 });
             });
 
-            // --- Active Section Highlighting ---
-            const navLinks = document.querySelectorAll('nav a[href^="#"]:not([href="#"])');
-            const observerOptions = { rootMargin: '-50% 0px -50% 0px', threshold: 0 };
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const id = entry.target.getAttribute('id');
-                        navLinks.forEach(link => {
-                            const isActive = link.getAttribute('href') === `#${id}`;
-                            const isContact = link.getAttribute('href') === '#contact';
-
-                            if (isContact) {
-                                link.classList.toggle('ring-2', isActive);
-                                link.classList.toggle('ring-[#FFD700]', isActive);
-                            } else {
-                                link.classList.toggle('text-[#FFD700]', isActive);
-                            }
-
-                            if (isActive) {
-                                link.setAttribute('aria-current', 'page');
-                            } else {
-                                link.removeAttribute('aria-current');
-                            }
-                        });
-                    }
-                });
-            }, observerOptions);
-
-            document.querySelectorAll('section[id], footer[id]').forEach(section => observer.observe(section));
         })();
     </script>
 
