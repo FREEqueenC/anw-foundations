@@ -24,3 +24,7 @@
 ## 2026-06-21 - [Dynamic Section Highlighting & IntersectionObserver]
 **Learning:** For single-page navigation, visual feedback during scrolling is as critical as smooth scroll clicks. Using an IntersectionObserver with a 50% rootMargin provides a "snappy" and intuitive indication of the user's current location. Complementing this with 'aria-current="page"' ensures accessibility parity.
 **Action:** Implement IntersectionObserver-based highlighting for navigation menus to improve orientation and accessibility in long landing pages.
+
+## 2026-06-25 - [Obfuscated Email Decoding & Accessible External Links]
+**Learning:** For static sites without a backend, obfuscate hardcoded email addresses by storing them as base64-encoded strings in HTML data attributes (e.g., `data-contact`) and decoding them client-side with JavaScript (`atob()`) to populate `href='mailto:...'`. Additionally, for icon-only links that open in a new tab, avoid using `aria-label` directly on the anchor to prevent overriding existing visible text content for screen readers. Instead, place a visually hidden span (`<span class="sr-only">`) inside the anchor containing the full descriptive text plus a new tab warning (e.g., 'Profile (opens in a new tab)').
+**Action:** Always verify obfuscated data is correctly decoded before use and use `sr-only` spans for accessible names on external links.
