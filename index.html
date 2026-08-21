@@ -321,6 +321,15 @@
             const feedback = document.getElementById('copyFeedback');
             let copyTimeout = null;
 
+            // De-obfuscate email on load
+            if (emailLink) {
+                const encodedEmail = emailLink.getAttribute('data-contact');
+                if (encodedEmail) {
+                    const decodedEmail = atob(encodedEmail);
+                    emailLink.href = 'mailto:' + decodedEmail;
+                }
+            }
+
             function handleCopy(e) {
                 if (!emailLink) return;
 
@@ -411,26 +420,6 @@
             }, observerOptions);
 
             document.querySelectorAll('section[id], footer[id]').forEach(section => observer.observe(section));
-
-            // --- Email Copy-to-Clipboard ---
-            function handleCopy() {
-                if (!emailLink) return;
-                const email = emailLink.href.replace('mailto:', '');
-                navigator.clipboard.writeText(email).then(() => {
-                    if (!feedback) return;
-                    feedback.classList.remove('opacity-0'); feedback.classList.add('opacity-100');
-                    const icon = copyBtn?.querySelector('i');
-                    if (icon) icon.classList.replace('fa-copy', 'fa-check');
-                    if (copyTimeout) clearTimeout(copyTimeout);
-                    copyTimeout = setTimeout(() => {
-                        feedback.classList.remove('opacity-100'); feedback.classList.add('opacity-0');
-                        if (icon) icon.classList.replace('fa-check', 'fa-copy');
-                        copyTimeout = null;
-                    }, 2000);
-                }).catch(err => console.error('Failed to copy: ', err));
-            }
-            if (emailLink) emailLink.addEventListener('click', handleCopy);
-            if (copyBtn) copyBtn.addEventListener('click', (e) => { e.preventDefault(); handleCopy(); });
 
             // --- Smooth Scroll & Focus Management ---
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {

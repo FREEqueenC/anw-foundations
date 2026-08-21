@@ -24,3 +24,7 @@
 ## 2026-06-21 - [Dynamic Section Highlighting & IntersectionObserver]
 **Learning:** For single-page navigation, visual feedback during scrolling is as critical as smooth scroll clicks. Using an IntersectionObserver with a 50% rootMargin provides a "snappy" and intuitive indication of the user's current location. Complementing this with 'aria-current="page"' ensures accessibility parity.
 **Action:** Implement IntersectionObserver-based highlighting for navigation menus to improve orientation and accessibility in long landing pages.
+
+## 2026-07-15 - [Dynamic Data & Client-Side Obfuscation]
+**Learning:** When using client-side de-obfuscation (like base64 decoding via `atob`) to populate elements like email links, the logic must execute on DOM load *before* micro-interactions (like copy-to-clipboard) bind their event listeners to prevent capturing placeholder states.
+**Action:** Implement email de-obfuscation on DOM load and ensure event listeners for micro-interactions read from the updated element state.
