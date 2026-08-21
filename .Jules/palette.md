@@ -28,3 +28,7 @@
 ## 2026-06-25 - [Obfuscated Email Decoding & Accessible External Links]
 **Learning:** For static sites without a backend, obfuscate hardcoded email addresses by storing them as base64-encoded strings in HTML data attributes (e.g., `data-contact`) and decoding them client-side with JavaScript (`atob()`) to populate `href='mailto:...'`. Additionally, for icon-only links that open in a new tab, avoid using `aria-label` directly on the anchor to prevent overriding existing visible text content for screen readers. Instead, place a visually hidden span (`<span class="sr-only">`) inside the anchor containing the full descriptive text plus a new tab warning (e.g., 'Profile (opens in a new tab)').
 **Action:** Always verify obfuscated data is correctly decoded before use and use `sr-only` spans for accessible names on external links.
+
+## 2026-07-02 - [Accessible Context for External Cards & Links]
+**Learning:** Text-based external links and entire clickable cards with visual external indicators require explicit visually hidden warnings for screen readers. Simply having `target="_blank"` isn't sufficient for screen reader users to know they will be taken away from the current context. Adding an `sr-only` span ensures feature parity with sighted users.
+**Action:** Append `<span class="sr-only"> (opens in a new tab)</span>` within text nodes or heading elements of external links/cards to provide essential context for screen reader users.

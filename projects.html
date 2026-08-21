@@ -130,6 +130,7 @@
 
                 this.innerHTML = `
                     <a href="${url}" target="_blank" rel="noopener noreferrer" class="dark-glass group p-8 rounded-2xl focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] focus-visible:outline-none block h-full flex flex-col justify-between">
+                        <span class="sr-only"> (opens in a new tab)</span>
                         <div>
                             <div class="flex justify-between items-start mb-6">
                                 <div class="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-400 text-2xl group-hover:scale-110 group-hover:text-cyan-400 transition-all duration-500 shadow-[0_0_15px_rgba(99,102,241,0.2)]">
@@ -274,7 +275,7 @@
                             <div class="w-10 h-10 bg-indigo-500/20 rounded-lg flex items-center justify-center text-indigo-400">
                                 <i aria-hidden="true" class="fa-brands fa-linkedin-in"></i>
                             </div>
-                            <span class="text-sm font-semibold group-hover:text-indigo-300">LinkedIn</span>
+                            <span class="text-sm font-semibold group-hover:text-indigo-300">LinkedIn<span class="sr-only"> (opens in a new tab)</span></span>
                         </a>
                         <button type="button" aria-disabled="true" aria-label="Book a Session" aria-describedby="tooltip-session" class="relative flex items-center gap-4 p-4 rounded-xl bg-indigo-600 hover:bg-indigo-600 transition-colors group opacity-50 cursor-not-allowed focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none">
                             <div class="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center text-white">
