@@ -323,6 +323,15 @@
             const feedback = document.getElementById('copyFeedback');
             let copyTimeout = null;
 
+            // De-obfuscate email on load
+            if (emailLink) {
+                const encodedEmail = emailLink.getAttribute('data-contact');
+                if (encodedEmail) {
+                    const decodedEmail = atob(encodedEmail);
+                    emailLink.href = 'mailto:' + decodedEmail;
+                }
+            }
+
             function handleCopy(e) {
                 if (!emailLink) return;
 
