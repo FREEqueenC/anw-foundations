@@ -68,6 +68,7 @@
                     <div class="ml-10 flex items-baseline space-x-8">
                         <a href="index.html" class="text-slate-400 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Enterprise</a>
                         <a href="projects.html" aria-current="page" class="text-white px-3 py-2 rounded-md text-sm font-medium border-b-2 border-indigo-500">Further Projects</a>
+                        <a href="quantum-oracle.html" class="text-slate-400 hover:text-indigo-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Quantum & Oracle</a>
                         <a href="index.html#contact" class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-md text-sm font-medium transition-all">Consulting</a>
                     </div>
                 </div>
@@ -94,50 +95,190 @@
                 </p>
             </header>
 
-            <!-- Link Directory -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-32">
-                <!-- Google AI Studio -->
-                <a href="https://aistudio.google.com/" target="_blank" rel="noopener noreferrer" class="glass-panel group p-8 rounded-2xl hover:border-indigo-500/50 transition-all duration-500 block">
-                    <div class="flex justify-between items-start mb-6">
-                        <div class="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-400 text-2xl group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-microchip"></i>
-                        </div>
-                        <i class="fa-solid fa-arrow-up-right-from-square text-slate-600 group-hover:text-indigo-400 transition-colors"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-3">Google AI Studio</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">
-                        A primary workspace for agentic framework testing. Leveraging advanced LLM capabilities to build autonomous systems and scalable AI-driven workflows.
-                    </p>
-                </a>
-
-                <!-- GitHub -->
-                <a href="https://github.com/freequeenc" target="_blank" rel="noopener noreferrer" class="glass-panel group p-8 rounded-2xl hover:border-indigo-500/50 transition-all duration-500 block">
-                    <div class="flex justify-between items-start mb-6">
-                        <div class="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-400 text-2xl group-hover:scale-110 transition-transform">
-                            <i class="fa-brands fa-github"></i>
-                        </div>
-                        <i class="fa-solid fa-arrow-up-right-from-square text-slate-600 group-hover:text-indigo-400 transition-colors"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-3">GitHub Repository</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">
-                        Open-source system architecture and smart contract deployments. Documenting the foundational logic of decentralized protocols and infrastructure builds.
-                    </p>
-                </a>
-
-                <!-- Disclosure Project -->
-                <a href="https://disclosure-project.org/" target="_blank" rel="noopener noreferrer" class="glass-panel md:col-span-2 group p-8 rounded-2xl hover:border-indigo-500/50 transition-all duration-500 block">
+            <!-- Link Directory (Core Projects Grid) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                <!-- Quantum & Resource Oracle Suite -->
+                <a href="quantum-oracle.html" class="glass-panel group p-8 rounded-2xl hover:border-indigo-500/50 transition-all duration-500 block border border-indigo-500/30 bg-indigo-500/[0.04]">
                     <div class="flex justify-between items-start mb-6">
                         <div class="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-400 text-2xl group-hover:scale-110 transition-transform">
                             <i class="fa-solid fa-atom"></i>
                         </div>
+                        <span class="px-2.5 py-0.5 bg-indigo-500/20 text-indigo-300 text-[10px] font-black rounded uppercase tracking-wider border border-indigo-500/30">Live Interactive Lab</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3 flex items-center gap-2">
+                        Quantum & Resource Oracle <i class="fa-solid fa-arrow-right text-sm text-indigo-400 group-hover:translate-x-1 transition-transform"></i>
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Transverse-field simulated quantum annealing (SQA) for Levity LP and NICOLE agent DAGs, paired with a Qualtran-style cross-platform resource costing oracle (EVM Gas, Cadence, ZK-SNARKs, and FTQC T-Gates).
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2.5 py-0.5 bg-indigo-500/10 text-indigo-400 text-[10px] font-bold rounded uppercase tracking-wider border border-indigo-500/20">Quantum Annealing</span>
+                        <span class="px-2.5 py-0.5 bg-indigo-500/10 text-indigo-400 text-[10px] font-bold rounded uppercase tracking-wider border border-indigo-500/20">Qualtran Model</span>
+                        <span class="px-2.5 py-0.5 bg-indigo-500/10 text-indigo-400 text-[10px] font-bold rounded uppercase tracking-wider border border-indigo-500/20">Base Mainnet</span>
+                        <span class="px-2.5 py-0.5 bg-indigo-500/10 text-indigo-400 text-[10px] font-bold rounded uppercase tracking-wider border border-indigo-500/20">ZK Proofs</span>
+                    </div>
+                </a>
+
+                <!-- NICOLE Resonance Portal -->
+                <a href="https://nicole-disclose.world" target="_blank" rel="noopener noreferrer" class="glass-panel group p-8 rounded-2xl hover:border-indigo-500/50 transition-all duration-500 block">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center text-[#00E5FF] text-2xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
                         <i class="fa-solid fa-arrow-up-right-from-square text-slate-600 group-hover:text-indigo-400 transition-colors"></i>
                     </div>
-                    <div class="max-w-2xl">
-                        <h3 class="text-2xl font-bold text-white mb-3">The Disclosure Project</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">
-                            Framed under independent research and advanced physics/technology exploration. Investigating the frontiers of energy, consciousness, and archival transparency in scientific data.
+                    <h3 class="text-2xl font-bold text-white mb-3">NICOLE Resonance Portal</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Autonomous multi-agent intelligence and cryptographic orchestration framework. Integrates distributed LLM nodes with zero-knowledge telemetry reporting.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2.5 py-0.5 bg-indigo-500/10 text-indigo-400 text-[10px] font-bold rounded uppercase tracking-wider border border-indigo-500/20">AI Agents</span>
+                        <span class="px-2.5 py-0.5 bg-indigo-500/10 text-indigo-400 text-[10px] font-bold rounded uppercase tracking-wider border border-indigo-500/20">Sovereign Tech</span>
+                        <span class="px-2.5 py-0.5 bg-indigo-500/10 text-indigo-400 text-[10px] font-bold rounded uppercase tracking-wider border border-indigo-500/20">Cryptography</span>
+                    </div>
+                </a>
+
+                <!-- Payviah -->
+                <a href="https://freequeenc.github.io/Payviah/" target="_blank" rel="noopener noreferrer" class="glass-panel group p-8 rounded-2xl hover:border-indigo-500/50 transition-all duration-500 block">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center text-[#00E5FF] text-2xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-vault"></i>
+                        </div>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-slate-600 group-hover:text-indigo-400 transition-colors"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Payviah</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Automated transaction flow protocol and secure billing routing. Delivers sub-second cryptographic verification for enterprise transaction pipes.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2.5 py-0.5 bg-indigo-500/10 text-indigo-400 text-[10px] font-bold rounded uppercase tracking-wider border border-indigo-500/20">Fintech</span>
+                        <span class="px-2.5 py-0.5 bg-indigo-500/10 text-indigo-400 text-[10px] font-bold rounded uppercase tracking-wider border border-indigo-500/20">Secure Ingress</span>
+                        <span class="px-2.5 py-0.5 bg-indigo-500/10 text-indigo-400 text-[10px] font-bold rounded uppercase tracking-wider border border-indigo-500/20">Data Engineering</span>
+                    </div>
+                </a>
+
+                <!-- Aetheris X / Hub -->
+                <a href="https://aetherisx.studio" target="_blank" rel="noopener noreferrer" class="glass-panel group p-8 rounded-2xl hover:border-indigo-500/50 transition-all duration-500 block">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center text-[#00E5FF] text-2xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-server"></i>
+                        </div>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-slate-600 group-hover:text-indigo-400 transition-colors"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Aetheris X / Hub</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Central experiments nexus for Sovereign Intelligence. Deployed as OIDC-verified backend APIs on Google Cloud Run with custom CORS domain protection.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2.5 py-0.5 bg-indigo-500/10 text-indigo-400 text-[10px] font-bold rounded uppercase tracking-wider border border-indigo-500/20">Cloud Run</span>
+                        <span class="px-2.5 py-0.5 bg-indigo-500/10 text-indigo-400 text-[10px] font-bold rounded uppercase tracking-wider border border-indigo-500/20">Python APIs</span>
+                        <span class="px-2.5 py-0.5 bg-indigo-500/10 text-indigo-400 text-[10px] font-bold rounded uppercase tracking-wider border border-indigo-500/20">OIDC</span>
+                    </div>
+                </a>
+
+                <!-- Levity Protocol -->
+                <a href="https://levityprotocol.cloud" target="_blank" rel="noopener noreferrer" class="glass-panel group p-8 rounded-2xl hover:border-indigo-500/50 transition-all duration-500 block">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center text-[#00E5FF] text-2xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-wave-square"></i>
+                        </div>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-slate-600 group-hover:text-indigo-400 transition-colors"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Levity Protocol</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Decentralized on-chain asset manager live on Base L2. Manages the `LEV` token (100M mint) and structures automated Uniswap liquidity pools.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2.5 py-0.5 bg-indigo-500/10 text-indigo-400 text-[10px] font-bold rounded uppercase tracking-wider border border-indigo-500/20">Base L2</span>
+                        <span class="px-2.5 py-0.5 bg-indigo-500/10 text-indigo-400 text-[10px] font-bold rounded uppercase tracking-wider border border-indigo-500/20">Uniswap V3</span>
+                        <span class="px-2.5 py-0.5 bg-indigo-500/10 text-indigo-400 text-[10px] font-bold rounded uppercase tracking-wider border border-indigo-500/20">Solidity</span>
+                    </div>
+                </a>
+
+                <!-- NICOLE Genetic Oracle -->
+                <div class="glass-panel p-8 rounded-2xl border border-white/10 bg-white/5 flex flex-col justify-between min-h-[220px]">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center text-[#00E5FF] text-2xl">
+                                <i class="fa-solid fa-dna"></i>
+                            </div>
+                            <span class="px-2.5 py-0.5 bg-slate-500/10 text-slate-400 text-[10px] font-black rounded uppercase tracking-tighter border border-slate-500/20">Local Alpha</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">NICOLE Genetic Oracle</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            Bioinformatics analysis tool resolving raw DNA sequence uploads (Ancestry/23andMe) against ClinVar, dbSNP, and GTEx databases.
                         </p>
                     </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2.5 py-0.5 bg-indigo-500/10 text-indigo-400 text-[10px] font-bold rounded uppercase tracking-wider border border-indigo-500/20">Bioinformatics</span>
+                        <span class="px-2.5 py-0.5 bg-indigo-500/10 text-indigo-400 text-[10px] font-bold rounded uppercase tracking-wider border border-indigo-500/20">Genetics</span>
+                        <span class="px-2.5 py-0.5 bg-indigo-500/10 text-indigo-400 text-[10px] font-bold rounded uppercase tracking-wider border border-indigo-500/20">GTEx APIs</span>
+                    </div>
+                </div>
+
+                <!-- Quantum Resonance Engine -->
+                <div class="glass-panel p-8 rounded-2xl border border-white/10 bg-white/5 flex flex-col justify-between min-h-[220px]">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center text-[#00E5FF] text-2xl">
+                                <i class="fa-solid fa-atom"></i>
+                            </div>
+                            <span class="px-2.5 py-0.5 bg-slate-500/10 text-slate-400 text-[10px] font-black rounded uppercase tracking-tighter border border-slate-500/20">Research Sandbox</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Quantum Resonance Engine</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            Phase-conjugated resonant gravity simulator driving TM010 microwave resonant cavity calculations modulated with Books of Jeu ciphers.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2.5 py-0.5 bg-indigo-500/10 text-indigo-400 text-[10px] font-bold rounded uppercase tracking-wider border border-indigo-500/20">Propulsion Physics</span>
+                        <span class="px-2.5 py-0.5 bg-indigo-500/10 text-indigo-400 text-[10px] font-bold rounded uppercase tracking-wider border border-indigo-500/20">Gnostic Ciphers</span>
+                        <span class="px-2.5 py-0.5 bg-indigo-500/10 text-indigo-400 text-[10px] font-bold rounded uppercase tracking-wider border border-indigo-500/20">Exotic Energy</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Global Coordinates & Sandbox Hub -->
+            <div class="text-center mb-12 mt-24">
+                <h3 class="text-2xl font-bold text-white mb-2 uppercase tracking-tight">Workspaces & Research Channels</h3>
+                <p class="text-slate-400 text-sm">Primary workspaces and reference coordinates for active agent testing and data transparency.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-32">
+                <!-- Google AI Studio -->
+                <a href="https://aistudio.google.com/" target="_blank" rel="noopener noreferrer" class="glass-panel group p-6 rounded-xl hover:border-indigo-500/50 transition-all duration-300 block">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-indigo-400 text-lg"><i class="fa-solid fa-microchip"></i></span>
+                        <span class="text-[9px] font-bold text-slate-500 group-hover:text-indigo-400 transition-colors">AI Studio <i class="fa-solid fa-arrow-up-right-from-square ml-0.5"></i></span>
+                    </div>
+                    <h4 class="text-md font-bold text-white mb-2">Google AI Studio</h4>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Workspace for testing LLM functions and agentic flows.
+                    </p>
+                </a>
+
+                <!-- GitHub -->
+                <a href="https://github.com/freequeenc" target="_blank" rel="noopener noreferrer" class="glass-panel group p-6 rounded-xl hover:border-indigo-500/50 transition-all duration-300 block">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-indigo-400 text-lg"><i class="fa-brands fa-github"></i></span>
+                        <span class="text-[9px] font-bold text-slate-500 group-hover:text-indigo-400 transition-colors">GitHub <i class="fa-solid fa-arrow-up-right-from-square ml-0.5"></i></span>
+                    </div>
+                    <h4 class="text-md font-bold text-white mb-2">GitHub Profile</h4>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Smart contract deployments and open source repositories.
+                    </p>
+                </a>
+
+                <!-- Disclosure Project -->
+                <a href="https://disclosure-project.org/" target="_blank" rel="noopener noreferrer" class="glass-panel group p-6 rounded-xl hover:border-indigo-500/50 transition-all duration-300 block">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-indigo-400 text-lg"><i class="fa-solid fa-atom"></i></span>
+                        <span class="text-[9px] font-bold text-slate-500 group-hover:text-indigo-400 transition-colors">Disclosure <i class="fa-solid fa-arrow-up-right-from-square ml-0.5"></i></span>
+                    </div>
+                    <h4 class="text-md font-bold text-white mb-2">The Disclosure Project</h4>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Exotic physics and transparency research benchmarks.
+                    </p>
                 </a>
             </div>
 
@@ -152,7 +293,7 @@
                             </div>
                             <span class="text-sm font-semibold group-hover:text-indigo-300">Email Me</span>
                         </a>
-                        <a href="https://www.linkedin.com/in/ashleighnwalker/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors group">
+                        <a href="https://linkedin.com/in/ashleigh-walker-2131a2173" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors group">
                             <div class="w-10 h-10 bg-indigo-500/20 rounded-lg flex items-center justify-center text-indigo-400">
                                 <i class="fa-brands fa-linkedin-in"></i>
                             </div>
