@@ -4,327 +4,374 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Further Projects & Research | A.N.W. FOUNDATIONS</title>
-    <meta name="description" content="A directory of advanced research, agentic frameworks, and system architecture by A.N.W. Foundations.">
+    <meta name="description" content="A directory of advanced research, agentic frameworks, quantum optimization, and system architecture by A.N.W. Foundations.">
 
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com/3.4.17" integrity="sha384-igm5BeiBt36UU4gqwWS7imYmelpTsZlQ45FZf+XBn9MuJbn4nQr7yx1yFydocC/K" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/png" href="favicon.png">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
         body {
             letter-spacing: -0.015em;
             font-family: 'Inter', sans-serif;
-            background-color: #050505; /* Deep Void Obsidian */
-            color: #f8fafc; /* Slate 50 */
+            background-color: #030712;
+            color: #f1f5f9;
         }
-        h1, h2, h3 {
-            letter-spacing: -0.025em;
-            font-weight: 800;
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
         }
-        .aether-gradient {
-            background: linear-gradient(135deg, #e2e8f0 0%, #a5b4fc 50%, #22d3ee 100%);
+        .gradient-text {
+            background: linear-gradient(135deg, #ffffff 0%, #c7d2fe 45%, #818cf8 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .dark-glass {
-            background: rgba(10, 10, 15, 0.6);
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.025);
             backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .dark-glass:hover {
-            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            transform: translateY(-4px);
-            border-color: rgba(99, 102, 241, 0.3);
+        .glass-panel:hover {
+            border-color: rgba(99, 102, 241, 0.35);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px -8px rgba(99, 102, 241, 0.12);
         }
-
-        /* Aetheric Background Animations */
-        .aether-bg {
+        .glass-panel-accent {
+            background: rgba(99, 102, 241, 0.04);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(99, 102, 241, 0.25);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-panel-accent:hover {
+            border-color: rgba(99, 102, 241, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 16px 40px -10px rgba(99, 102, 241, 0.2);
+        }
+        .sacred-grid {
             position: fixed;
-            inset: 0;
-            z-index: -2;
-            background: radial-gradient(circle at 50% 50%, #080c16 0%, #050505 100%);
-            overflow: hidden;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle at 2px 2px, rgba(99, 102, 241, 0.06) 1px, transparent 0);
+            background-size: 36px 36px;
+            pointer-events: none;
+            z-index: 0;
         }
-        .aether-wisp {
+        .aether-glow {
             position: absolute;
             border-radius: 50%;
-            filter: blur(100px);
-            opacity: 0.15;
-            animation: drift 20s infinite alternate ease-in-out;
-        }
-        .wisp-1 {
-            width: 600px;
-            height: 600px;
-            background: #6366f1; /* Deep Violet/Indigo */
-            top: -200px;
-            left: -100px;
-            animation-delay: 0s;
-        }
-        .wisp-2 {
-            width: 500px;
-            height: 500px;
-            background: #22d3ee; /* Cyan */
-            bottom: -100px;
-            right: -100px;
-            animation-delay: -5s;
-            animation-duration: 25s;
-        }
-        .wisp-3 {
-            width: 400px;
-            height: 400px;
-            background: #a5b4fc; /* Pale Silver/Violet */
-            top: 40%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            animation-delay: -10s;
-            animation-duration: 30s;
-        }
-
-        @keyframes drift {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(50px, 30px) scale(1.1); }
-        }
-
-        .geometric-pattern {
-            position: fixed;
-            inset: 0;
-            z-index: -1;
-            background-image:
-                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-            background-size: 60px 60px;
-            opacity: 0.5;
-            mask-image: radial-gradient(circle at center, black, transparent 80%);
-            -webkit-mask-image: radial-gradient(circle at center, black, transparent 80%);
-            animation: phase 15s infinite alternate ease-in-out;
-        }
-
-        @keyframes phase {
-            0% { opacity: 0.2; }
-            100% { opacity: 0.8; }
-        }
-
-        /* Glass panel fallback for existing contact sections */
-        .glass-panel {
-            background: rgba(10, 10, 15, 0.6);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            filter: blur(120px);
+            pointer-events: none;
+            opacity: 0.12;
         }
     </style>
-
-    <script>
-        class ProjectCard extends HTMLElement {
-            connectedCallback() {
-                const title = this.getAttribute('title') || 'Project Title';
-                const description = this.getAttribute('description') || 'Project description goes here.';
-                const url = this.getAttribute('url') || '#';
-                const icon = this.getAttribute('icon') || 'fa-solid fa-microchip';
-
-                this.innerHTML = `
-                    <a href="${url}" target="_blank" rel="noopener noreferrer" class="dark-glass group p-8 rounded-2xl focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] focus-visible:outline-none block h-full flex flex-col justify-between">
-                        <span class="sr-only"> (opens in a new tab)</span>
-                        <div>
-                            <div class="flex justify-between items-start mb-6">
-                                <div class="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-400 text-2xl group-hover:scale-110 group-hover:text-cyan-400 transition-all duration-500 shadow-[0_0_15px_rgba(99,102,241,0.2)]">
-                                    <i aria-hidden="true" class="${icon}"></i>
-                                </div>
-                                <i aria-hidden="true" class="fa-solid fa-arrow-up-right-from-square text-slate-600 group-hover:text-indigo-400 transition-colors"></i>
-                            </div>
-                            <h3 class="text-xl md:text-2xl font-bold text-white mb-3 group-hover:text-indigo-200 transition-colors">${title}</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                                ${description}
-                            </p>
-                        </div>
-                    </a>
-                `;
-            }
-        }
-        customElements.define('project-card', ProjectCard);
-    </script>
 </head>
-<body class="antialiased selection:bg-[#6366f1] selection:text-white">
-    <!-- Aetheric Environment -->
-    <div class="aether-bg">
-        <div class="aether-wisp wisp-1"></div>
-        <div class="aether-wisp wisp-2"></div>
-        <div class="aether-wisp wisp-3"></div>
-    </div>
-    <div class="geometric-pattern pointer-events-none"></div>
-    <!-- Skip Link -->
-    <a href="#main-content" id="skip-link" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-white focus:text-[#080C14] focus:px-4 focus:py-2 focus:rounded-md focus:font-bold focus:outline-none focus:ring-2 focus:ring-[#6366f1]">
-        Skip to Main Content
-    </a>
+<body class="antialiased selection:bg-indigo-500 selection:text-white min-h-screen relative">
+    <div class="sacred-grid"></div>
+
+    <!-- Background Ambient Glows -->
+    <div class="aether-glow w-[500px] h-[500px] bg-purple-600 top-[-100px] right-[-100px]"></div>
+    <div class="aether-glow w-[600px] h-[600px] bg-indigo-600 bottom-[10%] left-[-150px]"></div>
+
+    <!-- Reading Progress Bar -->
+    <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-400 z-[60]" style="width: 0%"></div>
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-[#030712]/90 backdrop-blur-md border-b border-white/5">
+    <nav class="fixed w-full z-50 bg-[#030712]/90 backdrop-blur-md border-b border-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
-                <a href="index.html" class="flex items-center space-x-3 group focus:outline-none" aria-label="Back to home">
-                    <img src="logo.png" alt="Logo" class="h-8 w-8 rounded opacity-80 group-hover:opacity-100 transition-opacity">
-                    <span class="text-lg font-black tracking-tighter text-white uppercase">A.N.W. <span class="text-indigo-400">FOUNDATIONS</span></span>
+                <a href="index.html" class="flex items-center space-x-3 group focus:outline-none" aria-label="A.N.W. Foundations - Back to home">
+                    <img src="logo.png" alt="A.N.W. FOUNDATIONS Logo" class="h-9 w-9 rounded shadow-lg group-hover:opacity-80 transition-opacity">
+                    <span class="text-xl font-black tracking-tighter text-white uppercase">
+                        A.N.W. <span class="text-indigo-400 font-medium group-hover:text-indigo-300 transition-colors">FOUNDATIONS</span>
+                    </span>
                 </a>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="index.html" class="text-slate-400 hover:text-white focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded px-3 py-2 rounded-md text-sm font-medium transition-colors">Enterprise</a>
-                        <a href="projects.html" aria-current="page" class="text-white focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded px-3 py-2 rounded-md text-sm font-medium border-b-2 border-indigo-500">Further Projects</a>
-                        <a href="quantum-oracle.html" class="text-slate-400 hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded px-3 py-2 rounded-md text-sm font-medium transition-colors">Quantum & Oracle</a>
-                        <a href="index.html#contact" class="bg-indigo-600 hover:bg-indigo-500 text-white focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded px-4 py-2 rounded-md text-sm font-medium transition-all">Consulting</a>
-                    </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-slate-300 hover:text-indigo-400 text-sm font-medium transition-colors">Enterprise</a>
+                    <a href="projects.html" class="text-indigo-400 text-sm font-medium border-b-2 border-indigo-500 pb-0.5">Further Projects</a>
+                    <a href="quantum-oracle.html" class="px-3 py-1 rounded-md bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 hover:bg-indigo-500/20 text-xs font-semibold mono transition-all flex items-center gap-1.5">
+                        <i class="fa-solid fa-atom text-[11px]"></i> Quantum Suite
+                    </a>
+                    <a href="index.html#contact" class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors">Contact</a>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Main Content -->
-    <main id="main-content" class="pt-32 pb-24 relative overflow-hidden">
-        <!-- Background Decor -->
-        <div class="absolute top-0 right-0 -z-10 opacity-10">
-            <svg width="400" height="400" viewBox="0 0 100 100">
-                <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" stroke-width="0.5" />
-                <polygon points="50,10 90,50 50,90 10,50" fill="none" stroke="currentColor" stroke-width="0.5" />
-                <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="0.5" />
-            </svg>
-        </div>
+    <main id="main-content" class="pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10">
+        
+        <!-- Header -->
+        <header class="mb-16 text-center max-w-4xl mx-auto">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/25 text-indigo-300 text-xs font-semibold mb-6 mono">
+                <i class="fa-solid fa-diagram-project"></i> RESEARCH &amp; VENTURES DIRECTORY
+            </div>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 gradient-text tracking-tight uppercase">
+                Further Projects &amp; System Research
+            </h1>
+            <p class="text-slate-400 text-base sm:text-lg leading-relaxed">
+                An active index of open-source architectures, cryptographic oracles, decentralized finance protocols, and edge research into high-dimensional systems.
+            </p>
+        </header>
 
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <header class="mb-20">
-                <h1 class="text-5xl md:text-6xl font-black mb-6 aether-gradient uppercase tracking-tighter">Further Projects & Research</h1>
-                <p class="text-xl text-slate-400 max-w-3xl leading-relaxed">
-                    A collection of broader system architectures, open-source contributions, and independent exploration into advanced technology and high-performance frameworks.
-                </p>
-            </header>
+        <!-- Projects Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
+            
+            <!-- Card 1: Quantum & Resource Oracle Suite (Featured) -->
+            <a href="quantum-oracle.html" class="glass-panel-accent p-8 rounded-2xl flex flex-col justify-between group">
+                <div>
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-400 text-2xl group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(99,102,241,0.2)]">
+                            <i class="fa-solid fa-atom"></i>
+                        </div>
+                        <span class="px-2.5 py-0.5 bg-indigo-500/20 text-indigo-300 text-[10px] mono font-bold rounded uppercase tracking-wider border border-indigo-500/30">Live Interactive Lab</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-indigo-200 transition-colors flex items-center gap-2">
+                        Quantum &amp; Resource Oracle <i class="fa-solid fa-arrow-right text-xs text-indigo-400 group-hover:translate-x-1 transition-transform"></i>
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Transverse-field simulated quantum annealing (SQA) optimizer for Levity LP and NICOLE agent DAGs, paired with a Qualtran-style cross-platform resource costing oracle (Base Gas, Cadence, ZK, and FTQC).
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-2 pt-4 border-t border-white/5">
+                    <span class="px-2 py-0.5 bg-indigo-500/10 text-indigo-300 text-[10px] mono rounded">Quantum Annealing</span>
+                    <span class="px-2 py-0.5 bg-indigo-500/10 text-indigo-300 text-[10px] mono rounded">Qualtran Model</span>
+                    <span class="px-2 py-0.5 bg-indigo-500/10 text-indigo-300 text-[10px] mono rounded">Base L2</span>
+                </div>
+            </a>
 
-            <!-- Link Directory -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-32">
-                <project-card
-                    title="Quantum &amp; Resource Oracle"
-                    description="Simulated quantum annealing (SQA) optimizer for Levity LP and NICOLE agent DAGs, paired with a Qualtran-style cross-platform resource costing oracle (Base Gas, Cadence, ZK, and FTQC)."
-                    url="quantum-oracle.html"
-                    icon="fa-solid fa-atom">
-                </project-card>
+            <!-- Card 2: NICOLE Resonance Portal -->
+            <a href="https://nicole-disclose.world" target="_blank" rel="noopener noreferrer" class="glass-panel p-8 rounded-2xl flex flex-col justify-between group">
+                <div>
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-400 text-2xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-slate-600 group-hover:text-indigo-400 transition-colors"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-indigo-200 transition-colors">NICOLE Resonance Portal</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Networked Intelligence and Cryptographic Oracle of Luminous Exploration. Autonomous agent swarms performing deep research, cryptographic validation, and telemetry streaming.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-2 pt-4 border-t border-white/5">
+                    <span class="px-2 py-0.5 bg-indigo-500/10 text-indigo-300 text-[10px] mono rounded">AI Swarms</span>
+                    <span class="px-2 py-0.5 bg-indigo-500/10 text-indigo-300 text-[10px] mono rounded">Pistis-Sophia</span>
+                    <span class="px-2 py-0.5 bg-indigo-500/10 text-indigo-300 text-[10px] mono rounded">ZK Telemetry</span>
+                </div>
+            </a>
 
-                <project-card
-                    title="Payviah"
-                    description="Financial installment infrastructure enabling seamless multi-party transactions and adaptive payment routing."
-                    url="javascript:void(0)"
-                    icon="fa-solid fa-money-bill-transfer">
-                </project-card>
+            <!-- Card 3: Levity Protocol -->
+            <a href="https://levityprotocol.cloud" target="_blank" rel="noopener noreferrer" class="glass-panel p-8 rounded-2xl flex flex-col justify-between group">
+                <div>
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center text-emerald-400 text-2xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-coins"></i>
+                        </div>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-slate-600 group-hover:text-emerald-400 transition-colors"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-emerald-200 transition-colors">Levity Protocol</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Decentralized on-chain asset manager live on Base Mainnet. Manages the LEV token contract (100M mint) and structured Uniswap v3 concentrated liquidity pools.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-2 pt-4 border-t border-white/5">
+                    <span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-300 text-[10px] mono rounded">Base Mainnet</span>
+                    <span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-300 text-[10px] mono rounded">LEV / USDC</span>
+                    <span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-300 text-[10px] mono rounded">Uniswap V3</span>
+                </div>
+            </a>
 
-                <project-card
-                    title="Techno-Gnosis: Past &amp; Future"
-                    description="An interactive exploration oracle bridging ancient esoteric wisdom with futuristic technological paradigms."
-                    url="javascript:void(0)"
-                    icon="fa-solid fa-om">
-                </project-card>
+            <!-- Card 4: Aetheris X / Hub -->
+            <a href="https://aetherisx.stream" target="_blank" rel="noopener noreferrer" class="glass-panel p-8 rounded-2xl flex flex-col justify-between group">
+                <div>
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-400 text-2xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-server"></i>
+                        </div>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-slate-600 group-hover:text-indigo-400 transition-colors"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-indigo-200 transition-colors">Aetheris Hub</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Central experiments nexus for Sovereign Intelligence and Agentic Cloud integrations, hosting high-performance serverless endpoints on Google Cloud Run.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-2 pt-4 border-t border-white/5">
+                    <span class="px-2 py-0.5 bg-indigo-500/10 text-indigo-300 text-[10px] mono rounded">Cloud Run</span>
+                    <span class="px-2 py-0.5 bg-indigo-500/10 text-indigo-300 text-[10px] mono rounded">Python APIs</span>
+                    <span class="px-2 py-0.5 bg-indigo-500/10 text-indigo-300 text-[10px] mono rounded">Sovereign Cloud</span>
+                </div>
+            </a>
 
-                <project-card
-                    title="Specto"
-                    description="A comprehensive visual supports suite designed for cognitive accessibility and ambient data visualization."
-                    url="javascript:void(0)"
-                    icon="fa-solid fa-eye">
-                </project-card>
+            <!-- Card 5: Payviah -->
+            <a href="https://freequeenc.github.io/Payviah/" target="_blank" rel="noopener noreferrer" class="glass-panel p-8 rounded-2xl flex flex-col justify-between group">
+                <div>
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-400 text-2xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-money-bill-transfer"></i>
+                        </div>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-slate-600 group-hover:text-indigo-400 transition-colors"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-indigo-200 transition-colors">Payviah</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Automated transaction flow protocol and installment routing. Sub-second cryptographic verification for multi-party enterprise payment pipes.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-2 pt-4 border-t border-white/5">
+                    <span class="px-2 py-0.5 bg-indigo-500/10 text-indigo-300 text-[10px] mono rounded">Fintech</span>
+                    <span class="px-2 py-0.5 bg-indigo-500/10 text-indigo-300 text-[10px] mono rounded">Secure Ingress</span>
+                    <span class="px-2 py-0.5 bg-indigo-500/10 text-indigo-300 text-[10px] mono rounded">Data Pipelines</span>
+                </div>
+            </a>
 
-                <project-card
-                    title="Ascension Protocol Toolkit"
-                    description="An audio-visual alchemy toolkit engineered to induce specific bio-rhythmic and cognitive states."
-                    url="javascript:void(0)"
-                    icon="fa-solid fa-bolt">
-                </project-card>
-
-                <project-card
-                    title="Mirror - Personal Data Analyst"
-                    description="Advanced self-quantification framework that synthesizes disparate data streams into coherent actionable insights."
-                    url="javascript:void(0)"
-                    icon="fa-solid fa-chart-line">
-                </project-card>
-
-                <project-card
-                    title="CryptoScope Decoder"
-                    description="Advanced steganography and cryptographic analysis tool for decentralized data verification."
-                    url="javascript:void(0)"
-                    icon="fa-solid fa-qrcode">
-                </project-card>
-
-                <project-card
-                    title="The Disclosure Project"
-                    description="Investigating the frontiers of energy, consciousness, and archival transparency in scientific data."
-                    url="https://disclosure-project.org/"
-                    icon="fa-solid fa-atom">
-                </project-card>
-
-                <project-card
-                    title="GitHub Repository"
-                    description="Open-source system architecture and smart contract deployments documenting foundational infrastructure logic."
-                    url="https://github.com/freequeenc"
-                    icon="fa-brands fa-github">
-                </project-card>
+            <!-- Card 6: NICOLE Genetic Oracle -->
+            <div class="glass-panel p-8 rounded-2xl flex flex-col justify-between group">
+                <div>
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-cyan-500/10 rounded-xl flex items-center justify-center text-cyan-400 text-2xl">
+                            <i class="fa-solid fa-dna"></i>
+                        </div>
+                        <span class="px-2 py-0.5 bg-cyan-500/10 text-cyan-400 text-[10px] mono font-bold rounded uppercase">Local Pipeline</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">NICOLE Genetic Oracle</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Bioinformatics pipeline mapping raw genetic files (Ancestry/23andMe) against ClinVar, dbSNP, and GTEx tissue-expression databases for functional health variants.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-2 pt-4 border-t border-white/5">
+                    <span class="px-2 py-0.5 bg-cyan-500/10 text-cyan-300 text-[10px] mono rounded">Bioinformatics</span>
+                    <span class="px-2 py-0.5 bg-cyan-500/10 text-cyan-300 text-[10px] mono rounded">ClinVar / dbSNP</span>
+                    <span class="px-2 py-0.5 bg-cyan-500/10 text-cyan-300 text-[10px] mono rounded">GTEx eQTLs</span>
+                </div>
             </div>
 
-            <!-- Contact Block -->
-            <section id="consulting" class="glass-panel rounded-3xl p-12 relative overflow-hidden">
-                <div class="relative z-10">
-                    <h2 class="text-3xl font-black text-white mb-8 uppercase tracking-tighter">Enterprise Consulting & Booking</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <a href="#" data-contact="YXNobGVpZ2h3YWxrZXJAYW53Zm91bmRhdGlvbnMuY29t" class="obfuscated-email flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none transition-colors group">
-                            <div class="w-10 h-10 bg-indigo-500/20 rounded-lg flex items-center justify-center text-indigo-400">
-                                <i aria-hidden="true" class="fa-solid fa-envelope"></i>
-                            </div>
-                            <span class="text-sm font-semibold group-hover:text-indigo-300">Email Me</span>
-                        </a>
-                        <a href="https://www.linkedin.com/in/ashleighnwalker/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none transition-colors group">
-                            <div class="w-10 h-10 bg-indigo-500/20 rounded-lg flex items-center justify-center text-indigo-400">
-                                <i aria-hidden="true" class="fa-brands fa-linkedin-in"></i>
-                            </div>
-                            <span class="text-sm font-semibold group-hover:text-indigo-300">LinkedIn<span class="sr-only"> (opens in a new tab)</span></span>
-                        </a>
-                        <button type="button" aria-disabled="true" aria-label="Book a Session" aria-describedby="tooltip-session" class="relative flex items-center gap-4 p-4 rounded-xl bg-indigo-600 hover:bg-indigo-600 transition-colors group opacity-50 cursor-not-allowed focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none">
-                            <div class="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center text-white">
-                                <i aria-hidden="true" class="fa-solid fa-calendar-check"></i>
-                            </div>
-                            <span class="text-sm font-bold text-white">Book a Session</span>
-                            <span id="tooltip-session" role="tooltip" class="absolute -top-10 left-1/2 -translate-x-1/2 bg-slate-700 text-white text-[10px] font-bold px-2 py-1 rounded opacity-0 invisible pointer-events-none group-hover:opacity-100 group-hover:visible group-focus-visible:opacity-100 group-focus-visible:visible transition-all whitespace-nowrap z-10">Coming Soon</span>
-                        </button>
+            <!-- Card 7: The Disclosure Project -->
+            <a href="https://disclosure-project.org/" target="_blank" rel="noopener noreferrer" class="glass-panel p-8 rounded-2xl flex flex-col justify-between group">
+                <div>
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center text-purple-400 text-2xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-satellite-dish"></i>
+                        </div>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-slate-600 group-hover:text-purple-400 transition-colors"></i>
                     </div>
+                    <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-purple-200 transition-colors">The Disclosure Project</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Stargate mapping, UAP archives, and energy research investigating the boundaries of known reality, open-source science, and archival transparency.
+                    </p>
                 </div>
-            </section>
+                <div class="flex flex-wrap gap-2 pt-4 border-t border-white/5">
+                    <span class="px-2 py-0.5 bg-purple-500/10 text-purple-300 text-[10px] mono rounded">Exotic Energy</span>
+                    <span class="px-2 py-0.5 bg-purple-500/10 text-purple-300 text-[10px] mono rounded">Archival Truth</span>
+                    <span class="px-2 py-0.5 bg-purple-500/10 text-purple-300 text-[10px] mono rounded">Open Science</span>
+                </div>
+            </a>
+
+            <!-- Card 8: Open-Source Codebases -->
+            <a href="https://github.com/FREEqueenC" target="_blank" rel="noopener noreferrer" class="glass-panel p-8 rounded-2xl flex flex-col justify-between group">
+                <div>
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-slate-500/10 rounded-xl flex items-center justify-center text-slate-300 text-2xl group-hover:scale-110 transition-transform">
+                            <i class="fa-brands fa-github"></i>
+                        </div>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-slate-600 group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-indigo-200 transition-colors">GitHub Repositories</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Open-source implementations of agent orchestration tools, smart contract deployments (Cadence, Solidity), and Python data pipeline architectures.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-2 pt-4 border-t border-white/5">
+                    <span class="px-2 py-0.5 bg-white/5 text-slate-300 text-[10px] mono rounded">Cadence / EVM</span>
+                    <span class="px-2 py-0.5 bg-white/5 text-slate-300 text-[10px] mono rounded">Python SDKs</span>
+                    <span class="px-2 py-0.5 bg-white/5 text-slate-300 text-[10px] mono rounded">Agent Tools</span>
+                </div>
+            </a>
+
+            <!-- Card 9: ANW Restorations -->
+            <a href="index.html#contact" class="glass-panel p-8 rounded-2xl flex flex-col justify-between group">
+                <div>
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center text-emerald-400 text-2xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-hammer"></i>
+                        </div>
+                        <span class="px-2.5 py-0.5 bg-emerald-500/10 text-emerald-400 text-[10px] mono font-bold rounded uppercase">Active Service</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-emerald-200 transition-colors">ANW Restorations</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Physical world refurbishment, maintenance, and structural rejuvenation. Bringing precision engineering to the material world.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-2 pt-4 border-t border-white/5">
+                    <span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-300 text-[10px] mono rounded">Handyman</span>
+                    <span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-300 text-[10px] mono rounded">Deep Cleaning</span>
+                    <span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-300 text-[10px] mono rounded">Property Care</span>
+                </div>
+            </a>
+
         </div>
 
-        <!-- Aetheric background managed by classes -->
+        <!-- Contact & Booking Section -->
+        <section class="glass-panel p-8 sm:p-12 rounded-3xl relative overflow-hidden">
+            <div class="max-w-3xl">
+                <span class="text-xs font-bold uppercase tracking-wider text-indigo-400 mono">Get in Touch</span>
+                <h2 class="text-3xl font-black text-white mt-2 mb-4 uppercase tracking-tight">Enterprise Inquiries &amp; Collaboration</h2>
+                <p class="text-slate-400 text-sm leading-relaxed mb-8">
+                    Looking to integrate autonomous agents, deploy quantum-inspired optimization pipelines, or architect high-performance data systems? Reach out directly.
+                </p>
+                <div class="flex flex-wrap items-center gap-4">
+                    <a href="#" data-contact="YXNobGVpZ2h3YWxrZXJAYW53Zm91bmRhdGlvbnMuY29t" class="obfuscated-email px-6 py-3.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl font-bold text-sm transition-all shadow-lg flex items-center gap-2">
+                        <i class="fa-solid fa-envelope"></i> Send Email
+                    </a>
+                    <a href="https://linkedin.com/in/ashleigh-walker-2131a2173" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 glass-panel text-slate-300 hover:text-white rounded-xl font-bold text-sm transition-all flex items-center gap-2">
+                        <i class="fa-brands fa-linkedin text-indigo-400"></i> LinkedIn
+                    </a>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-        <footer class="bg-[#030712] border-t border-white/5 py-12">
+    <!-- Footer -->
+    <footer class="bg-[#02050e] border-t border-white/10 py-12 relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-                <p class="text-slate-600 text-[10px] uppercase tracking-widest font-bold">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-slate-500 text-xs mono">
                     &copy; 2026 A.N.W. FOUNDATIONS LLC. ALL RIGHTS RESERVED.
                 </p>
-                <div class="flex gap-8">
-                    <a href="privacy.html" class="text-slate-600 hover:text-white text-[10px] font-bold uppercase tracking-widest focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded transition-colors">Privacy</a>
-                    <a href="terms.html" class="text-slate-600 hover:text-white text-[10px] font-bold uppercase tracking-widest focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded transition-colors">Terms</a>
-                    <a href="refund.html" class="text-slate-600 hover:text-white text-[10px] font-bold uppercase tracking-widest focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded transition-colors">Refund Policy</a>
+                <div class="flex gap-6">
+                    <a href="privacy.html" class="text-slate-500 hover:text-white text-xs mono transition-colors">Privacy</a>
+                    <a href="terms.html" class="text-slate-500 hover:text-white text-xs mono transition-colors">Terms</a>
+                    <a href="refund.html" class="text-slate-500 hover:text-white text-xs mono transition-colors">Refund Policy</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Security Scripts -->
+    <!-- Client Scripts -->
     <script>
-        (function() {
-            document.querySelectorAll('.obfuscated-email').forEach(link => {
-                const contact = link.getAttribute('data-contact');
-                if (contact) {
-                    link.href = 'mailto:' + atob(contact);
-                }
-            });
-        })();
+        // Email De-obfuscation
+        document.querySelectorAll('.obfuscated-email').forEach(link => {
+            const contact = link.getAttribute('data-contact');
+            if (contact) link.href = 'mailto:' + atob(contact);
+        });
+
+        // Reading Progress
+        window.addEventListener('scroll', () => {
+            const scroll = document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            if (height > 0) {
+                document.getElementById('scroll-progress').style.width = (scroll / height * 100) + '%';
+            }
+        });
     </script>
 </body>
 </html>
