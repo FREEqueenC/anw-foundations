@@ -7,7 +7,7 @@
     <meta name="description" content="A.N.W. FOUNDATIONS: Enterprise AI Automation, Multi-Agent Frameworks, and High-Performance Data Pipeline Engineering.">
 
     <!-- Tailwind CSS (via CDN for immediate rendering) -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com/3.4.17" integrity="sha384-igm5BeiBt36UU4gqwWS7imYmelpTsZlQ45FZf+XBn9MuJbn4nQr7yx1yFydocC/K" crossorigin="anonymous"></script>
 
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
@@ -65,9 +65,8 @@
         }
     </style>
 </head>
-<body class="antialiased selection:bg-indigo-500 selection:text-white">
-    <div class="sacred-geometry"></div>
-    <a href="#main-content" id="skip-link" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-white focus:text-[#030712] focus:px-4 focus:py-2 focus:rounded-md focus:font-bold focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-[#030712]">
+<body class="antialiased selection:bg-[#FFD700] selection:text-white">
+    <a id="skip-link" href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-[#FFD700] focus:text-[#080C14] focus:px-4 focus:py-2 focus:rounded-md focus:font-bold focus:outline-none focus:ring-2 focus:ring-[#FFD700] focus:ring-offset-2 focus:ring-offset-[#080C14]">
         Skip to Main Content
     </a>
 
@@ -85,6 +84,7 @@
     <!-- Navigation -->
     <nav class="fixed w-full z-50 bg-[#030712]/90 backdrop-blur-md border-b border-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
             <div class="flex items-center justify-between h-16">
                 <a href="#" class="flex items-center space-x-3 group focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded transition-all" aria-label="A.N.W. Foundations - Back to top">
                     <img src="logo.png" alt="A.N.W. FOUNDATIONS Logo" class="h-10 w-10 rounded shadow-lg group-hover:opacity-80 group-focus-visible:opacity-80 transition-opacity">
@@ -92,12 +92,11 @@
                 </a>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#mission" class="hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none px-3 py-2 rounded-md text-sm font-medium transition-colors text-indigo-400">Mission</a>
-                        <a href="#architecture" class="hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none px-3 py-2 rounded-md text-sm font-medium transition-colors text-slate-300">Architecture</a>
-                        <a href="#portfolio" class="hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none px-3 py-2 rounded-md text-sm font-medium transition-colors text-slate-300">Portfolio</a>
-                        <a href="projects.html" class="hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none px-3 py-2 rounded-md text-sm font-medium transition-colors text-slate-300">Further Research</a>
-                        <a href="quantum-oracle.html" class="hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none px-3 py-2 rounded-md text-sm font-medium transition-colors text-indigo-300">Quantum & Oracle</a>
-                        <a href="#contact" class="bg-indigo-600 hover:bg-indigo-500 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none text-white px-4 py-2 rounded-md text-sm font-medium transition-colors">Contact</a>
+                        <a href="#mission" data-active-class="text-[#FFD700]" class="hover:text-[#FFD700] focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none px-3 py-2 rounded-md text-sm font-medium transition-colors">Mission</a>
+                        <a href="#projects" data-active-class="text-[#FFD700]" class="hover:text-[#FFD700] focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none px-3 py-2 rounded-md text-sm font-medium transition-colors">Ventures</a>
+                        <a href="projects.html" class="hover:text-[#FFD700] focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none px-3 py-2 rounded-md text-sm font-medium transition-colors text-slate-300">Further Research</a>
+                        <a href="quantum-oracle.html" class="hover:text-[#FFD700] focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none px-3 py-2 rounded-md text-sm font-medium transition-colors text-indigo-300">Quantum & Oracle</a>
+                        <a href="#contact" data-active-class="ring-2 ring-[#FFD700]" class="bg-[#D4AF37] hover:bg-[#B8860B] focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none text-white px-4 py-2 rounded-md text-sm font-medium transition-colors">Contact</a>
                     </div>
                 </div>
             </div>
@@ -105,21 +104,21 @@
     </nav>
 
     <!-- Main Content -->
-    <main id="main-content">
+    <main id="main-content" tabindex="-1" class="outline-none">
 
     <!-- Hero Section -->
     <section id="mission" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden outline-none scroll-mt-20" tabindex="-1">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight uppercase tracking-tighter">
-                Enterprise AI.<br>
-                <span class="gradient-text">Autonomous Pipelines.</span>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                RESTORING THE PHYSICAL.<br>
+                <span class="gradient-text">ARCHITECTING THE DIGITAL.</span>
             </h1>
             <p class="mt-4 max-w-3xl mx-auto text-lg text-slate-400 font-medium leading-relaxed">
                 A.N.W. FOUNDATIONS LLC architects the autonomous, multi-agent frameworks and high-performance infrastructure
                 that businesses need to make AI reliable and scalable. We build the foundations for the future of enterprise automation.
             </p>
             <div class="mt-10 flex justify-center gap-4">
-                <a href="#architecture" class="px-8 py-4 border-2 border-[#00E5FF] text-[#00E5FF] rounded-full font-black uppercase tracking-widest text-xs hover:bg-[#00E5FF] hover:text-white focus-visible:ring-2 focus-visible:ring-[#00E5FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none transition-all duration-300">
+                <a href="#portfolio" class="px-8 py-4 border-2 border-[#00E5FF] text-[#00E5FF] rounded-full font-black uppercase tracking-widest text-xs hover:bg-[#00E5FF] hover:text-white focus-visible:ring-2 focus-visible:ring-[#00E5FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none transition-all duration-300">
                     VIEW ARCHITECTURE
                 </a>
             </div>
@@ -134,76 +133,7 @@
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-indigo-500/5 rounded-full blur-3xl -z-10"></div>
     </section>
 
-    <!-- Enterprise AI Architecture & Workflows Section -->
-    <section id="architecture" class="py-24 bg-transparent relative outline-none scroll-mt-20 overflow-hidden border-t border-white/5" tabindex="-1">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 uppercase tracking-tighter">Enterprise AI Architecture</h2>
-                <div class="h-1.5 w-24 bg-[#00E5FF] mx-auto rounded-full shadow-[0_0_20px_rgba(0,229,255,0.3)]"></div>
-                <p class="mt-6 text-slate-400 text-lg max-w-2xl mx-auto">Visualizing our end-to-end framework: from theoretical multi-agent engineering to high-performance pipeline deployment.</p>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
-                <!-- Video Player Column -->
-                <div class="glass-panel p-8 rounded-2xl border border-white/10 bg-white/5 flex flex-col justify-between group transition-all duration-300 hover:border-[#00E5FF]/30">
-                    <div>
-                        <h3 class="text-xl font-bold text-white mb-4 uppercase tracking-tight flex items-center gap-2">
-                            <i class="fa-solid fa-circle-play text-[#00E5FF]"></i> Swarm Orchestration Execution
-                        </h3>
-                        <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-black/50 border border-white/5 shadow-2xl">
-                            <video id="architecture-video" class="w-full h-full object-cover" controls preload="metadata">
-                                <source src="How_ANW_Foundations_Builds_Enterprise_AI.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                    </div>
-                    <p class="text-slate-400 text-xs mt-6 leading-relaxed">
-                        Watch how A.N.W. Foundations designs and deploys autonomous, multi-agent frameworks, integrating advanced LLM capabilities with production-grade data pipelines.
-                    </p>
-                </div>
-
-                <!-- Architecture Diagram Column -->
-                <div class="glass-panel p-8 rounded-2xl border border-white/10 bg-white/5 flex flex-col justify-between group transition-all duration-300 hover:border-[#818cf8]/30">
-                    <div>
-                        <h3 class="text-xl font-bold text-white mb-4 uppercase tracking-tight flex items-center gap-2">
-                            <i class="fa-solid fa-diagram-project text-indigo-400"></i> Blueprint Architecture Map
-                        </h3>
-                        <div id="diagram-trigger" class="relative w-full aspect-video rounded-xl overflow-hidden bg-black/20 border border-white/5 shadow-2xl cursor-pointer group/diagram" tabindex="0" aria-label="Expand architecture map" role="button">
-                            <img src="Enterprise_AI_Architecture_Foundations.png" alt="A.N.W. Foundations Enterprise AI Architecture Map" class="w-full h-full object-cover transition-transform duration-500 group-hover/diagram:scale-102">
-                            <div class="absolute inset-0 bg-[#030712]/60 opacity-0 group-hover/diagram:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                <span class="px-4 py-2 bg-indigo-600 text-white text-xs font-bold uppercase tracking-wider rounded-lg shadow-lg">
-                                    <i class="fa-solid fa-magnifying-glass-plus mr-1"></i> Expand Blueprint
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-slate-400 text-xs mt-6 leading-relaxed">
-                        Our core infrastructure maps theoretical multi-agent intelligence directly to secure transaction flows, sovereign API orchestration, and real-time GCP telemetry.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Blueprint Lightbox Modal -->
-    <div id="blueprint-modal" class="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 opacity-0 pointer-events-none transition-opacity duration-300" role="dialog" aria-modal="true" aria-label="Architecture Blueprint Modal">
-        <button id="modal-close" class="absolute top-6 right-6 z-[110] text-white/70 hover:text-white text-3xl focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded p-2" aria-label="Close modal">
-            <i class="fa-solid fa-xmark"></i>
-        </button>
-        <div class="max-w-[90vw] max-h-[90vh] p-4 flex items-center justify-center">
-            <img src="Enterprise_AI_Architecture_Foundations.png" alt="Enterprise AI Architecture Map High-Res" class="max-w-full max-h-[85vh] rounded-xl shadow-2xl border border-white/10 object-contain">
-        </div>
-    </div>
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="py-24 bg-transparent relative outline-none scroll-mt-20 overflow-hidden border-t border-white/5" tabindex="-1">
-        <!-- Geometric Motif -->
-        <div class="absolute top-0 left-0 -z-10 opacity-5">
-            <svg width="200" height="200" viewBox="0 0 100 100">
-                <path d="M50 5 L95 27.5 L95 72.5 L50 95 L5 72.5 L5 27.5 Z" fill="none" stroke="#6366f1" stroke-width="0.5" />
-                <path d="M50 5 L50 95 M5 27.5 L95 72.5 M95 27.5 L5 72.5" stroke="#6366f1" stroke-width="0.2" />
-            </svg>
-        </div>
+    <section id="projects" class="py-24 bg-[#080C14] outline-none scroll-mt-20" tabindex="-1">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
             <div class="text-center mb-20">
@@ -212,160 +142,130 @@
                 <p class="mt-6 text-slate-400 text-lg max-w-2xl mx-auto">Proof of Work: High-performance infrastructure and autonomous system deployments.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
                 <!-- Node: NICOLE Resonance Portal -->
-                <a href="https://nicole-disclose.world" target="_blank" rel="noopener noreferrer" class="relative group bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-indigo-400/50 focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none transition-all duration-500 overflow-hidden flex flex-col justify-between min-h-[260px]">
-                    <div>
-                        <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div class="relative z-10 text-[#00E5FF] text-3xl mb-6">
-                            <i aria-hidden="true" class="fa-solid fa-brain"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-3 relative z-10">NICOLE Resonance Portal</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed relative z-10 mb-4">Autonomous multi-agent intelligence and cryptographic orchestration framework, aligning cognitive microservices with high-performance execution.</p>
+                <a href="https://nicole-disclose.world" target="_blank" rel="noopener noreferrer" class="relative group bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-indigo-400/50 focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none transition-all duration-500 overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10 text-indigo-400 text-3xl mb-6">
+                        <i aria-hidden="true" class="fa-solid fa-brain"></i>
                     </div>
-                    <div class="text-indigo-400 text-xs font-semibold tracking-widest uppercase flex items-center gap-2 relative z-10 mt-4">
-                        Enter Portal <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
+                    <h3 class="text-2xl font-bold text-white mb-3 relative z-10">NICOLE Portal<span class="sr-only"> (opens in a new tab)</span></h3>
+                    <p class="text-slate-400 text-sm leading-relaxed relative z-10 mb-4">Networked Intelligence & Cryptographic Oracle. A nexus for decentralized data and autonomous insights.</p>
+                    <div class="text-[#00E5FF] text-xs font-semibold tracking-widest uppercase flex items-center gap-2 relative z-10">
+                        Launch Nexus <i aria-hidden="true" class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 group-focus-visible:translate-x-1 transition-transform"></i>
                     </div>
                 </a>
 
-                <!-- Node: Payviah -->
-                <a href="https://freequeenc.github.io/Payviah/" target="_blank" rel="noopener noreferrer" class="relative group bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-indigo-400/50 focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none transition-all duration-500 overflow-hidden flex flex-col justify-between min-h-[260px]">
-                    <div>
-                        <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div class="relative z-10 text-[#00E5FF] text-3xl mb-6">
-                            <i aria-hidden="true" class="fa-solid fa-vault"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-3 relative z-10">Payviah</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed relative z-10 mb-4">Next-generation financial infrastructure and automated transaction flow protocols. High-performance data pipelines for distributed ledgers.</p>
+                <!-- Node: ANW Launch -->
+                <div tabindex="0" role="article" aria-labelledby="node-launch-title" class="relative group bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-[#00E5FF]/50 focus-visible:ring-2 focus-visible:ring-[#00E5FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none transition-all duration-500 overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#FFD700]/10 to-transparent opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10 text-[#FFD700] text-3xl mb-6">
+                        <i aria-hidden="true" class="fa-solid fa-rocket"></i>
                     </div>
-                    <div class="text-indigo-400 text-xs font-semibold tracking-widest uppercase flex items-center gap-2 relative z-10 mt-4">
-                        View Architecture <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
-                    </div>
-                </a>
-
-                <!-- Node: Aetheris X (Hub) -->
-                <a href="https://aetherisx.studio" target="_blank" rel="noopener noreferrer" class="relative group bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-indigo-400/50 focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none transition-all duration-500 overflow-hidden flex flex-col justify-between min-h-[260px]">
-                    <div>
-                        <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div class="relative z-10 text-[#00E5FF] text-3xl mb-6">
-                            <i aria-hidden="true" class="fa-solid fa-server"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-3 relative z-10">Aetheris X / Hub</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed relative z-10 mb-4">Central hub for Sovereign Intelligence and Agentic Cloud experiments, serving API endpoints deployed dynamically on Google Cloud Run.</p>
-                    </div>
-                    <div class="text-indigo-400 text-xs font-semibold tracking-widest uppercase flex items-center gap-2 relative z-10 mt-4">
-                        Explore Platform <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
-                    </div>
-                </a>
-
-                <!-- Node: Levity Protocol -->
-                <a href="https://levityprotocol.cloud" target="_blank" rel="noopener noreferrer" class="relative group bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-indigo-400/50 focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none transition-all duration-500 overflow-hidden flex flex-col justify-between min-h-[260px]">
-                    <div>
-                        <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div class="relative z-10 text-[#00E5FF] text-3xl mb-6">
-                            <i aria-hidden="true" class="fa-solid fa-wave-square"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-3 relative z-10">Levity Protocol</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed relative z-10 mb-4">Decentralized finance protocol live on Base Mainnet. Deploys custom LEV tokens and automated liquidity provisioning networks.</p>
-                    </div>
-                    <div class="text-indigo-400 text-xs font-semibold tracking-widest uppercase flex items-center gap-2 relative z-10 mt-4">
-                        Verify On-Chain <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
-                    </div>
-                </a>
-
-                <!-- Node: NICOLE Genetic Oracle -->
-                <a href="javascript:void(0)" aria-describedby="tooltip-genetic" class="relative group bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-indigo-400/50 focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none transition-all duration-500 overflow-hidden flex flex-col justify-between min-h-[260px] cursor-default">
-                    <div>
-                        <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div class="relative z-10 text-[#00E5FF] text-3xl mb-6">
-                            <i aria-hidden="true" class="fa-solid fa-dna"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-3 relative z-10">NICOLE Genetic Oracle</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed relative z-10 mb-4">Bioinformatics pipeline mapping raw genetic files (Ancestry/23andMe) against ClinVar, dbSNP, and GTEx tissue databases.</p>
-                        <span role="tooltip" id="tooltip-genetic" class="absolute -top-10 left-1/2 -translate-x-1/2 bg-indigo-500 text-white text-[10px] font-bold px-2 py-1 rounded opacity-0 transition-opacity pointer-events-none whitespace-nowrap group-hover:opacity-100 group-focus-visible:opacity-100 z-10">Local Development Sandbox</span>
-                    </div>
-                    <div class="text-indigo-400 text-xs font-semibold tracking-widest uppercase flex items-center gap-2 relative z-10 mt-4">
-                        Sandbox Instance <i class="fa-solid fa-lock text-[10px]"></i>
-                    </div>
-                </a>
-
-                <!-- Node: Quantum & Resource Oracle Suite -->
-                <a href="quantum-oracle.html" class="relative group bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-indigo-500/30 hover:border-indigo-400/80 focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none transition-all duration-500 overflow-hidden flex flex-col justify-between min-h-[260px]">
-                    <div>
-                        <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div class="relative z-10 text-indigo-400 text-3xl mb-6 flex items-center justify-between">
-                            <i aria-hidden="true" class="fa-solid fa-atom"></i>
-                            <span class="text-[10px] bg-indigo-500/20 text-indigo-300 font-mono px-2 py-0.5 rounded border border-indigo-500/30">Live Lab</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-3 relative z-10">Quantum & Resource Oracle</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed relative z-10 mb-4">Simulated quantum annealing (SQA) optimizer for Levity LP and NICOLE agent DAGs, paired with a cross-platform resource costing oracle (Base Gas, Cadence, ZK, and FTQC).</p>
-                    </div>
-                    <div class="text-indigo-400 text-xs font-semibold tracking-widest uppercase flex items-center gap-2 relative z-10 mt-4">
-                        Launch Interactive Suite <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
-                    </div>
-                </a>
-
-            </div>
-
-            <!-- Live Operations Telemetry Dashboard -->
-            <div id="telemetry" class="mt-20 border-t border-white/5 pt-16">
-                <div class="text-center mb-12">
-                    <h3 class="text-2xl font-bold text-white mb-2 uppercase tracking-tight">Live Operations Telemetry</h3>
-                    <p class="text-slate-400 text-sm">Real-time endpoint latencies and environment container initialization logs.</p>
+                    <h3 id="node-launch-title" class="text-2xl font-bold text-white mb-3 relative z-10">ANW Launch</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed relative z-10 mb-4">ANW Launch to ASHELON. Deploying the next generation of infrastructure systems and protocols.</p>
+                    <span class="text-[#FFD700]/50 text-[10px] font-bold tracking-widest uppercase relative z-10">Mission Initializing</span>
                 </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    <!-- Logs Terminals -->
-                    <div class="lg:col-span-2 glass-panel p-6 rounded-2xl border border-white/10 bg-white/5">
-                        <div class="flex justify-between items-center mb-6">
-                            <span class="text-slate-400 text-xs uppercase font-bold">Cloud Run Build Streams</span>
-                            <span class="px-2.5 py-0.5 bg-green-500/10 text-green-400 text-[10px] font-black rounded uppercase tracking-tighter border border-green-500/20">System Live</span>
-                        </div>
-                        <div class="bg-black/40 rounded-xl p-5 font-mono text-[11px] text-indigo-300 border border-white/5 overflow-x-auto min-h-[140px]">
-                            <div class="opacity-50 mb-1">[2026-07-13 14:22:01] INITIALIZING ENTERPRISE AI CLUSTER...</div>
-                            <div class="opacity-70 mb-1">[2026-07-13 14:22:05] PROVISIONING COMPUTE ENGINE INSTANCES [REGION: US-CENTRAL1]...</div>
-                            <div class="opacity-90 mb-1 text-white">[2026-07-13 14:22:12] MULTI-AGENT SWARM CONNECTED. PIPELINE READY.</div>
-                            <div class="animate-pulse mt-2">_ [AWAITING USER DEPLOYMENT DATA]</div>
-                        </div>
+                <!-- Node: Disclosure Project -->
+                <a href="https://disclosure-project.org" target="_blank" rel="noopener noreferrer" class="relative group bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-[#00E5FF]/50 focus-visible:ring-2 focus-visible:ring-[#00E5FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none transition-all duration-500 overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#00E5FF]/10 to-transparent opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10 text-[#00E5FF] text-3xl mb-6">
+                        <i aria-hidden="true" class="fa-solid fa-star"></i>
                     </div>
+                    <h3 class="text-2xl font-bold text-white mb-3 relative z-10">Disclosure Project<span class="sr-only"> (opens in a new tab)</span></h3>
+                    <p class="text-slate-400 text-sm leading-relaxed relative z-10 mb-4">Stargate Mapping & UAP Archive. Navigating the boundaries of known reality and archival transparency.</p>
+                    <div class="text-[#00E5FF] text-xs font-semibold tracking-widest uppercase flex items-center gap-2 relative z-10">
+                        Open Archive <i aria-hidden="true" class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 group-focus-visible:translate-x-1 transition-transform"></i>
+                    </div>
+                </a>
 
-                    <!-- Endpoints Grid -->
-                    <div class="flex flex-col gap-4">
-                        <div class="bg-white/5 p-5 rounded-xl border border-white/5">
-                            <div class="text-slate-500 text-[10px] uppercase font-bold mb-2">API Endpoint A</div>
-                            <div class="text-white font-mono text-xs truncate">api.anwfoundations.com/v1/swarm</div>
-                            <div class="mt-4 flex items-center gap-2">
-                                <div class="w-1.5 h-1.5 rounded-full bg-green-400"></div>
-                                <span class="text-[10px] text-slate-400">LATENCY: 42ms</span>
-                            </div>
+                <!-- Node: ANW Restorations (Featured) -->
+                <div tabindex="0" role="article" aria-labelledby="node-restorations-title" class="md:col-span-3 relative group bg-white/5 backdrop-blur-sm rounded-2xl p-10 border border-white/10 hover:border-[#00E5FF]/50 focus-visible:ring-2 focus-visible:ring-[#00E5FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none transition-all duration-500 overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#FFD700]/5 to-transparent"></div>
+                    <div class="flex flex-col md:flex-row gap-8 items-start relative z-10">
+                        <div class="w-16 h-16 bg-[#00E5FF]/10 rounded-2xl flex items-center justify-center text-[#FFD700] text-3xl shrink-0">
+                            <i aria-hidden="true" class="fa-solid fa-hammer"></i>
                         </div>
-                        <div class="bg-white/5 p-5 rounded-xl border border-white/5">
-                            <div class="text-slate-500 text-[10px] uppercase font-bold mb-2">Data Pipeline B</div>
-                            <div class="text-white font-mono text-xs truncate">ingress.gcp.anw.io/telemetry</div>
-                            <div class="mt-4 flex items-center gap-2">
-                                <div class="w-1.5 h-1.5 rounded-full bg-green-400"></div>
-                                <span class="text-[10px] text-slate-400">STATUS: ACTIVE</span>
+                        <div>
+                            <div class="flex items-center gap-3 mb-2">
+                                <h3 id="node-restorations-title" class="text-3xl font-bold text-white">ANW Restorations</h3>
+                                <span class="inline-flex items-center gap-1.5 px-2 py-0.5 bg-[#FFD700]/20 text-[#FFD700] text-[10px] font-bold rounded uppercase tracking-tighter">
+                                    <span class="flex h-1.5 w-1.5 rounded-full bg-[#FFD700] animate-pulse" aria-hidden="true"></span>
+                                    Active Service
+                                </span>
                             </div>
-                        </div>
-                        <div class="bg-white/5 p-5 rounded-xl border border-white/5">
-                            <div class="text-slate-500 text-[10px] uppercase font-bold mb-2">Resonance Nexus</div>
-                            <div class="text-white font-mono text-xs truncate">nexus.nicole.world/v2/stream</div>
-                            <div class="mt-4 flex items-center gap-2">
-                                <div class="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse"></div>
-                                <span class="text-[10px] text-slate-400">SYNCING...</span>
+                            <p class="text-[#FFD700] font-medium text-lg mb-4">Restoring the Material World.</p>
+                            <p class="text-slate-400 text-base leading-relaxed mb-6 max-w-3xl">
+                                Expert handyman, cleaning, and lawn care services dedicated to the physical rejuvenation of properties. From structural repairs to aesthetic refinement, we make the world materially better. Whether it is historic preservation or modern maintenance, we refurbish what has been weathered.
+                            </p>
+                            <div class="flex flex-wrap gap-4">
+                                <span class="flex items-center gap-2 text-xs px-3 py-1.5 bg-white/5 text-white rounded-full border border-white/10"><i aria-hidden="true" class="fa-solid fa-screwdriver-wrench text-[#FFD700]"></i> Handyman</span>
+                                <span class="flex items-center gap-2 text-xs px-3 py-1.5 bg-white/5 text-white rounded-full border border-white/10"><i aria-hidden="true" class="fa-solid fa-sparkles text-[#FFD700]"></i> Deep Cleaning</span>
+                                <span class="flex items-center gap-2 text-xs px-3 py-1.5 bg-white/5 text-white rounded-full border border-white/10"><i aria-hidden="true" class="fa-solid fa-seedling text-[#FFD700]"></i> Lawn Care</span>
+                                <span class="flex items-center gap-2 text-xs px-3 py-1.5 bg-white/5 text-white rounded-full border border-white/10"><i aria-hidden="true" class="fa-solid fa-paint-roller text-[#FFD700]"></i> Refurbishment</span>
                             </div>
+                            <a href="#contact" class="inline-flex items-center gap-2 mt-8 px-6 py-2.5 bg-[#FFD700] text-[#080C14] rounded-md font-bold text-sm hover:bg-white transition-colors focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:outline-none group">
+                                REQUEST SERVICE <i aria-hidden="true" class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 group-focus-visible:translate-x-1 transition-transform"></i>
+                            </a>
                         </div>
+                        <span class="mt-4 md:mt-0 px-3 py-1 bg-green-500/10 text-green-400 text-[10px] font-black rounded uppercase tracking-tighter border border-green-500/20">System Live</span>
+                    </div>
+                    <div class="bg-black/40 rounded-xl p-6 font-mono text-[11px] text-indigo-300 border border-white/5 overflow-x-auto">
+                        <div class="opacity-50 mb-1">[2024-05-20 14:22:01] INITIALIZING ENTERPRISE AI CLUSTER...</div>
+                        <div class="opacity-70 mb-1">[2024-05-20 14:22:05] PROVISIONING COMPUTE ENGINE INSTANCES [REGION: US-CENTRAL1]...</div>
+                        <div class="opacity-90 mb-1 text-white">[2024-05-20 14:22:12] MULTI-AGENT SWARM CONNECTED. PIPELINE READY.</div>
+                        <div class="animate-pulse mt-2">_ [AWAITING USER DEPLOYMENT DATA]</div>
                     </div>
                 </div>
-            </div>
 
+                <!-- GCP Proof of Work: Active Endpoints -->
+                <div class="md:col-span-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white/5 p-6 rounded-xl border border-white/5">
+                        <div class="text-slate-500 text-[10px] uppercase font-bold mb-2">API Endpoint A</div>
+                        <div class="text-white font-mono text-xs truncate">api.anwfoundations.com/v1/swarm</div>
+                        <div class="mt-4 flex items-center gap-2">
+                            <div class="w-1.5 h-1.5 rounded-full bg-green-400"></div>
+                            <span class="text-[10px] text-slate-400">LATENCY: 42ms</span>
+                        </div>
+                    </div>
+                    <div class="bg-white/5 p-6 rounded-xl border border-white/5">
+                        <div class="text-slate-500 text-[10px] uppercase font-bold mb-2">Data Pipeline B</div>
+                        <div class="text-white font-mono text-xs truncate">ingress.gcp.anw.io/telemetry</div>
+                        <div class="mt-4 flex items-center gap-2">
+                            <div class="w-1.5 h-1.5 rounded-full bg-green-400"></div>
+                            <span class="text-[10px] text-slate-400">STATUS: ACTIVE</span>
+                        </div>
+                    </div>
+                    <div class="bg-white/5 p-6 rounded-xl border border-white/5">
+                        <div class="text-slate-500 text-[10px] uppercase font-bold mb-2">Resonance Nexus</div>
+                        <div class="text-white font-mono text-xs truncate">nexus.nicole.world/v2/stream</div>
+                        <div class="mt-4 flex items-center gap-2">
+                            <div class="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse"></div>
+                            <span class="text-[10px] text-slate-400">SYNCING...</span>
+                        </div>
+                    </div>
+                    <a href="quantum-oracle.html" class="bg-white/5 hover:bg-white/10 p-6 rounded-xl border border-indigo-500/30 transition-all block group">
+                        <div class="text-indigo-400 text-[10px] uppercase font-bold mb-2 flex items-center justify-between">
+                            <span>Quantum Oracle</span>
+                            <span class="text-[9px] bg-indigo-500/20 px-1.5 py-0.5 rounded text-indigo-300">Live Lab</span>
+                        </div>
+                        <div class="text-white font-mono text-xs truncate group-hover:text-indigo-300 transition-colors">quantum.anwfoundations.com</div>
+                        <div class="mt-4 flex items-center gap-2">
+                            <div class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></div>
+                            <span class="text-[10px] text-slate-400">SQA &amp; COSTING ACTIVE</span>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
         </div>
     </section>
 
     </main>
 
-    <footer id="contact" class="bg-[#030712] border-t border-white/5 pt-24 pb-12 outline-none" tabindex="-1">
+    <footer id="contact" class="bg-[#080C14] border-t border-white/10 pt-24 pb-12 outline-none scroll-mt-20" tabindex="-1">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mb-16">
@@ -375,26 +275,27 @@
                         Architecting the autonomous, multi-agent frameworks and high-performance infrastructure businesses need to make AI reliable and scalable. Enterprise AI Automation and Data Pipeline Engineering.
                     </p>
                     <div class="flex items-center space-x-6">
-                        <a href="https://github.com/FREEqueenC" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" aria-describedby="tooltip-github" class="group relative text-slate-500 hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded transition-colors">
+                        <a href="https://github.com/FREEqueenC" target="_blank" rel="noopener noreferrer" aria-describedby="tooltip-github" class="group relative text-slate-500 hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded transition-colors">
+                            <span class="sr-only">GitHub Profile (opens in a new tab)</span>
                             <i aria-hidden="true" class="fa-brands fa-github text-2xl"></i>
                             <span role="tooltip" id="tooltip-github" class="absolute -top-10 left-1/2 -translate-x-1/2 bg-indigo-500 text-white text-[10px] font-bold px-2 py-1 rounded opacity-0 transition-opacity pointer-events-none whitespace-nowrap group-hover:opacity-100 group-focus-visible:opacity-100 z-10">View Code</span>
                         </a>
-                        <a href="https://linkedin.com/in/ashleigh-walker-2131a2173" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" aria-describedby="tooltip-linkedin" class="group relative text-slate-500 hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded transition-colors">
+                        <a href="https://www.linkedin.com/in/ashleighnwalker/" target="_blank" rel="noopener noreferrer" aria-describedby="tooltip-linkedin" class="group relative text-slate-500 hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded transition-colors">
+                            <span class="sr-only">LinkedIn Profile (opens in a new tab)</span>
                             <i aria-hidden="true" class="fa-brands fa-linkedin text-2xl"></i>
                             <span role="tooltip" id="tooltip-linkedin" class="absolute -top-10 left-1/2 -translate-x-1/2 bg-indigo-500 text-white text-[10px] font-bold px-2 py-1 rounded opacity-0 transition-opacity pointer-events-none whitespace-nowrap group-hover:opacity-100 group-focus-visible:opacity-100 z-10">Connect on LinkedIn</span>
                         </a>
-                        <a href="#" aria-label="Book Consulting" aria-describedby="tooltip-book" class="group relative text-slate-500 hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded transition-colors">
+                        <a href="javascript:void(0)" aria-disabled="true" aria-label="Book Consulting" aria-describedby="tooltip-book" class="group relative text-slate-500 hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded transition-colors opacity-50 cursor-not-allowed">
                             <i aria-hidden="true" class="fa-solid fa-calendar-check text-2xl"></i>
-                            <span role="tooltip" id="tooltip-book" class="absolute -top-10 left-1/2 -translate-x-1/2 bg-indigo-500 text-white text-[10px] font-bold px-2 py-1 rounded opacity-0 transition-opacity pointer-events-none whitespace-nowrap group-hover:opacity-100 group-focus-visible:opacity-100 z-10">Schedule Meeting</span>
+                            <span role="tooltip" id="tooltip-book" class="absolute -top-10 left-1/2 -translate-x-1/2 bg-slate-700 text-white text-[10px] font-bold px-2 py-1 rounded opacity-0 transition-opacity pointer-events-none whitespace-nowrap group-hover:opacity-100 group-focus-visible:opacity-100 z-10">Coming Soon</span>
                         </a>
                         <div class="relative flex items-center group/email">
-                            <a href="mailto:ashleighwalker@anwfoundations.com" id="email-link" aria-label="Send Email" aria-describedby="tooltip-email" class="group relative text-slate-500 hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded transition-colors">
+                            <a href="#" data-contact="YXNobGVpZ2h3YWxrZXJAYW53Zm91bmRhdGlvbnMuY29t" id="email-link" aria-label="Send Email" aria-describedby="tooltip-email" class="obfuscated-email group relative text-slate-500 hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded transition-colors">
                                 <i aria-hidden="true" class="fa-solid fa-envelope text-2xl"></i>
                                 <span role="tooltip" id="tooltip-email" class="absolute -top-10 left-1/2 -translate-x-1/2 bg-indigo-500 text-white text-[10px] font-bold px-2 py-1 rounded opacity-0 transition-opacity pointer-events-none whitespace-nowrap group-hover:opacity-100 group-focus-visible:opacity-100 z-10">Message Directly</span>
                             </a>
-                            <button id="copyEmailBtn" aria-label="Copy email address" aria-describedby="tooltip-copy" class="group relative ml-2 text-slate-500 hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none rounded transition-all opacity-0 invisible pointer-events-none group-hover/email:opacity-100 group-hover/email:visible group-hover/email:pointer-events-auto group-focus-within/email:opacity-100 group-focus-within/email:visible group-focus-within/email:pointer-events-auto">
-                                <i class="fa-solid fa-copy text-lg"></i>
-                                <span role="tooltip" id="tooltip-copy" class="absolute -top-10 left-1/2 -translate-x-1/2 bg-indigo-500 text-white text-[10px] font-bold px-2 py-1 rounded opacity-0 transition-opacity pointer-events-none whitespace-nowrap group-hover:opacity-100 group-focus-visible:opacity-100 z-10">Copy to Clipboard</span>
+                            <button id="copyEmailBtn" aria-label="Copy email address" title="Copy email to clipboard" class="ml-2 text-slate-500 hover:text-[#FFD700] focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none rounded transition-colors opacity-100 md:opacity-0 md:group-hover/email:opacity-100 md:group-focus-within/email:opacity-100 transition-opacity">
+                                <i aria-hidden="true" class="fa-solid fa-copy text-lg"></i>
                             </button>
                             <span id="copyFeedback" class="absolute -top-10 left-1/2 -translate-x-1/2 bg-indigo-500 text-white text-[10px] font-bold px-2 py-1 rounded opacity-0 transition-opacity pointer-events-none whitespace-nowrap z-20" aria-live="polite">COPIED!</span>
                         </div>
@@ -422,27 +323,74 @@
     <!-- Back to Top Button -->
     <button id="back-to-top"
             aria-label="Back to top"
-            class="fixed bottom-8 right-8 z-[70] bg-gradient-to-br from-indigo-500 to-purple-600 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:scale-110 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] focus-visible:outline-none">
+            class="fixed bottom-8 right-8 z-[60] bg-gradient-to-br from-[#FFD700] to-[#00E5FF] text-[#080C14] w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:scale-110 focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] focus-visible:outline-none">
         <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
     </button>
 
     <!-- UX Scripts -->
     <script>
         (function() {
-            // --- DOM Elements ---
-            const progressBar = document.getElementById('scroll-progress');
-            const backToTopBtn = document.getElementById('back-to-top');
-            const skipLink = document.getElementById('skip-link');
+            // --- Email Copy-to-Clipboard ---
             const emailLink = document.getElementById('email-link');
             const copyBtn = document.getElementById('copyEmailBtn');
             const feedback = document.getElementById('copyFeedback');
-
-            const blueprintModal = document.getElementById('blueprint-modal');
-            const diagramTrigger = document.getElementById('diagram-trigger');
-            const modalClose = document.getElementById('modal-close');
-
-            let ticking = false;
             let copyTimeout = null;
+
+            // De-obfuscate email on load
+            if (emailLink) {
+                const encodedEmail = emailLink.getAttribute('data-contact');
+                if (encodedEmail) {
+                    const decodedEmail = atob(encodedEmail);
+                    emailLink.href = 'mailto:' + decodedEmail;
+                }
+            }
+
+            function handleCopy(e) {
+                if (!emailLink) return;
+
+                // If it's a click on the link itself, we don't prevent default mailto action
+                // but we still copy the email for convenience.
+                let email = emailLink.getAttribute('href');
+                if (email && email.startsWith('mailto:')) {
+                    email = email.replace('mailto:', '');
+                } else {
+                    const contact = emailLink.getAttribute('data-contact');
+                    if (contact) email = atob(contact);
+                }
+
+                navigator.clipboard.writeText(email).then(() => {
+                    if (!feedback) return;
+
+                    feedback.classList.remove('opacity-0');
+                    feedback.classList.add('opacity-100');
+
+                    const icon = copyBtn?.querySelector('i');
+                    if (icon) icon.classList.replace('fa-copy', 'fa-check');
+
+                    if (copyTimeout) clearTimeout(copyTimeout);
+
+                    copyTimeout = setTimeout(() => {
+                        feedback.classList.remove('opacity-100');
+                        feedback.classList.add('opacity-0');
+                        if (icon) icon.classList.replace('fa-check', 'fa-copy');
+                        copyTimeout = null;
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Failed to copy: ', err);
+                });
+            }
+
+            if (emailLink) emailLink.addEventListener('click', handleCopy);
+            if (copyBtn) copyBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                handleCopy(e);
+            });
+
+            // --- Scroll Handling (Progress & Back-to-Top) ---
+            const progressBar = document.getElementById('scroll-progress');
+            const backToTopBtn = document.getElementById('back-to-top');
+            const skipLink = document.getElementById('skip-link');
+            let ticking = false;
 
             // --- Scroll Handling (Progress & Back-to-Top) ---
             function updateScrollUI() {
@@ -460,14 +408,12 @@
                 // Toggle Back to Top button visibility
                 if (backToTopBtn) {
                     const shouldShow = scrollTop > 500;
-                    if (shouldShow !== backToTopBtn.classList.contains('opacity-100')) {
-                        backToTopBtn.classList.toggle('opacity-0', !shouldShow);
-                        backToTopBtn.classList.toggle('translate-y-10', !shouldShow);
-                        backToTopBtn.classList.toggle('pointer-events-none', !shouldShow);
-                        backToTopBtn.classList.toggle('invisible', !shouldShow);
-                        backToTopBtn.classList.toggle('opacity-100', shouldShow);
-                        backToTopBtn.classList.toggle('translate-y-0', shouldShow);
-                        backToTopBtn.classList.toggle('pointer-events-auto', shouldShow);
+                    if (shouldShow) {
+                        backToTopBtn.classList.remove('opacity-0', 'pointer-events-none', 'invisible');
+                        backToTopBtn.classList.add('opacity-100', 'pointer-events-auto');
+                    } else {
+                        backToTopBtn.classList.add('opacity-0', 'pointer-events-none', 'invisible');
+                        backToTopBtn.classList.remove('opacity-100', 'pointer-events-auto');
                     }
                 }
                 ticking = false;
@@ -475,31 +421,33 @@
             window.addEventListener('scroll', () => { if (!ticking) { window.requestAnimationFrame(updateScrollUI); ticking = true; } }, { passive: true });
             if (backToTopBtn) backToTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); if (skipLink) skipLink.focus({ preventScroll: true }); });
 
-            // --- Email Copy-to-Clipboard ---
-            function handleCopy() {
-                if (!emailLink || !feedback) return;
-                const email = emailLink.href.replace('mailto:', '');
+            // --- Active Section Highlighting ---
+            const observerOptions = { rootMargin: '-50% 0px -50% 0px', threshold: 0 };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const id = entry.target.getAttribute('id');
+                    const link = document.querySelector(`nav a[href="#${id}"]`);
+                    if (!link) return;
 
-                navigator.clipboard.writeText(email).then(() => {
-                    feedback.classList.remove('opacity-0');
-                    feedback.classList.add('opacity-100');
-                    const icon = copyBtn?.querySelector('i');
-                    if (icon) icon.classList.replace('fa-copy', 'fa-check');
+                    const activeClasses = link.getAttribute('data-active-class')?.split(/\s+/).filter(Boolean) || [];
+                    if (entry.isIntersecting) {
+                        link.setAttribute('aria-current', 'page');
+                        activeClasses.forEach(cls => link.classList.add(cls));
+                    } else {
+                        link.removeAttribute('aria-current');
+                        activeClasses.forEach(cls => link.classList.remove(cls));
+                    }
+                });
+            }, observerOptions);
 
-                    if (copyTimeout) clearTimeout(copyTimeout);
-                    copyTimeout = setTimeout(() => {
-                        feedback.classList.remove('opacity-100');
-                        feedback.classList.add('opacity-0');
-                        if (icon) icon.classList.replace('fa-check', 'fa-copy');
-                        copyTimeout = null;
-                    }, 2000);
-                }).catch(err => console.error('Failed to copy email: ', err));
-            }
+            document.querySelectorAll('section[id], footer[id]').forEach(section => observer.observe(section));
 
-            if (emailLink) emailLink.addEventListener('click', handleCopy);
-            if (copyBtn) copyBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                handleCopy();
+            // --- Email De-obfuscation ---
+            document.querySelectorAll('.obfuscated-email').forEach(link => {
+                const contact = link.getAttribute('data-contact');
+                if (contact) {
+                    link.href = 'mailto:' + atob(contact);
+                }
             });
 
             // --- Smooth Scroll & Focus Management ---
@@ -509,7 +457,7 @@
                     if (href === '#') {
                         e.preventDefault();
                         window.scrollTo({ top: 0, behavior: 'smooth' });
-                        if (skipLink) skipLink.focus();
+                        if (skipLink) skipLink.focus({ preventScroll: true });
                         return;
                     }
 
@@ -518,72 +466,18 @@
                         e.preventDefault();
                         targetElement.scrollIntoView({ behavior: 'smooth' });
                         targetElement.focus({ preventScroll: true });
+
+                        targetElement.addEventListener('blur', () => {
+                            if (prevTabIndex === null) {
+                                targetElement.removeAttribute('tabindex');
+                            } else {
+                                targetElement.setAttribute('tabindex', prevTabIndex);
+                            }
+                        }, { once: true });
                     }
                 });
             });
 
-            // --- Blueprint Lightbox Modal ---
-            if (diagramTrigger && blueprintModal && modalClose) {
-                const openModal = () => {
-                    blueprintModal.classList.remove('opacity-0', 'pointer-events-none');
-                    blueprintModal.classList.add('opacity-100', 'pointer-events-auto');
-                    modalClose.focus();
-                    document.body.style.overflow = 'hidden'; // Lock background scroll
-                };
-
-                const closeModal = () => {
-                    blueprintModal.classList.remove('opacity-100', 'pointer-events-auto');
-                    blueprintModal.classList.add('opacity-0', 'pointer-events-none');
-                    diagramTrigger.focus();
-                    document.body.style.overflow = ''; // Unlock background scroll
-                };
-
-                diagramTrigger.addEventListener('click', openModal);
-                diagramTrigger.addEventListener('keydown', (e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        openModal();
-                    }
-                });
-                modalClose.addEventListener('click', closeModal);
-                
-                // Close modal on background click
-                blueprintModal.addEventListener('click', (e) => {
-                    if (e.target === blueprintModal) closeModal();
-                });
-
-                // Close modal on Escape key
-                window.addEventListener('keydown', (e) => {
-                    if (e.key === 'Escape' && blueprintModal.classList.contains('opacity-100')) {
-                        closeModal();
-                    }
-                });
-            }
-
-            // --- ScrollSpy Active Navigation Link Highlighting ---
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('nav a[href^="#"]');
-
-            function scrollSpy() {
-                const scrollTop = window.scrollY || document.documentElement.scrollTop;
-                
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop - 120; // Account for fixed header height
-                    const sectionHeight = section.offsetHeight;
-                    const sectionId = section.getAttribute('id');
-                    
-                    if (scrollTop >= sectionTop && scrollTop < sectionTop + sectionHeight) {
-                        navLinks.forEach(link => {
-                            const isCurrent = link.getAttribute('href') === `#${sectionId}`;
-                            link.classList.toggle('text-indigo-400', isCurrent);
-                            link.classList.toggle('text-slate-300', !isCurrent);
-                        });
-                    }
-                });
-            }
-            window.addEventListener('scroll', () => { if (!ticking) { window.requestAnimationFrame(() => { scrollSpy(); ticking = false; }); ticking = true; } }, { passive: true });
-            // Run initial check
-            scrollSpy();
         })();
     </script>
 
