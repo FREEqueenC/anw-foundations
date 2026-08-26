@@ -13,19 +13,26 @@ from .optimizer import (
 
 from .costing_oracle import (
     BloqSignature,
+    Register,
     ComputationalBloq,
     ResourceCostOracle,
     StandardBloqs
 )
 
-__version__ = "1.0.0"
+from .levity_bridge import (
+    LevityOnChainBridge
+)
+
+__version__ = "1.1.0"
 __all__ = [
     "QUBOProblem",
     "QuantumInspiredAnnealer",
     "LevityLiquidityOptimizer",
     "AgentTaskScheduler",
     "BloqSignature",
+    "Register",
     "ComputationalBloq",
     "ResourceCostOracle",
-    "StandardBloqs"
+    "StandardBloqs",
+    "LevityOnChainBridge"
 ]
